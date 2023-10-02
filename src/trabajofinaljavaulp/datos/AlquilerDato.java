@@ -2,9 +2,8 @@
 package trabajofinaljavaulp.datos;
 
 /**
- *
- * @author nikan
+ * @author Ignacio C.
  */
-public class InquilinoDatos {
+public class AlquilerDato {
     
 }
