@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2023 a las 16:05:04
+-- Tiempo de generación: 02-10-2023 a las 16:24:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -49,7 +49,8 @@ CREATE TABLE `inmueble` (
   `Dirección` varchar(50) NOT NULL,
   `Superficie` double NOT NULL,
   `Precio` double NOT NULL,
-  `Estado` tinyint(1) NOT NULL
+  `Estado` tinyint(1) NOT NULL,
+  `idPropietario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -68,6 +69,21 @@ CREATE TABLE `inquilino` (
   `email` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `propietario`
+--
+
+CREATE TABLE `propietario` (
+  `idPropietario` int(11) NOT NULL,
+  `Apellido` varchar(60) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `dni` int(11) NOT NULL,
+  `tipoInmueble` varchar(60) NOT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -84,7 +100,8 @@ ALTER TABLE `alquiler`
 -- Indices de la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  ADD PRIMARY KEY (`idInmueble`);
+  ADD PRIMARY KEY (`idInmueble`),
+  ADD KEY `idPropietario` (`idPropietario`);
 
 --
 -- Indices de la tabla `inquilino`
@@ -92,6 +109,12 @@ ALTER TABLE `inmueble`
 ALTER TABLE `inquilino`
   ADD PRIMARY KEY (`idInquilino`),
   ADD UNIQUE KEY `dni` (`dni`);
+
+--
+-- Indices de la tabla `propietario`
+--
+ALTER TABLE `propietario`
+  ADD PRIMARY KEY (`idPropietario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -116,6 +139,12 @@ ALTER TABLE `inquilino`
   MODIFY `idInquilino` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `propietario`
+--
+ALTER TABLE `propietario`
+  MODIFY `idPropietario` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -125,6 +154,12 @@ ALTER TABLE `inquilino`
 ALTER TABLE `alquiler`
   ADD CONSTRAINT `alquiler_ibfk_1` FOREIGN KEY (`idInquilino`) REFERENCES `inquilino` (`idInquilino`),
   ADD CONSTRAINT `alquiler_ibfk_2` FOREIGN KEY (`idInmueble`) REFERENCES `inmueble` (`idInmueble`);
+
+--
+-- Filtros para la tabla `inmueble`
+--
+ALTER TABLE `inmueble`
+  ADD CONSTRAINT `inmueble_ibfk_1` FOREIGN KEY (`idPropietario`) REFERENCES `propietario` (`idPropietario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
