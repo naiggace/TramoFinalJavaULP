@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 16:07:49
+-- Tiempo de generación: 03-10-2023 a las 16:16:07
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -67,7 +67,7 @@ CREATE TABLE `inquilino` (
   `dni` int(11) NOT NULL,
   `apellido` varchar(30) NOT NULL,
   `nombre` varchar(30) NOT NULL,
-  `direccion` varchar(60) NOT NULL,
+  `direccion` varchar(60) DEFAULT NULL,
   `telefono` int(11) NOT NULL,
   `email` varchar(60) NOT NULL,
   `estado` tinyint(1) NOT NULL
