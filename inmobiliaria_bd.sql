@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 15:53:58
+-- Tiempo de generación: 03-10-2023 a las 16:07:49
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -98,6 +98,7 @@ CREATE TABLE `propietario` (
 --
 ALTER TABLE `alquiler`
   ADD PRIMARY KEY (`idAlquiler`),
+  ADD UNIQUE KEY `CuitInquilino` (`CuitInquilino`),
   ADD KEY `idInquilino` (`idInquilino`,`idInmueble`),
   ADD KEY `idInmueble` (`idInmueble`);
 
@@ -106,6 +107,7 @@ ALTER TABLE `alquiler`
 --
 ALTER TABLE `inmueble`
   ADD PRIMARY KEY (`idInmueble`),
+  ADD UNIQUE KEY `Dirección` (`Dirección`),
   ADD KEY `idPropietario` (`idPropietario`);
 
 --
@@ -119,7 +121,8 @@ ALTER TABLE `inquilino`
 -- Indices de la tabla `propietario`
 --
 ALTER TABLE `propietario`
-  ADD PRIMARY KEY (`idPropietario`);
+  ADD PRIMARY KEY (`idPropietario`),
+  ADD UNIQUE KEY `dni` (`dni`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
