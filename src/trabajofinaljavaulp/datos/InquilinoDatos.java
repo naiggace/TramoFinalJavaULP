@@ -27,7 +27,7 @@ public class InquilinoDatos {
      *          <b>2</b> si el inquilino existe en la base de datos y <i>no</i> esta activo
      * @see Inquilino
      */
-    public int existe(int i) {
+    public static int existe(int i) {
         String sql = "SELECT estado FROM inquilino WHERE idInquilino = ?";
         int resultado = 0; // Se asume que el inquilino no existe, si sigue igual al final es por que la hipotesis es correcta.
         
@@ -57,7 +57,7 @@ public class InquilinoDatos {
      * @param i objeto <b>Inquilino</b> a agregar a la base de datos
      * @see Inquilino
      */
-    public void agregar(Inquilino i) {
+    public static void agregar(Inquilino i) {
         String sql = "INSERT INTO inquilino (dni,apellido,nombre,direccion,telefono,email,estado) VALUES (?,?,?,?,?,?,1)";
         
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -89,7 +89,7 @@ public class InquilinoDatos {
      * @param i <b>int</b> id del inquilino a dar de baja.
      * @see Inquilino
      */
-    public void baja(int i) {
+    public static void baja(int i) {
         String sql = "UPDATE inquilino SET estado = 0 WHERE idInquilino = ?";
         
         try (PreparedStatement ps = con.prepareStatement(sql)) {
@@ -110,7 +110,7 @@ public class InquilinoDatos {
      * @param i <b>int</b> id del <i>Inquilino</i> a dar de alta.
      * @see Inquilino
      */
-    public void alta(int i) {
+    public static void alta(int i) {
         String sql = "UPDATE inquilino SET estado = 1 WHERE idInquilino = ?";
         
         try (PreparedStatement ps = con.prepareStatement(sql)) {
@@ -134,7 +134,7 @@ public class InquilinoDatos {
      *          <b>null</b> si no hay resultado.
      * @see Inquilino
      */
-    public Inquilino buscarID(int id, boolean estado) {
+    public static Inquilino buscarID(int id, boolean estado) {
         String sql = "SELECT * FROM inquilino WHERE idInqilino = ? AND estado = ?";
         Inquilino inquilino = null;
         
@@ -175,7 +175,7 @@ public class InquilinoDatos {
      *          <b>null</b> si no hay resultado.
      * @see Inquilino
      */
-    public Inquilino buscarDNI(int dni, boolean estado) {
+    public static Inquilino buscarDNI(int dni, boolean estado) {
         String sql = "SELECT * FROM inquilino WHERE dni = ? AND estado = ?";
         Inquilino inquilino = null;
         
@@ -212,7 +212,7 @@ public class InquilinoDatos {
      * Cambia el <b>Inquilino</b> correspondiente en la base de datos.
      * @param i <b>Inquilino</b> a modificar en la base de datos.
      */
-    public void modificarDatos(Inquilino i) {
+    public static void modificarDatos(Inquilino i) {
         String sql = "UPDATE inquilino SET apellido = ?, nombre = ?, direccion = ?, telefono = ?, email = ? WHERE idInquilino = ?";
         
         try (PreparedStatement ps = con.prepareStatement(sql)) {
