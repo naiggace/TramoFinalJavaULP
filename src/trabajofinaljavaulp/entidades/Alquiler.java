@@ -15,20 +15,20 @@ public class Alquiler {
     public Alquiler() {
     }
 
-    public Alquiler(Date fechaInicio, Date fechaFin, double montoAlquiler, boolean estado, Inmueble inmueble, Inquilino inquilino) {
+    public Alquiler(Date fechaInicio, Date fechaFin, double monto, boolean estado, Inmueble inmueble, Inquilino inquilino) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.monto = montoAlquiler;
+        this.monto = monto;
         this.estado = estado;
         this.inmueble = inmueble;
         this.inquilino = inquilino;
     }
 
-    public Alquiler(int idAlquiler, Date fechaInicio, Date fechaFin, double montoAlquiler, boolean estado, Inmueble inmueble, Inquilino inquilino) {
-        this.id = idAlquiler;
+    public Alquiler(int id, Date fechaInicio, Date fechaFin, double monto, boolean estado, Inmueble inmueble, Inquilino inquilino) {
+        this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.monto = montoAlquiler;
+        this.monto = monto;
         this.estado = estado;
         this.inmueble = inmueble;
         this.inquilino = inquilino;
