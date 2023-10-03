@@ -4,10 +4,10 @@ import java.sql.Date;
 
 public class Alquiler {
 
-    private int idAlquiler;
+    private int id;
     private Date fechaInicio;
     private Date fechaFin;
-    private double montoAlquiler;
+    private double monto;
     private boolean estado;
     private Inmueble inmueble;
     private Inquilino inquilino;
@@ -18,28 +18,28 @@ public class Alquiler {
     public Alquiler(Date fechaInicio, Date fechaFin, double montoAlquiler, boolean estado, Inmueble inmueble, Inquilino inquilino) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.montoAlquiler = montoAlquiler;
+        this.monto = montoAlquiler;
         this.estado = estado;
         this.inmueble = inmueble;
         this.inquilino = inquilino;
     }
 
     public Alquiler(int idAlquiler, Date fechaInicio, Date fechaFin, double montoAlquiler, boolean estado, Inmueble inmueble, Inquilino inquilino) {
-        this.idAlquiler = idAlquiler;
+        this.id = idAlquiler;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.montoAlquiler = montoAlquiler;
+        this.monto = montoAlquiler;
         this.estado = estado;
         this.inmueble = inmueble;
         this.inquilino = inquilino;
     }
 
-    public int getIdAlquiler() {
-        return idAlquiler;
+    public int getId() {
+        return id;
     }
 
-    public void setIdAlquiler(int idAlquiler) {
-        this.idAlquiler = idAlquiler;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getFechaInicio() {
@@ -58,12 +58,12 @@ public class Alquiler {
         this.fechaFin = fechaFin;
     }
 
-    public double getMontoAlquiler() {
-        return montoAlquiler;
+    public double getMonto() {
+        return monto;
     }
 
-    public void setMontoAlquiler(double montoAlquiler) {
-        this.montoAlquiler = montoAlquiler;
+    public void setMonto(double monto) {
+        this.monto = monto;
     }
 
     public boolean isEstado() {
@@ -92,7 +92,7 @@ public class Alquiler {
 
     @Override
     public String toString() {
-        return "Alquiler{" + "idAlquiler=" + idAlquiler + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", montoAlquiler=" + montoAlquiler + ", estado=" + estado + ", inmueble=" + inmueble + ", inquilino=" + inquilino + '}';
+        return "Alquiler{" + "idAlquiler=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto + ", estado=" + estado + ", inmueble=" + inmueble + ", inquilino=" + inquilino + '}';
     }
 
 }
