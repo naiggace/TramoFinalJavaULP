@@ -8,21 +8,21 @@ import java.util.ArrayList;
  * @author nikan
  */
 public class Inquilino {
+    private int id;
+    private int dni;
     private String nombre;
     private String apellido;
-    private int dni;
-    private int id;
     private String direccion;
     private String email;
     private int telefono;
     private boolean estado;
     private ArrayList<Inmueble> propiedades;
 
-    public Inquilino(String nombre, String apellido, int dni, int id, String direccion, String email, int telefono, boolean estado, ArrayList<Inmueble> propiedades) {
+    public Inquilino(int id, int dni, String nombre, String apellido, String direccion, String email, int telefono, boolean estado, ArrayList<Inmueble> propiedades) {
+        this.id = id;
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
-        this.id = id;
         this.direccion = direccion;
         this.email = email;
         this.telefono = telefono;
@@ -30,26 +30,37 @@ public class Inquilino {
         this.propiedades = propiedades;
     }
 
-    public Inquilino(String nombre, String apellido, int dni, String direccion, String email, int telefono) {
+    public Inquilino(int dni, String nombre, String apellido, String direccion, String email, int telefono, boolean estado, ArrayList<Inmueble> propiedades) {
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
         this.direccion = direccion;
         this.email = email;
         this.telefono = telefono;
+        this.estado = estado;
+        this.propiedades = propiedades;
     }
 
-    public Inquilino(String nombre, String apellido, int dni, String direccion, String email, int telefono, boolean estado) {
+    public Inquilino(int id, int dni, String nombre, String apellido, String direccion, String email, int telefono, boolean estado) {
+        this.id = id;
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
         this.direccion = direccion;
         this.email = email;
         this.telefono = telefono;
         this.estado = estado;
     }
 
-    
+    public Inquilino(int dni, String nombre, String apellido, String direccion, String email, int telefono, boolean estado) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.email = email;
+        this.telefono = telefono;
+        this.estado = estado;
+    }
 
     public Inquilino() {
     }
