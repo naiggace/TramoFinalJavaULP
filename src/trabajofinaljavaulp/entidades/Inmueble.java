@@ -37,11 +37,6 @@ public class Inmueble {
     public Inmueble() {
     }
 
-    @Override
-    public String toString() {
-        return "Inmueble{" + "direccion=" + direccion + ", propietario=" + propietario + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + '}';
-    }
-
     public int getId() {
         return id;
     }
@@ -90,17 +85,17 @@ public class Inmueble {
         this.precio = precio;
     }
 
-    public boolean isEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getGetIdInmueble() {
+        return getIdInmueble;
     }
 
-    public int getIdPropietario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setGetIdInmueble(String getIdInmueble) {
+        this.getIdInmueble = getIdInmueble;
     }
 
-    public void setIdInmueble(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Override
+    public String toString() {
+        return "Inmueble{" + "id=" + id + ", direccion=" + direccion + ", propietario=" + propietario + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", getIdInmueble=" + getIdInmueble + '}';
     }
-    
-    
+
 }
