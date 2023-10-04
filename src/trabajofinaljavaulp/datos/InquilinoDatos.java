@@ -235,4 +235,44 @@ public class InquilinoDatos {
             JOptionPane.showMessageDialog(null, "Error al modificar inquilino: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+     /**
+     * Lista todos los inquilinos de la base de datos con el estado indicado.
+     * @param estado <b>boolean</b> el estado de los inquilinos a buscar
+     * @return <b>ArrayList</b> con todos los inquilinos en la base de datos.
+     * @see Inquilino
+     */
+    public static ArrayList<Inquilino> listar(boolean estado) {
+        String sql = "SELECT * FROM inquilinos WHERE estado = ?";
+        ArrayList<Inquilino> inquilinos = new ArrayList();
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setBoolean(1, estado);
+            
+            //Ejecutamos y guardamos el resultado.
+            ResultSet rs = ps.executeQuery();
+            
+            //Recorremos todo el resultset
+            while (rs.next()) {
+                //Añadimos cada propietario del resultado a la lista
+                ArrayList<Inmueble> inmueblesAlquilados = AlquilerDato.obtenerInmueblesInquilino(rs.getInt("idInquilino"));
+                inquilinos.add(new Inquilino(
+                        rs.getInt("idInquilino"),
+                        rs.getInt("dni"), 
+                        rs.getString("nombre"), 
+                        rs.getString("apellido"), 
+                        rs.getString("direccion"), 
+                        rs.getString("email"), 
+                        rs.getInt("telefono"), 
+                        rs.getBoolean("estado"), 
+                        inmueblesAlquilados)
+                );
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al listar inquilinos: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return inquilinos;
+    }
 }
