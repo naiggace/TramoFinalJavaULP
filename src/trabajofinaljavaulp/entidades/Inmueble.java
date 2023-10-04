@@ -1,6 +1,8 @@
 
 package trabajofinaljavaulp.entidades;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author nikan
@@ -14,13 +16,14 @@ public class Inmueble {
     private double precio;              // Precio (getDouble)
     public String getIdInmueble;
 
-    public Inmueble(int id, int aInt1, String direccion, String tipo, String superficie, String precio, int aInt2, boolean aBoolean, ArrayList<Inmueble> inmueblesAlquilados) {
+    public Inmueble(int id, String direccion, Propietario propietario, String tipo, double superficie, double precio, String getIdInmueble) {
         this.id = id;
         this.direccion = direccion;
         this.propietario = propietario;
         this.tipo = tipo;
         this.superficie = superficie;
         this.precio = precio;
+        this.getIdInmueble = getIdInmueble;
     }
 
     public Inmueble(String direccion, Propietario propietario, String tipo, double superficie, double precio) {
