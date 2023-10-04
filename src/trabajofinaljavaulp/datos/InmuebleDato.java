@@ -181,7 +181,39 @@ public class InmuebleDato {
      * @return <b>ArrayList</b> con objetos <i>Inmueble</i>
      */
     public static ArrayList<Inmueble> listar(boolean estado) {
-        //TODO
-        return new ArrayList<Inmueble>();
+        String sql = "SELECT * FROM inmueble WHERE estado = ?";
+        ArrayList<Inmueble> inmuebles = new ArrayList();
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setBoolean(1, estado);
+            
+            //Ejecutamos y guardamos el resultado.
+            ResultSet rs = ps.executeQuery();
+            
+            //Añadimos cada elemento del resultado
+            while (rs.next()) {
+                //Obtenemos el propietario necesario para el inmueble.
+                Propietario propietario = PropietarioDatos.buscarId(
+                        rs.getInt("idPropietario"), PropietarioDatos.existe(
+                                rs.getInt("idPropietario")) == 1 // True si existe y esta activo, sino false.
+                );
+                
+                //Creamos un objeto Inmueble y lo agregamos a la lista.
+                inmuebles.add(new Inmueble(rs.getInt("idInmueble"), 
+                        rs.getString("direccion"), 
+                        propietario, 
+                        rs.getString("tipo"), 
+                        rs.getDouble("superficie"), 
+                        rs.getDouble("precio"), 
+                        rs.getBoolean("estado"))
+                
+                );
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla 'inmueble': " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return inmuebles;
     }
 }
