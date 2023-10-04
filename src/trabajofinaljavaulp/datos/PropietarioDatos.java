@@ -1,6 +1,7 @@
 package trabajofinaljavaulp.datos;
 
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import trabajofinaljavaulp.entidades.Propietario;
 
@@ -219,5 +220,40 @@ public class PropietarioDatos {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al modificar propietario: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    
+    /**
+     * Lista todos los propietarios de la base de datos con el estado indicado.
+     * @param estado <b>boolean</b> el estado de los propietarios a buscar
+     * @return <b>ArrayList</b> con todos los propietarios en la base de datos.
+     */
+    public static ArrayList<Propietario> listar(boolean estado) {
+        String sql = "SELECT * FROM propietarios WHERE estado = ?";
+        ArrayList<Propietario> propietarios = new ArrayList();
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setBoolean(1, estado);
+            
+            //Ejecutamos y guardamos el resultado.
+            ResultSet rs = ps.executeQuery();
+            
+            //Recorremos todo el resultset
+            while (rs.next()) {
+                //Añadimos cada propietario del resultado a la lista
+                propietarios.add(new Propietario(
+                        rs.getInt("idPropietario"), 
+                        rs.getInt("dni"), 
+                        rs.getString("Apellido"), 
+                        rs.getString("nombre"), 
+                        rs.getString("Email"), 
+                        rs.getInt("Telefono"))
+                );
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al listar propietarios: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return propietarios;
     }
 }
