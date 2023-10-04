@@ -1,21 +1,15 @@
 package trabajofinaljavaulp.datos;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.*;
 import javax.swing.JOptionPane;
+import static trabajofinaljavaulp.datos.PropietarioDatos.buscarId;
 import trabajofinaljavaulp.entidades.Inmueble;
-import trabajofinaljavaulp.entidades.Inquilino;
+import trabajofinaljavaulp.entidades.Propietario;
 
-/**
- * @author Ignacio C.
- */
+
 public class InmuebleDato {
 
-    private Connection con;
+    private static Connection con;
 
     public InmuebleDato() {
         con = Conexion.conectar();
@@ -27,8 +21,8 @@ public class InmuebleDato {
      * @param Inmueble El objeto Materia a guardar.
      * @see Inmueble
      */
-    public void agregarInmueble(Inmueble inmueble) {
-        String sql = "INSERT INTO `inmueble`(`Tipo`, `Dirección`, `Superficie`, `Precio`, `Estado`, `idPropietario`) VALUES (?,?,?,?,?,?)";
+    public static void agregarInmueble(Inmueble inmueble,Propietario propietario) {
+        String sql = "INSERT INTO `inmueble`(`tipo`, `direccion`, `superficie`, `precio`, `estado`, `idPropietario`) VALUES (?,?,?,?,?,?)";
 
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, inmueble.getTipo());
@@ -36,16 +30,15 @@ public class InmuebleDato {
             ps.setDouble(3, inmueble.getSuperficie());
             ps.setDouble(4, inmueble.getPrecio());
             ps.setBoolean(5, inmueble.isEstado());
-            ps.setInt(6, inmueble.getIdPropietario());
+            ps.setInt(6, inmueble.getPropietario().getId()); // Obtener el ID del propietario
 
-            // Ejecutamos el comando
+            //Ejecutamos el comando
             ps.executeUpdate();
 
-            // Recuperamos el id.
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                inmueble.setIdInmueble(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "El inmueble se añadió con exito, ID: " + inmueble.getIdInmueble, "Exito", JOptionPane.INFORMATION_MESSAGE);
+                inmueble.setId(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "El inmueble se añadió con exito, ID: " + inmueble.getId(), "Exito", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error al acceder a la tabla", JOptionPane.ERROR_MESSAGE);
@@ -59,7 +52,7 @@ public class InmuebleDato {
      * @param idInmueble <b>int</b> id del Inmueble a dar de baja.
      * @see Inmueble
      */
-    public void bajaInmueble(int idInmueble) {
+    public static void bajaInmueble(int idInmueble) {
         // Llenamos el statement
         String sql = "UPDATE inmueble SET estado = 0 WHERE idInquilino = ?";
 
@@ -83,7 +76,7 @@ public class InmuebleDato {
      * @param idInmueble <b>int</b> id del Inmueble a dar de alta.
      * @see Inmueble
      */
-    public void altaInmueble(int idInmueble) {
+    public static void altaInmueble(int idInmueble) {
         // Llenamos el statement
         String sql = "UPDATE inmueble SET estado = 1 WHERE idInquilino = ?";
 
@@ -112,7 +105,7 @@ public class InmuebleDato {
      * activo
      * @see Inmueble
      */
-    public int estadoInmueble(int idInmueble) {
+    public static int estadoInmueble(int idInmueble) {
         String sql = "SELECT estado FROM inmueble WHERE idInmueble = ?";
         int resultado = 0; // Se asume que el Inmueble no existe, si sigue igual al final es por que la hipotesis es correcta.
 
@@ -135,4 +128,49 @@ public class InmuebleDato {
         return resultado;
     }
 
+    /**
+     * *
+     * Regresa de la base de datos el objeto <b>Inmueble</b> correspondiente al
+     * id proporcionado.
+     *
+     * @param idInmueble id de Inmueble en la base de datos (<b>idInmueble</b>).
+     * @return el objeto correspondiente al id.
+     * @see Inmueble
+     */
+    public static Inmueble buscarInmueble(int idInmueble, boolean estado) {
+        Inmueble inmueble = null;
+        String sql = "SELECT `idInmueble`, `tipo`, `direccion`, `superficie`, `precio`, `estado`, `idPropietario` FROM `inmueble` WHERE idInmueble = ? AND estado = ?";
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idInmueble);
+            ps.setBoolean(2, estado);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                // valores de las columnas de la consulta
+                int id = rs.getInt("idInmueble");
+                String tipo = rs.getString("tipo");
+                String direccion = rs.getString("direccion");
+                double superficie = rs.getDouble("superficie");
+                double precio = rs.getDouble("precio");
+                boolean estadoInmueble = rs.getBoolean("estado");
+                int idPropietario = rs.getInt("idPropietario");
+
+                // Busco el objeto Propietario correspondiente al ID del propietario
+                Propietario propietario = buscarId(idPropietario, estado);
+
+                // Creo un objeto Inmueble con los valores obtenidos de la base de datos
+                inmueble = new Inmueble(id, direccion, propietario, tipo, superficie, precio, estado);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe el inmueble con el ID: " + idInmueble, "Sin resultados", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla 'inmueble': " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            return inmueble;
+        }
+    }
 }
