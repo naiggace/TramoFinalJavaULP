@@ -1,6 +1,7 @@
 package trabajofinaljavaulp.datos;
 
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import static trabajofinaljavaulp.datos.PropietarioDatos.buscarId;
 import trabajofinaljavaulp.entidades.Inmueble;
@@ -21,7 +22,7 @@ public class InmuebleDato {
      * @param Inmueble El objeto Materia a guardar.
      * @see Inmueble
      */
-    public static void agregarInmueble(Inmueble inmueble,Propietario propietario) {
+    public static void agregar(Inmueble inmueble) {
         String sql = "INSERT INTO `inmueble`(`tipo`, `direccion`, `superficie`, `precio`, `estado`, `idPropietario`) VALUES (?,?,?,?,?,?)";
 
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -52,7 +53,7 @@ public class InmuebleDato {
      * @param idInmueble <b>int</b> id del Inmueble a dar de baja.
      * @see Inmueble
      */
-    public static void bajaInmueble(int idInmueble) {
+    public static void baja(int idInmueble) {
         // Llenamos el statement
         String sql = "UPDATE inmueble SET estado = 0 WHERE idInquilino = ?";
 
@@ -76,7 +77,7 @@ public class InmuebleDato {
      * @param idInmueble <b>int</b> id del Inmueble a dar de alta.
      * @see Inmueble
      */
-    public static void altaInmueble(int idInmueble) {
+    public static void alta(int idInmueble) {
         // Llenamos el statement
         String sql = "UPDATE inmueble SET estado = 1 WHERE idInquilino = ?";
 
@@ -105,7 +106,7 @@ public class InmuebleDato {
      * activo
      * @see Inmueble
      */
-    public static int estadoInmueble(int idInmueble) {
+    public static int estado(int idInmueble) {
         String sql = "SELECT estado FROM inmueble WHERE idInmueble = ?";
         int resultado = 0; // Se asume que el Inmueble no existe, si sigue igual al final es por que la hipotesis es correcta.
 
@@ -137,7 +138,7 @@ public class InmuebleDato {
      * @return el objeto correspondiente al id.
      * @see Inmueble
      */
-    public static Inmueble buscarInmueble(int idInmueble, boolean estado) {
+    public static Inmueble buscar(int idInmueble, boolean estado) {
         Inmueble inmueble = null;
         String sql = "SELECT `idInmueble`, `tipo`, `direccion`, `superficie`, `precio`, `estado`, `idPropietario` FROM `inmueble` WHERE idInmueble = ? AND estado = ?";
 
@@ -172,5 +173,15 @@ public class InmuebleDato {
         } finally {
             return inmueble;
         }
+    }
+    
+    /**
+     * Obtener lista de inmuebles de la base de datos con el estado proporcionado
+     * @param estado <b>boolean</b> estado de los inmuebles a listar.
+     * @return <b>ArrayList</b> con objetos <i>Inmueble</i>
+     */
+    public static ArrayList<Inmueble> listar(boolean estado) {
+        //TODO
+        return new ArrayList<Inmueble>();
     }
 }

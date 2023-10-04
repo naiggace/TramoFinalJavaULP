@@ -88,7 +88,7 @@ public class PropietarioDatos {
      * @see Propietario
      */
     public static void agregar(Propietario p) {
-        String sql = "INSERT INTO propietario (Apellido, nombre, dni, estado, Telefono, Email) VALUES (?,?,?,1,?,?)";
+        String sql = "INSERT INTO propietario (apellido, nombre, dni, estado, telefono, email) VALUES (?,?,?,1,?,?)";
 
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             //LLenamos el statement.
@@ -138,10 +138,10 @@ public class PropietarioDatos {
                 p = new Propietario( // Creamos un objeto propietario con los datos recibidos.
                         rs.getInt("idPropietario"),
                         rs.getInt("dni"),
-                        rs.getString("Apellido"),
+                        rs.getString("apellido"),
                         rs.getString("nombre"),
-                        rs.getString("Email"),
-                        rs.getInt("Telefono")
+                        rs.getString("email"),
+                        rs.getInt("telefono")
                 );
             } else {    // No hubo resultado.
                 JOptionPane.showMessageDialog(null, "No existe el Propietario con ID: " + id + " y estado: " + estado, "Propietario no encontrado.", JOptionPane.WARNING_MESSAGE);
@@ -179,10 +179,10 @@ public class PropietarioDatos {
                 p = new Propietario( // Creamos un objeto propietario con los datos recibidos.
                         rs.getInt("idPropietario"),
                         rs.getInt("dni"),
-                        rs.getString("Apellido"),
+                        rs.getString("apellido"),
                         rs.getString("nombre"),
-                        rs.getString("Email"),
-                        rs.getInt("Telefono")
+                        rs.getString("email"),
+                        rs.getInt("telefono")
                 );
             } else {    // No hubo resultado.
                 JOptionPane.showMessageDialog(null, "No existe el Propietario con DNI: " + dni + " y estado: " + estado, "Propietario no encontrado.", JOptionPane.WARNING_MESSAGE);
@@ -243,10 +243,10 @@ public class PropietarioDatos {
                 propietarios.add(new Propietario(
                         rs.getInt("idPropietario"), 
                         rs.getInt("dni"), 
-                        rs.getString("Apellido"), 
+                        rs.getString("apellido"), 
                         rs.getString("nombre"), 
                         rs.getString("Email"), 
-                        rs.getInt("Telefono"))
+                        rs.getInt("telefono"))
                 );
             }
             
