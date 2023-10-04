@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 17:30:23
+-- Tiempo de generación: 04-10-2023 a las 19:46:00
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -49,11 +49,11 @@ CREATE TABLE `alquiler` (
 
 CREATE TABLE `inmueble` (
   `idInmueble` int(60) NOT NULL,
-  `Tipo` varchar(11) NOT NULL,
-  `Dirección` varchar(50) NOT NULL,
-  `Superficie` double NOT NULL,
-  `Precio` double NOT NULL,
-  `Estado` tinyint(1) NOT NULL,
+  `tipo` varchar(11) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
+  `superficie` double NOT NULL,
+  `precio` double NOT NULL,
+  `estado` tinyint(1) NOT NULL,
   `idPropietario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -61,7 +61,7 @@ CREATE TABLE `inmueble` (
 -- Volcado de datos para la tabla `inmueble`
 --
 
-INSERT INTO `inmueble` (`idInmueble`, `Tipo`, `Dirección`, `Superficie`, `Precio`, `Estado`, `idPropietario`) VALUES
+INSERT INTO `inmueble` (`idInmueble`, `tipo`, `direccion`, `superficie`, `precio`, `estado`, `idPropietario`) VALUES
 (4, '	LOCAL	 ', '	Avenida San Martín	8997	 ', 72, 117922, 1, 3),
 (6, '	LOCAL	 ', '	Avenida San Martín	7836	 ', 165, 73711, 1, 29),
 (7, '	DEPARTAMEN', '	Buenos Aires	677	 ', 7, 169761, 1, 15),
@@ -94,7 +94,8 @@ INSERT INTO `inmueble` (`idInmueble`, `Tipo`, `Dirección`, `Superficie`, `Preci
 (40, '	DEPARTAMEN', '	Avenida Reforma	9520	 ', 7, 93961, 1, 21),
 (41, '	DEPOSITO	 ', '	Colón	5475	 ', 115, 83618, 1, 31),
 (42, '	OFICINA	 ', '	Avenida Hidalgo	8399	 ', 94, 180869, 1, 22),
-(43, '	LOCAL	 ', '	16 de Septiembre	7835	 ', 55, 197469, 1, 26);
+(43, '	LOCAL	 ', '	16 de Septiembre	7835	 ', 55, 197469, 1, 26),
+(49, 'local', 'holanda 21', 312, 321, 1, 63);
 
 -- --------------------------------------------------------
 
@@ -184,7 +185,8 @@ INSERT INTO `propietario` (`idPropietario`, `Apellido`, `nombre`, `dni`, `estado
 (33, '	RUPANI	 ', '	LISANDRO NATANAEL	 ', 46218527, 1, 2147483647, '	lrupani@gmail.com	'),
 (34, '	SACCHI	 ', '	EMANUEL	 ', 45267765, 1, 2147483647, '	esacchi@gmail.com	'),
 (35, '	SANCHEZ	 ', '	MÁXIMO AGUSTIN	 ', 46368647, 1, 2147483647, '	msanchez@gmail.com	'),
-(50, '	MARZILI ALMIRÓN	 ', '	BRANDON AGUSTÍN	 ', 46653805, 11, 2147483647, '	bmarzili almirón@gmail.com	');
+(50, '	MARZILI ALMIRÓN	 ', '	BRANDON AGUSTÍN	 ', 46653805, 11, 2147483647, '	bmarzili almirón@gmail.com	'),
+(63, 'Apellido', 'Nombre', 111, 1, 123456789, 'correo@example.com');
 
 --
 -- Índices para tablas volcadas
@@ -204,7 +206,7 @@ ALTER TABLE `alquiler`
 --
 ALTER TABLE `inmueble`
   ADD PRIMARY KEY (`idInmueble`),
-  ADD UNIQUE KEY `Dirección` (`Dirección`),
+  ADD UNIQUE KEY `Dirección` (`direccion`),
   ADD KEY `idPropietario` (`idPropietario`);
 
 --
@@ -235,7 +237,7 @@ ALTER TABLE `alquiler`
 -- AUTO_INCREMENT de la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  MODIFY `idInmueble` int(60) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `idInmueble` int(60) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `inquilino`
@@ -247,7 +249,7 @@ ALTER TABLE `inquilino`
 -- AUTO_INCREMENT de la tabla `propietario`
 --
 ALTER TABLE `propietario`
-  MODIFY `idPropietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `idPropietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- Restricciones para tablas volcadas

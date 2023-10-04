@@ -1,4 +1,3 @@
-
 package trabajofinaljavaulp.entidades;
 
 import java.util.ArrayList;
@@ -8,33 +7,35 @@ import java.util.ArrayList;
  * @author nikan
  */
 public class Inmueble {
+
     private int id;                     // idInmueble
     private String direccion;           // Direccion
     private Propietario propietario;    // obterner con idPropietario
     private String tipo;                // Tipo
     private double superficie;          // Superficie (getDouble)
-    private double precio;              // Precio (getDouble)
-    public String getIdInmueble;
+    private double precio;
+    private boolean estado;
 
-    public Inmueble(int id, String direccion, Propietario propietario, String tipo, double superficie, double precio, String getIdInmueble) {
+    public Inmueble() {
+    }
+
+    public Inmueble(int id, String direccion, Propietario propietario, String tipo, double superficie, double precio, boolean estado) {
         this.id = id;
         this.direccion = direccion;
         this.propietario = propietario;
         this.tipo = tipo;
         this.superficie = superficie;
         this.precio = precio;
-        this.getIdInmueble = getIdInmueble;
+        this.estado = estado;
     }
 
-    public Inmueble(String direccion, Propietario propietario, String tipo, double superficie, double precio) {
+    public Inmueble(String direccion, Propietario propietario, String tipo, double superficie, double precio, boolean estado) {
         this.direccion = direccion;
         this.propietario = propietario;
         this.tipo = tipo;
         this.superficie = superficie;
         this.precio = precio;
-    }
-
-    public Inmueble() {
+        this.estado = estado;
     }
 
     public int getId() {
@@ -85,17 +86,17 @@ public class Inmueble {
         this.precio = precio;
     }
 
-    public String getGetIdInmueble() {
-        return getIdInmueble;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setGetIdInmueble(String getIdInmueble) {
-        this.getIdInmueble = getIdInmueble;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Inmueble{" + "id=" + id + ", direccion=" + direccion + ", propietario=" + propietario + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", getIdInmueble=" + getIdInmueble + '}';
+        return "Inmueble{" + "id=" + id + ", direccion=" + direccion + ", propietario=" + propietario + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", estado=" + estado + '}';
     }
 
 }
