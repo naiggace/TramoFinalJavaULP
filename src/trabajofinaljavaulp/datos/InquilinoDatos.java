@@ -225,7 +225,7 @@ public class InquilinoDatos {
             ps.setInt(6, i.getId());
             
             //Ejecutamos el statement
-            if (ps.executeUpdate() == 1) { // Devuelve 1 si el update hizo cambios.
+            if (ps.executeUpdate() == 1) { // Devuelve nro de filas si el update hizo cambios, deberia ser 1 a menos que haya salido algo muy mal.
                 JOptionPane.showMessageDialog(null, String.format("El inquilino con ID: %d y DNI: %d ha sido modificado con exito.", i.getId(), i.getDni()),"Exito", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "El inquilino no se encontro en la base de datos.", "Inquilino no encontrado", JOptionPane.WARNING_MESSAGE);
