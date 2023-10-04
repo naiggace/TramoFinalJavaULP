@@ -12,8 +12,9 @@ public class Inmueble {
     private String tipo;                // Tipo
     private double superficie;          // Superficie (getDouble)
     private double precio;              // Precio (getDouble)
+    public String getIdInmueble;
 
-    public Inmueble(int id, String direccion, Propietario propietario, String tipo, double superficie, double precio) {
+    public Inmueble(int id, int aInt1, String direccion, String tipo, String superficie, String precio, int aInt2, boolean aBoolean, ArrayList<Inmueble> inmueblesAlquilados) {
         this.id = id;
         this.direccion = direccion;
         this.propietario = propietario;
@@ -84,6 +85,18 @@ public class Inmueble {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public boolean isEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public int getIdPropietario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setIdInmueble(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     
