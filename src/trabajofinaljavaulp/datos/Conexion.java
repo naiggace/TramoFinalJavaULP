@@ -25,12 +25,16 @@ public class Conexion {
         try {
             Class.forName(DRIVER);
             cx = DriverManager.getConnection(URL + DB, USUARIO, PASS);
-
+            mensajeConexion();
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, "Error al cargar el Driver " + ex.getMessage());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error de conexión " + ex.getMessage());
         }
         return cx;
+    }
+    
+    public static void mensajeConexion(){
+        JOptionPane.showMessageDialog(null,"La conexion fue un exito");
     }
 }
