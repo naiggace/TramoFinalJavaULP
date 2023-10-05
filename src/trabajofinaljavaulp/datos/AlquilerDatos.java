@@ -18,7 +18,7 @@ public class AlquilerDatos {
      * @see Alqulier
      */
     public static void agregar(Alquiler a) {
-    
+    //TODO
     }
     
     /**
@@ -59,7 +59,7 @@ public class AlquilerDatos {
      * @param id <i>int</i> correspondiente al idAlquiler.
      */
     public static void baja(int id) {
-    
+    //TODO
     }
     
     /**
@@ -67,7 +67,7 @@ public class AlquilerDatos {
      * @param id <i>int</i> correspondiente al idAlquiler.
      */
     public static void alta(int id) {
-    
+    //TODO
     }
     
     /**
@@ -79,6 +79,7 @@ public class AlquilerDatos {
      * @see Alquiler
      */
     public static Alquiler buscarId(int id) {
+        //TODO
         return new Alquiler();
     }
     
