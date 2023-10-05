@@ -147,7 +147,7 @@ public class InquilinoDatos {
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) { // Si hay resultado
-                ArrayList<Inmueble> inmueblesAlquilados = AlquilerDato.obtenerInmueblesInquilino(id);
+                ArrayList<Inmueble> inmueblesAlquilados = InmuebleDatos.obtenerInmueblesInquilino(id, true);
                 inquilino = new Inquilino(
                         rs.getInt("idInquilino"),
                         rs.getInt("dni"), 
@@ -188,7 +188,7 @@ public class InquilinoDatos {
             ResultSet rs = ps.executeQuery();
             
             if (rs.next()) { // Si hay resultado
-                ArrayList<Inmueble> inmueblesAlquilados = AlquilerDato.obtenerInmueblesInquilino(rs.getInt("idInquilino"));
+                ArrayList<Inmueble> inmueblesAlquilados = InmuebleDatos.obtenerInmueblesInquilino(rs.getInt("idInquilino"), true);
                 inquilino = new Inquilino(
                         rs.getInt("idInquilino"),
                         rs.getInt("dni"), 
@@ -255,7 +255,7 @@ public class InquilinoDatos {
             //Recorremos todo el resultset
             while (rs.next()) {
                 //Añadimos cada propietario del resultado a la lista
-                ArrayList<Inmueble> inmueblesAlquilados = AlquilerDato.obtenerInmueblesInquilino(rs.getInt("idInquilino"));
+                ArrayList<Inmueble> inmueblesAlquilados = InmuebleDatos.obtenerInmueblesInquilino(rs.getInt("idInquilino"), true);
                 inquilinos.add(new Inquilino(
                         rs.getInt("idInquilino"),
                         rs.getInt("dni"), 

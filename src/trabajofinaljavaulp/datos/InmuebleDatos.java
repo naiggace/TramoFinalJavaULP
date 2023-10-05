@@ -8,18 +8,13 @@ import trabajofinaljavaulp.entidades.Inmueble;
 import trabajofinaljavaulp.entidades.Propietario;
 
 
-public class InmuebleDato {
-
-    private static Connection con;
-
-    public InmuebleDato() {
-        con = Conexion.conectar();
-    }
+public class InmuebleDatos {
+    private static Connection con = Conexion.conectar();
 
     /**
      * Guarda un objeto <b>Inmueble</b> en la base de datos.
      *
-     * @param Inmueble El objeto Materia a guardar.
+     * @param inmueble El objeto Materia a guardar.
      * @see Inmueble
      */
     public static void agregar(Inmueble inmueble) {
@@ -160,10 +155,10 @@ public class InmuebleDato {
                 int idPropietario = rs.getInt("idPropietario");
 
                 // Busco el objeto Propietario correspondiente al ID del propietario
-                Propietario propietario = buscarId(idPropietario, estado);
+                Propietario propietario = buscarId(idPropietario, PropietarioDatos.existe(idPropietario) == 1);
 
                 // Creo un objeto Inmueble con los valores obtenidos de la base de datos
-                inmueble = new Inmueble(id, direccion, propietario, tipo, superficie, precio, estado);
+                inmueble = new Inmueble(id, direccion, propietario, tipo, superficie, precio, estadoInmueble);
 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el inmueble con el ID: " + idInmueble, "Sin resultados", JOptionPane.WARNING_MESSAGE);
@@ -214,6 +209,37 @@ public class InmuebleDato {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla 'inmueble': " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         
+        return inmuebles;
+    }
+    
+    /**
+     * Dado un ID de <b>Inquilino</b> arma una lista con todos los inmuebles que tiene alquilados
+     *
+     * @param idInquilino <i>int</i> ID del inquilino en la base de datos
+     * @param estado <i>boolean</i> Estado del alquiler. (para listas de inmuebles activos y de inmuebles inactivos).
+     * @return <b>ArrayList</b> Con todos los inmuebles que el inquilino tiene alquilados.
+     * @see Inquilino
+     * @see Inmueble
+     */
+    public static ArrayList<Inmueble> obtenerInmueblesInquilino(int idInquilino, boolean estado) {
+        String sql = "SELECT inmueble.* FROM alquiler " + "INNER JOIN inmueble ON inmueble.idInmueble = alquiler.idInmueble " + "INNER JOIN inquilino ON inquilino.idInquilino = alquiler.idInquilino " + "WHERE inquilino.idInquilino = ?" + "AND alquiler.estado = ?;";
+        ArrayList<Inmueble> inmuebles = new ArrayList();
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            //LLenamos el PreparedStatement
+            ps.setInt(1, idInquilino);
+            ps.setBoolean(2, estado);
+            //Ejecutamos el PreparedStatement, y guardamos el resultado
+            ResultSet rs = ps.executeQuery();
+            //Recorremos la lista de resultados agregando cada uno al ArrayList a retornar.
+            while (rs.next()) {
+                //Buscamos el propietario del inmueble.
+                int idProp = rs.getInt("idPropietario");
+                Propietario propietario = PropietarioDatos.buscarId(idProp, PropietarioDatos.existe(idProp) == 1);
+                inmuebles.add(new Inmueble(rs.getInt("idInmueble"), rs.getString("direccion"), propietario, rs.getString("tipo"), rs.getDouble("superficie"), rs.getDouble("precio"), rs.getBoolean("estado")));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error obteniendo lista de alquileres: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
         return inmuebles;
     }
 }

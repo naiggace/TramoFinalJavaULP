@@ -2,7 +2,7 @@ package trabajofinaljavaulp;
 
 import java.sql.Connection;
 import trabajofinaljavaulp.datos.Conexion;
-import trabajofinaljavaulp.datos.InmuebleDato;
+import trabajofinaljavaulp.datos.InmuebleDatos;
 import trabajofinaljavaulp.datos.PropietarioDatos;
 import trabajofinaljavaulp.entidades.Inmueble;
 import trabajofinaljavaulp.entidades.Propietario;
@@ -25,7 +25,7 @@ public class TrabajoFinalJavaULP {
         Inmueble inmueble = new Inmueble("holanda 21", propietario, "local", 312, 321, true);
         // Crear objetos para acceder a la capa de datos
         PropietarioDatos propietarioDatos = new PropietarioDatos();
-        InmuebleDato inmuebleDato = new InmuebleDato();
+        InmuebleDatos inmuebleDato = new InmuebleDatos();
         PropietarioDatos.agregar(propietario);
         // Agregar el inmueble a la base de datos
         inmuebleDato.agregarInmueble(inmueble, propietario);
