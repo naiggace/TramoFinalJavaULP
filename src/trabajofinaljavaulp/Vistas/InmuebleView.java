@@ -40,6 +40,9 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jtPrecio = new javax.swing.JTextField();
         jbNuevo = new javax.swing.JButton();
 
+        setClosable(true);
+        setTitle("Ingreso de Datos-Inmueble");
+
         jLabel1.setText("Seleccionar propietario:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
