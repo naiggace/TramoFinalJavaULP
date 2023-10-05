@@ -25,8 +25,8 @@ public class AlquilerDatos {
      * Regresa un resultado dependiendo de si el <b>Alquiler</b> existe.
      * 
      * @param id <i>int</i> el Id a chequear.
-     * @return  <b>0</b> El Alquiler no existe en la base de datos.
-     *          <b>1</b> El Alquiler existe y esta activo.
+     * @return  <b>0</b> El Alquiler no existe en la base de datos.<br>
+     *          <b>1</b> El Alquiler existe y esta activo.<br>
      *          <b>2</b> El Alquiler existe y no esta activo.
      */
     public static int existe(int id) {
