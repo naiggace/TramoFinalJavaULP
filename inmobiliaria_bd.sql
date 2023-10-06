@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-10-2023 a las 20:45:33
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Oct 06, 2023 at 06:12 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,20 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `inmobiliaria_bd`
+-- Database: `inmobiliaria_bd`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alquiler`
+-- Table structure for table `alquiler`
 --
 
 CREATE TABLE `alquiler` (
   `idAlquiler` int(11) NOT NULL,
   `idInquilino` int(11) NOT NULL,
   `idInmueble` int(11) NOT NULL,
-  `CuitInquilino` int(20) NOT NULL,
+  `cuitInquilino` text NOT NULL,
   `lugarTrabajo` varchar(60) NOT NULL,
   `nombreGarante` varchar(50) NOT NULL,
   `dniGarante` int(11) NOT NULL,
@@ -44,12 +44,12 @@ CREATE TABLE `alquiler` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `inmueble`
+-- Table structure for table `inmueble`
 --
 
 CREATE TABLE `inmueble` (
   `idInmueble` int(60) NOT NULL,
-  `tipo` varchar(11) NOT NULL,
+  `tipo` varchar(15) NOT NULL,
   `direccion` varchar(50) NOT NULL,
   `superficie` double NOT NULL,
   `precio` double NOT NULL,
@@ -58,37 +58,37 @@ CREATE TABLE `inmueble` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `inmueble`
+-- Dumping data for table `inmueble`
 --
 
 INSERT INTO `inmueble` (`idInmueble`, `tipo`, `direccion`, `superficie`, `precio`, `estado`, `idPropietario`) VALUES
 (60, 'LOCAL', 'Avenida San Martín 2096', 344, 164111, 1, 106),
-(61, 'DEPARTAMENT', 'Buenos Aires 7197', 341, 111183, 1, 95),
+(61, 'DEPARTAMENTO', 'Buenos Aires 7197', 341, 111183, 1, 95),
 (62, 'DEPOSITO', 'Avenida Libertador 3447', 307, 188402, 1, 96),
 (63, 'OFICINA', '9 de Julio 424', 398, 126273, 1, 103),
 (64, 'LOCAL', 'Avenida Juárez 8242', 264, 142996, 1, 102),
 (65, 'LOCAL', 'Morelos 4009', 265, 155186, 1, 98),
-(66, 'DEPARTAMENT', 'Avenida Reforma 4364', 312, 185598, 1, 100),
+(66, 'DEPARTAMENTO', 'Avenida Reforma 4364', 312, 185598, 1, 100),
 (67, 'DEPOSITO', 'Colón 9725', 215, 157708, 1, 108),
 (68, 'OFICINA', 'Avenida Hidalgo 2355', 364, 151024, 1, 108),
 (69, 'LOCAL', '16 de Septiembre 4996', 239, 134363, 1, 109),
 (70, 'LOCAL', 'Avenida Principal 8510', 345, 167587, 1, 95),
-(71, 'DEPARTAMENT', 'Central 7560', 258, 71351, 1, 107),
+(71, 'DEPARTAMENTO', 'Central 7560', 258, 71351, 1, 107),
 (72, 'DEPOSITO', 'Avenida Benito Juárez 6679', 201, 164237, 1, 108),
 (73, 'OFICINA', 'Independencia 5868', 397, 199017, 1, 105),
 (74, 'LOCAL', 'Avenida Revolución 5777', 251, 88160, 1, 107),
 (75, 'LOCAL', '20 de Noviembre 2344', 395, 104746, 1, 110),
-(76, 'DEPARTAMENT', 'Avenida 5 de Mayo 9195', 343, 117670, 1, 97),
+(76, 'DEPARTAMENTO', 'Avenida 5 de Mayo 9195', 343, 117670, 1, 97),
 (77, 'DEPOSITO', '25 de Mayo 5147', 284, 80536, 1, 99),
 (78, 'OFICINA', 'Avenida Constitución 1147', 335, 143473, 1, 108),
 (79, 'LOCAL', '1 de Mayo 7114', 315, 159454, 1, 104),
 (80, 'LOCAL', 'Avenida San Martín 6885', 324, 135058, 1, 96),
-(81, 'DEPARTAMENT', 'Buenos Aires 6233', 287, 86756, 1, 104),
+(81, 'DEPARTAMENTO', 'Buenos Aires 6233', 287, 86756, 1, 104),
 (82, 'DEPOSITO', 'Avenida Libertador 2059', 295, 198951, 1, 101),
 (83, 'OFICINA', '9 de Julio 1281', 330, 174253, 1, 104),
 (84, 'LOCAL', 'Avenida Juárez 737', 391, 161712, 1, 97),
 (85, 'LOCAL', 'Morelos 3841', 282, 138295, 1, 96),
-(86, 'DEPARTAMENT', 'Avenida Reforma 3616', 303, 156243, 1, 100),
+(86, 'DEPARTAMENTO', 'Avenida Reforma 3616', 303, 156243, 1, 100),
 (87, 'DEPOSITO', 'Colón 3273', 311, 132667, 1, 104),
 (88, 'OFICINA', 'Avenida Hidalgo 4125', 230, 195354, 1, 107),
 (89, 'LOCAL', '16 de Septiembre 1103', 300, 71919, 1, 102);
@@ -96,7 +96,7 @@ INSERT INTO `inmueble` (`idInmueble`, `tipo`, `direccion`, `superficie`, `precio
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `inquilino`
+-- Table structure for table `inquilino`
 --
 
 CREATE TABLE `inquilino` (
@@ -111,7 +111,7 @@ CREATE TABLE `inquilino` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `inquilino`
+-- Dumping data for table `inquilino`
 --
 
 INSERT INTO `inquilino` (`idInquilino`, `dni`, `apellido`, `nombre`, `direccion`, `telefono`, `email`, `estado`) VALUES
@@ -124,7 +124,7 @@ INSERT INTO `inquilino` (`idInquilino`, `dni`, `apellido`, `nombre`, `direccion`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `propietario`
+-- Table structure for table `propietario`
 --
 
 CREATE TABLE `propietario` (
@@ -138,7 +138,7 @@ CREATE TABLE `propietario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `propietario`
+-- Dumping data for table `propietario`
 --
 
 INSERT INTO `propietario` (`idPropietario`, `apellido`, `nombre`, `dni`, `estado`, `telefono`, `email`) VALUES
@@ -170,20 +170,19 @@ INSERT INTO `propietario` (`idPropietario`, `apellido`, `nombre`, `dni`, `estado
 (116, 'PONCE ', 'JUAN PABLO', 45827091, 1, 2147483647, 'jponce@gmail.com');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `alquiler`
+-- Indexes for table `alquiler`
 --
 ALTER TABLE `alquiler`
   ADD PRIMARY KEY (`idAlquiler`),
-  ADD UNIQUE KEY `CuitInquilino` (`CuitInquilino`),
   ADD KEY `idInquilino` (`idInquilino`,`idInmueble`),
   ADD KEY `idInmueble` (`idInmueble`);
 
 --
--- Indices de la tabla `inmueble`
+-- Indexes for table `inmueble`
 --
 ALTER TABLE `inmueble`
   ADD PRIMARY KEY (`idInmueble`),
@@ -191,60 +190,60 @@ ALTER TABLE `inmueble`
   ADD KEY `idPropietario` (`idPropietario`);
 
 --
--- Indices de la tabla `inquilino`
+-- Indexes for table `inquilino`
 --
 ALTER TABLE `inquilino`
   ADD PRIMARY KEY (`idInquilino`),
   ADD UNIQUE KEY `dni` (`dni`);
 
 --
--- Indices de la tabla `propietario`
+-- Indexes for table `propietario`
 --
 ALTER TABLE `propietario`
   ADD PRIMARY KEY (`idPropietario`),
   ADD UNIQUE KEY `dni` (`dni`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `alquiler`
+-- AUTO_INCREMENT for table `alquiler`
 --
 ALTER TABLE `alquiler`
-  MODIFY `idAlquiler` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAlquiler` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `inmueble`
+-- AUTO_INCREMENT for table `inmueble`
 --
 ALTER TABLE `inmueble`
   MODIFY `idInmueble` int(60) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT de la tabla `inquilino`
+-- AUTO_INCREMENT for table `inquilino`
 --
 ALTER TABLE `inquilino`
   MODIFY `idInquilino` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
--- AUTO_INCREMENT de la tabla `propietario`
+-- AUTO_INCREMENT for table `propietario`
 --
 ALTER TABLE `propietario`
   MODIFY `idPropietario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `alquiler`
+-- Constraints for table `alquiler`
 --
 ALTER TABLE `alquiler`
   ADD CONSTRAINT `alquiler_ibfk_1` FOREIGN KEY (`idInquilino`) REFERENCES `inquilino` (`idInquilino`),
   ADD CONSTRAINT `alquiler_ibfk_2` FOREIGN KEY (`idInmueble`) REFERENCES `inmueble` (`idInmueble`);
 
 --
--- Filtros para la tabla `inmueble`
+-- Constraints for table `inmueble`
 --
 ALTER TABLE `inmueble`
   ADD CONSTRAINT `inmueble_ibfk_1` FOREIGN KEY (`idPropietario`) REFERENCES `propietario` (`idPropietario`);
