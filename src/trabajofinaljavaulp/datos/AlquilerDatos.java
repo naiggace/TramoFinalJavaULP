@@ -91,7 +91,7 @@ public class AlquilerDatos {
      * @see Alquiler
      */
     public static ArrayList<Alquiler> listar(boolean estado) {
-        String sql = "SELECT * FROM alquileres WHERE estado = ?";
+        String sql = "SELECT * FROM alquiler WHERE estado = ?";
         ArrayList<Alquiler> alquileres = new ArrayList();
         
         try (PreparedStatement ps = con.prepareStatement(sql)) {
