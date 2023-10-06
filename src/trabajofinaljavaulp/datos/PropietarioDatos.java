@@ -109,7 +109,7 @@ public class PropietarioDatos {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al agregar propietario: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al agregar propietario (DNI Duplicado?): " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
