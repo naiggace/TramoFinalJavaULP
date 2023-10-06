@@ -1,10 +1,13 @@
 package trabajofinaljavaulp;
 
 import java.sql.Connection;
+import trabajofinaljavaulp.datos.AlquilerDatos;
 import trabajofinaljavaulp.datos.Conexion;
 import trabajofinaljavaulp.datos.InmuebleDatos;
+import trabajofinaljavaulp.datos.InquilinoDatos;
 import trabajofinaljavaulp.datos.PropietarioDatos;
 import trabajofinaljavaulp.entidades.Inmueble;
+import trabajofinaljavaulp.entidades.Inquilino;
 import trabajofinaljavaulp.entidades.Propietario;
 
 /**
@@ -15,16 +18,27 @@ public class TrabajoFinalJavaULP {
 
     public static void main(String[] args) {
 
+
         Connection con = Conexion.conectar();
-         //Crear un objeto Propietario
-        Propietario propietario = new Propietario(2302949, "Apellido", "Nombre", "correo@example.com", 123456789);
-         //Crear un objeto Inmueble con el propietario
-        Inmueble inmueble = new Inmueble("holanda 21", propietario, "local", 312, 321, true);
-         //Crear objetos para acceder a la capa de datos
-        PropietarioDatos propietarioDatos = new PropietarioDatos();
-        InmuebleDatos inmuebleDato = new InmuebleDatos();
-        PropietarioDatos.agregar(propietario);
-         //Agregar el inmueble a la base de datos
-        InmuebleDatos.agregar(inmueble);
+        
+        PropietarioDatos prop = new PropietarioDatos();
+        
+        Propietario p = prop.buscarId(91,true);
+        System.out.println(p.toString());
+        InmuebleDatos inmD = new InmuebleDatos();
+        
+        Inmueble inm = inmD.buscar(60,true);
+        System.out.println(inm.toString());
+        
+        InquilinoDatos inqD = new InquilinoDatos();
+        
+        Inquilino cliente = inqD.buscarDNI(46497062, true);
+        System.out.println(cliente.toString());
+        
+        AlquilerDatos alq = new AlquilerDatos();
+        
+        System.out.println(alq.listar(true));
+        
+
     }
 }
