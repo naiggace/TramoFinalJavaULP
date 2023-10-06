@@ -131,7 +131,7 @@ public class AlquilerDatos {
             while (rs.next()) {
                 // Encontramos el Inmueble
                 int id = rs.getInt("idInmueble");
-                Inmueble inmueble = InmuebleDatos.buscar(rs.getInt(id),
+                Inmueble inmueble = InmuebleDatos.buscar(id,
                         InmuebleDatos.estado(id) == 1
                 );
 
@@ -146,7 +146,7 @@ public class AlquilerDatos {
                         rs.getInt("idAlquiler"),
                         rs.getDate("fechaInicio"),
                         rs.getDate("fechaFin"),
-                        rs.getDouble("monto"),
+                        rs.getDouble("montoAlquiler"),
                         rs.getString("cuitInquilino"),
                         rs.getString("nombreGarante"),
                         rs.getInt("dniGarante"),

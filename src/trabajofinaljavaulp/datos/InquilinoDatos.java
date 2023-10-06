@@ -135,7 +135,7 @@ public class InquilinoDatos {
      * @see Inquilino
      */
     public static Inquilino buscarID(int id, boolean estado) {
-        String sql = "SELECT * FROM inquilino WHERE idInqilino = ? AND estado = ?";
+        String sql = "SELECT * FROM inquilino WHERE idInquilino = ? AND estado = ?";
         Inquilino inquilino = null;
         
         try (PreparedStatement ps = con.prepareStatement(sql)) {

@@ -3,6 +3,7 @@ package trabajofinaljavaulp;
 import java.sql.Connection;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import trabajofinaljavaulp.datos.AlquilerDatos;
 import trabajofinaljavaulp.datos.Conexion;
 import trabajofinaljavaulp.datos.InmuebleDatos;
@@ -42,11 +43,13 @@ public class TrabajoFinalJavaULP {
         Date fechaI = Date.valueOf(LocalDate.of(2022, 06, 05));
         Date fechaF = Date.valueOf(LocalDate.of(2024, 07, 25));
         al = new Alquiler(fechaI, fechaF, 149000.99, "39-1228292-9", "Martinez Jose", 40304040, "Coca Cola", true, inm, cliente);
-//        //Error al listar alquileres
+
         AlquilerDatos.agregar(al);
-//        for (Alquiler a : AlquilerDatos.listar(true)) {
-//            System.out.println(a.toString());
-//        }
+        
+        ArrayList<Alquiler> ldalquileres = AlquilerDatos.listar(true);
+        for (Alquiler a : ldalquileres) {
+            System.out.println(a.toString());
+        }
 
     }
 }
