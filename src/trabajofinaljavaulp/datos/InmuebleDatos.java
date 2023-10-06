@@ -222,7 +222,11 @@ public class InmuebleDatos {
      * @see Inmueble
      */
     public static ArrayList<Inmueble> obtenerInmueblesInquilino(int idInquilino, boolean estado) {
-        String sql = "SELECT inmueble.* FROM alquiler " + "INNER JOIN inmueble ON inmueble.idInmueble = alquiler.idInmueble " + "INNER JOIN inquilino ON inquilino.idInquilino = alquiler.idInquilino " + "WHERE inquilino.idInquilino = ?" + "AND alquiler.estado = ?;";
+        String sql = "SELECT inmueble.* FROM alquiler " 
+                + "INNER JOIN inmueble ON inmueble.idInmueble = alquiler.idInmueble " 
+                + "INNER JOIN inquilino ON inquilino.idInquilino = alquiler.idInquilino " 
+                + "WHERE inquilino.idInquilino = ? " 
+                + "AND alquiler.estado = ?;";
         ArrayList<Inmueble> inmuebles = new ArrayList();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             //LLenamos el PreparedStatement
