@@ -51,6 +51,21 @@ public class TrabajoFinalJavaULP {
             System.out.println(a.toString());
         }
 
+//// Crear un objeto Propietario con los datos que deseas modificar
+//        Propietario propietario = new Propietario();
+//        // Configurar los datos que deseas modificar
+//        propietario.setId(114);  // ID del propietario que deseas modificar
+//        propietario.setDni(1234);
+//        propietario.setApellido("Nuevo Apellido");
+//        propietario.setNombre("Nuevo Nombre");
+//        propietario.setEmail("nuevo@correo.com");
+//        propietario.setTelefono(123456789);
+//
+//        // Crear una instancia de PropietarioDAO
+//        PropietarioDatos propietarioDatos = new PropietarioDatos();
+//
+//        // Llamar al método modificar y pasar el objeto Propietario
+//        propietarioDatos.modificar(propietario);
         // Connection con = Conexion.conectar();
         //  PropietarioDatos prop = new PropietarioDatos();
         // Crear un objeto Propietario
