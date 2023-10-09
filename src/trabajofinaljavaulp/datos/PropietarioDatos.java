@@ -202,14 +202,16 @@ public class PropietarioDatos {
      * @see Propietario
      */
     public static void modificar(Propietario p) {
-        String sql = "UPDATE propietario SET apellido = ?, nombre = ?, telefono = ?, email = ? WHERE idPropietario = ?";
+        String sql = "UPDATE propietario SET apellido = ?, dni = ?, nombre = ?, telefono = ?, email = ? WHERE idPropietario = ?";
     
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             //LLenamos el PreparedStatement.
             ps.setString(1, p.getApellido());
-            ps.setString(2, p.getNombre());
-            ps.setInt(3, p.getTelefono());
-            ps.setString(4, p.getEmail());
+            ps.setInt(2, p.getDni());
+            ps.setString(3, p.getNombre());
+            ps.setInt(4, p.getTelefono());
+            ps.setString(5, p.getEmail());
+            ps.setInt(6, p.getId());
             
             //Ejecutamos el comando y chequeamos exito.
             if (ps.executeUpdate() == 1) { //Si salio todo bien, deberia solo haberse modificado 1 fila.
