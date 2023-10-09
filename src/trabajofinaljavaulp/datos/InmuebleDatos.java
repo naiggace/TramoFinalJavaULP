@@ -7,8 +7,8 @@ import static trabajofinaljavaulp.datos.PropietarioDatos.buscarId;
 import trabajofinaljavaulp.entidades.Inmueble;
 import trabajofinaljavaulp.entidades.Propietario;
 
-
 public class InmuebleDatos {
+
     private static Connection con = Conexion.conectar();
 
     /**
@@ -130,6 +130,7 @@ public class InmuebleDatos {
      * id proporcionado.
      *
      * @param idInmueble id de Inmueble en la base de datos (<b>idInmueble</b>).
+     * @param estado
      * @return el objeto correspondiente al id.
      * @see Inmueble
      */
@@ -169,63 +170,89 @@ public class InmuebleDatos {
             return inmueble;
         }
     }
-    
+
+    public void modificar(Inmueble inmueble) {
+
+        String sql = "UPDATE inmueble SET tipo = ?, direccion = ?, superficie = ?, precio = ?, estado = ? WHERE 1 idPropietario = ?";
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, inmueble.getTipo());
+            ps.setString(2, inmueble.getDireccion());
+            ps.setDouble(3, inmueble.getSuperficie());
+            ps.setDouble(4, inmueble.getPrecio());
+            ps.setBoolean(5, inmueble.isEstado());
+            ps.setInt(6, inmueble.getId());
+
+            if (ps.executeUpdate() == 1) {
+                JOptionPane.showMessageDialog(null, "Modificado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "El inmueble no existe en la base de datos.", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla " + ex.getMessage(), "Error SQL", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     /**
-     * Obtener lista de inmuebles de la base de datos con el estado proporcionado
+     * Obtener lista de inmuebles de la base de datos con el estado
+     * proporcionado
+     *
      * @param estado <b>boolean</b> estado de los inmuebles a listar.
      * @return <b>ArrayList</b> con objetos <i>Inmueble</i>
      */
     public static ArrayList<Inmueble> listar(boolean estado) {
         String sql = "SELECT * FROM inmueble WHERE estado = ?";
         ArrayList<Inmueble> inmuebles = new ArrayList();
-        
+
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setBoolean(1, estado);
-            
+
             //Ejecutamos y guardamos el resultado.
             ResultSet rs = ps.executeQuery();
-            
+
             //Añadimos cada elemento del resultado
             while (rs.next()) {
                 //Obtenemos el propietario necesario para el inmueble.
                 Propietario propietario = PropietarioDatos.buscarId(
                         rs.getInt("idPropietario"), PropietarioDatos.existe(
-                                rs.getInt("idPropietario")) == 1 // True si existe y esta activo, sino false.
+                        rs.getInt("idPropietario")) == 1 // True si existe y esta activo, sino false.
                 );
-                
+
                 //Creamos un objeto Inmueble y lo agregamos a la lista.
-                inmuebles.add(new Inmueble(rs.getInt("idInmueble"), 
-                        rs.getString("direccion"), 
-                        propietario, 
-                        rs.getString("tipo"), 
-                        rs.getDouble("superficie"), 
-                        rs.getDouble("precio"), 
+                inmuebles.add(new Inmueble(rs.getInt("idInmueble"),
+                        rs.getString("direccion"),
+                        propietario,
+                        rs.getString("tipo"),
+                        rs.getDouble("superficie"),
+                        rs.getDouble("precio"),
                         rs.getBoolean("estado"))
-                
                 );
             }
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla 'inmueble': " + ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         return inmuebles;
     }
-    
+
     /**
-     * Dado un ID de <b>Inquilino</b> arma una lista con todos los inmuebles que tiene alquilados
+     * Dado un ID de <b>Inquilino</b> arma una lista con todos los inmuebles que
+     * tiene alquilados
      *
      * @param idInquilino <i>int</i> ID del inquilino en la base de datos
-     * @param estado <i>boolean</i> Estado del alquiler. (para listas de inmuebles activos y de inmuebles inactivos).
-     * @return <b>ArrayList</b> Con todos los inmuebles que el inquilino tiene alquilados.
+     * @param estado <i>boolean</i> Estado del alquiler. (para listas de
+     * inmuebles activos y de inmuebles inactivos).
+     * @return <b>ArrayList</b> Con todos los inmuebles que el inquilino tiene
+     * alquilados.
      * @see Inquilino
      * @see Inmueble
      */
     public static ArrayList<Inmueble> obtenerInmueblesInquilino(int idInquilino, boolean estado) {
-        String sql = "SELECT inmueble.* FROM alquiler " 
-                + "INNER JOIN inmueble ON inmueble.idInmueble = alquiler.idInmueble " 
-                + "INNER JOIN inquilino ON inquilino.idInquilino = alquiler.idInquilino " 
-                + "WHERE inquilino.idInquilino = ? " 
+        String sql = "SELECT inmueble.* FROM alquiler "
+                + "INNER JOIN inmueble ON inmueble.idInmueble = alquiler.idInmueble "
+                + "INNER JOIN inquilino ON inquilino.idInquilino = alquiler.idInquilino "
+                + "WHERE inquilino.idInquilino = ? "
                 + "AND alquiler.estado = ?;";
         ArrayList<Inmueble> inmuebles = new ArrayList();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
