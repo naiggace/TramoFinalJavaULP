@@ -134,7 +134,7 @@ public class InquilinoDatos {
      *          <b>null</b> si no hay resultado.
      * @see Inquilino
      */
-    public static Inquilino buscarID(int id, boolean estado) {
+    public static Inquilino buscarId(int id, boolean estado) {
         String sql = "SELECT * FROM inquilino WHERE idInquilino = ? AND estado = ?";
         Inquilino inquilino = null;
         
@@ -175,7 +175,7 @@ public class InquilinoDatos {
      *          <b>null</b> si no hay resultado.
      * @see Inquilino
      */
-    public static Inquilino buscarDNI(int dni, boolean estado) {
+    public static Inquilino buscarDni(int dni, boolean estado) {
         String sql = "SELECT * FROM inquilino WHERE dni = ? AND estado = ?";
         Inquilino inquilino = null;
         
