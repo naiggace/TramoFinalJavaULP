@@ -156,7 +156,7 @@ public class AlquilerDatos {
 
                 // Encontramos el Inquilino
                 id = rs.getInt("idInquilino");
-                Inquilino inquilino = InquilinoDatos.buscarID(id,
+                Inquilino inquilino = InquilinoDatos.buscarId(id,
                         InquilinoDatos.existe(id) == 1
                 );
 
