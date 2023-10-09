@@ -85,7 +85,16 @@ public class AlquilerDatos {
      * @param id <i>int</i> correspondiente al idAlquiler.
      */
     public static void baja(int id) {
-        //TODO
+        String sql = "UPDATE alquiler SET estado = 0 WHERE idAlquiler= ?";
+        try(PreparedStatement ps = con.prepareStatement(sql)){
+            ps.setInt(1, id);
+            if (ps.executeUpdate() == 1) {
+                JOptionPane.showMessageDialog(null, "Se ha dado de baja al alquiler", "Baja", JOptionPane.INFORMATION_MESSAGE);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alquiler" + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -94,7 +103,16 @@ public class AlquilerDatos {
      * @param id <i>int</i> correspondiente al idAlquiler.
      */
     public static void alta(int id) {
-        //TODO
+        String sql = "UPDATE alquiler SET estado = 1 WHERE idAlquiler= ?";
+        try(PreparedStatement ps = con.prepareStatement(sql)){
+            ps.setInt(1, id);
+            if (ps.executeUpdate() == 1) {
+                JOptionPane.showMessageDialog(null, "Se ha dado de alta al alquiler", "Alta", JOptionPane.INFORMATION_MESSAGE);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alquiler" + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -160,8 +178,6 @@ public class AlquilerDatos {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al listar alquileres: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
         return alquileres;
     }
-
 }
