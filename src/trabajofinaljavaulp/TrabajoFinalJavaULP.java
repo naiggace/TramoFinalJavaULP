@@ -35,7 +35,7 @@ public class TrabajoFinalJavaULP {
 
         InquilinoDatos inqD = new InquilinoDatos();
 
-        Inquilino cliente = inqD.buscarDNI(45267765, true);
+        Inquilino cliente = inqD.buscarDni(45267765, true);
         System.out.println(cliente.toString());
 
         Alquiler al;

@@ -18,7 +18,8 @@ public class AlquilerDatos {
      * @see Alqulier
      */
     public static void agregar(Alquiler a) {
-        String sql = "INSERT INTO `alquiler`(`idAlquiler`, `idInquilino`, `idInmueble`, `CuitInquilino`, `lugarTrabajo`, `nombreGarante`, `dniGarante`, `fechaInicio`, `fechaFin`, `estado`, `montoAlquiler`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO `alquiler`(`idAlquiler`, `idInquilino`, `idInmueble`, `cuitInquilino`, `lugarTrabajo`, `nombreGarante`,"
+                + " `dniGarante`, `fechaInicio`, `fechaFin`, `estado`, `montoAlquiler`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         try (PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, a.getId());
             ps.setInt(2, a.getInquilino().getId());
@@ -155,7 +156,7 @@ public class AlquilerDatos {
 
                 // Encontramos el Inquilino
                 id = rs.getInt("idInquilino");
-                Inquilino inquilino = InquilinoDatos.buscarID(id,
+                Inquilino inquilino = InquilinoDatos.buscarId(id,
                         InquilinoDatos.existe(id) == 1
                 );
 
