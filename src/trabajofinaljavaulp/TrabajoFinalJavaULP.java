@@ -20,36 +20,36 @@ import trabajofinaljavaulp.entidades.Propietario;
  */
 public class TrabajoFinalJavaULP {
 
-    public static void main(String[] args) {
-
-        Connection con = Conexion.conectar();
-
-        PropietarioDatos prop = new PropietarioDatos();
-
-        Propietario p = prop.buscarId(92, true);
-        System.out.println(p.toString());
-        InmuebleDatos inmD = new InmuebleDatos();
-
-        Inmueble inm = inmD.buscar(61, true);
-        System.out.println(inm.toString());
-
-        InquilinoDatos inqD = new InquilinoDatos();
-
-        Inquilino cliente = inqD.buscarDni(45267765, true);
-        System.out.println(cliente.toString());
-
-        Alquiler al;
-
-        Date fechaI = Date.valueOf(LocalDate.of(2022, 06, 05));
-        Date fechaF = Date.valueOf(LocalDate.of(2024, 07, 25));
-        al = new Alquiler(fechaI, fechaF, 149000.99, "39-1228292-9", "Martinez Jose", 40304040, "Coca Cola", true, inm, cliente);
-
-        AlquilerDatos.agregar(al);
-
-        ArrayList<Alquiler> ldalquileres = AlquilerDatos.listar(true);
-        for (Alquiler a : ldalquileres) {
-            System.out.println(a.toString());
-        }
+//    public static void main(String[] args) {
+//
+//        Connection con = Conexion.conectar();
+//
+//        PropietarioDatos prop = new PropietarioDatos();
+//
+//        Propietario p = prop.buscarId(92, true);
+//        System.out.println(p.toString());
+//        InmuebleDatos inmD = new InmuebleDatos();
+//
+//        Inmueble inm = inmD.buscar(61, true);
+//        System.out.println(inm.toString());
+//
+//        InquilinoDatos inqD = new InquilinoDatos();
+//
+//        Inquilino cliente = inqD.buscarDni(45267765, true);
+//        System.out.println(cliente.toString());
+//
+//        Alquiler al;
+//
+//        Date fechaI = Date.valueOf(LocalDate.of(2022, 06, 05));
+//        Date fechaF = Date.valueOf(LocalDate.of(2024, 07, 25));
+//        al = new Alquiler(fechaI, fechaF, 149000.99, "39-1228292-9", "Martinez Jose", 40304040, "Coca Cola", true, inm, cliente);
+//
+//        AlquilerDatos.agregar(al);
+//
+//        ArrayList<Alquiler> ldalquileres = AlquilerDatos.listar(true);
+//        for (Alquiler a : ldalquileres) {
+//            System.out.println(a.toString());
+//        }
 
 //// Crear un objeto Propietario con los datos que deseas modificar
 //        Propietario propietario = new Propietario();
@@ -93,5 +93,5 @@ public class TrabajoFinalJavaULP {
         //   ArrayList<Alquiler> ldalquileres = AlquilerDatos.listar(true);
         //   for (Alquiler a : ldalquileres) {
         //       System.out.println(a.toString());
-    }
+//    }
 }
