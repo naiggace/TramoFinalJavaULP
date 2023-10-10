@@ -5,8 +5,12 @@
 package trabajofinaljavaulp.Vistas;
 
 import java.util.ArrayList;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import trabajofinaljavaulp.datos.InmuebleDatos;
 import trabajofinaljavaulp.entidades.Inmueble;
 
@@ -16,12 +20,15 @@ import trabajofinaljavaulp.entidades.Inmueble;
  */
 public class InmueblesView extends javax.swing.JInternalFrame {
 
+    private TableRowSorter<TableModel> sorter;
+    
     /**
      * Creates new form InmuebleView_t
      */
     public InmueblesView() {
         initComponents();
         llenarTabla();
+        activarFiltro();
     }
 
     /**
@@ -173,6 +180,40 @@ public class InmueblesView extends javax.swing.JInternalFrame {
         for (Inmueble i : inmuebles) {
             modelo.addRow(new Object[]{i.getTipo(), i.getDireccion(), i.getSuperficie(), i.getPrecio(), i.getPropietario(), i.getId()});
         }
+    }
+    
+    private void activarFiltro() {
+        this.sorter = new TableRowSorter<>(jtInmuebles.getModel());
+        jtInmuebles.setRowSorter(sorter);
+        
+        jtfBuscar.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String busqueda = jtfBuscar.getText();
+                
+                if (busqueda.trim().isBlank()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter("(?i)" + busqueda)); // el (?i) lo hace case insensitive.
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String busqueda = jtfBuscar.getText();
+                
+                if (busqueda.trim().isBlank()) {
+                    sorter.setRowFilter(null);
+                } else {
+                    sorter.setRowFilter(RowFilter.regexFilter("(?i)" + busqueda)); // el (?i) lo hace case insensitive.
+                }
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                throw new UnsupportedOperationException("Algo salió mal.");
+            }
+        });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
