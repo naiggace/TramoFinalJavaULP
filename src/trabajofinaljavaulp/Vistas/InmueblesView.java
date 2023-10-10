@@ -4,6 +4,12 @@
  */
 package trabajofinaljavaulp.Vistas;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import trabajofinaljavaulp.datos.InmuebleDatos;
+import trabajofinaljavaulp.entidades.Inmueble;
+
 /**
  *
  * @author nikan
@@ -15,6 +21,7 @@ public class InmueblesView extends javax.swing.JInternalFrame {
      */
     public InmueblesView() {
         initComponents();
+        llenarTabla();
     }
 
     /**
@@ -159,7 +166,15 @@ public class InmueblesView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
+    private void llenarTabla() {
+        DefaultTableModel modelo = (DefaultTableModel) jtInmuebles.getModel();
+        ArrayList<Inmueble> inmuebles = InmuebleDatos.listar(true);
+        
+        for (Inmueble i : inmuebles) {
+            modelo.addRow(new Object[]{i.getTipo(), i.getDireccion(), i.getSuperficie(), i.getPrecio(), i.getPropietario(), i.getId()});
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

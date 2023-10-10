@@ -89,7 +89,7 @@ public class Propietario {
 
     @Override
     public String toString() {
-        return "Propietario{" + "dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", email=" + email + ", telefono=" + telefono + '}';
+        return String.format("%s %d", nombre, dni);
     }
     
     
