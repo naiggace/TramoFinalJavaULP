@@ -111,7 +111,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jbNuevo" max="32767" attributes="0"/>
                           <Component id="jbEditar" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jbEliminar" alignment="0" pref="88" max="32767" attributes="0"/>
+                          <Component id="jbEliminar" alignment="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>

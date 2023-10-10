@@ -191,7 +191,7 @@ public class InmueblesView extends javax.swing.JInternalFrame {
             public void insertUpdate(DocumentEvent e) {
                 String busqueda = jtfBuscar.getText();
                 
-                if (busqueda.trim().isBlank()) {
+                if (busqueda.trim().isEmpty()) {
                     sorter.setRowFilter(null);
                 } else {
                     sorter.setRowFilter(RowFilter.regexFilter("(?i)" + busqueda)); // el (?i) lo hace case insensitive.
@@ -202,7 +202,7 @@ public class InmueblesView extends javax.swing.JInternalFrame {
             public void removeUpdate(DocumentEvent e) {
                 String busqueda = jtfBuscar.getText();
                 
-                if (busqueda.trim().isBlank()) {
+                if (busqueda.trim().isEmpty()) {
                     sorter.setRowFilter(null);
                 } else {
                     sorter.setRowFilter(RowFilter.regexFilter("(?i)" + busqueda)); // el (?i) lo hace case insensitive.
