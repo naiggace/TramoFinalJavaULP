@@ -122,11 +122,52 @@ public class AlquilerDatos {
      *
      * @param id <i>int</i> corresponde a idAlquiler.
      * @return <b>Alquiler</b>
+     *         <b>null</b> si no hay resultado.
      * @see Alquiler
      */
     public static Alquiler buscarId(int id) {
-        //TODO
-        return new Alquiler();
+        String sql = "SELECT * FROM alquiler WHERE idAlquiler = ?";
+        Alquiler alquiler = null;
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            
+            //Ejecutamos y guardamos el resultado
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) { //Si hay resultado
+                // Encontramos el Inmueble
+                int idIn = rs.getInt("idInmueble");
+                Inmueble inmueble = InmuebleDatos.buscar(idIn,
+                        InmuebleDatos.estado(idIn) == 1
+                );
+
+                // Encontramos el Inquilino
+                idIn = rs.getInt("idInquilino");
+                Inquilino inquilino = InquilinoDatos.buscarId(idIn,
+                        InquilinoDatos.existe(idIn) == 1
+                );
+
+                //Agregamos el alquiler a la lista
+                alquiler = new Alquiler(
+                        rs.getInt("idAlquiler"),
+                        rs.getDate("fechaInicio"),
+                        rs.getDate("fechaFin"),
+                        rs.getDouble("montoAlquiler"),
+                        rs.getString("cuitInquilino"),
+                        rs.getString("nombreGarante"),
+                        rs.getInt("dniGarante"),
+                        rs.getString("lugarTrabajo"),
+                        rs.getBoolean("estado"),
+                        inmueble,
+                        inquilino
+                );
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a alquiler: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        return alquiler;
     }
 
     /**
