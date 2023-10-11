@@ -58,7 +58,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
         jMenu3.setText("Inmuebles");
 
-        jMenuItem1.setText("Inmuebles");
+        jMenuItem1.setText("Gestion");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
