@@ -1,6 +1,10 @@
 
 package trabajofinaljavaulp.Vistas;
 
+import java.awt.Graphics;
+import javax.swing.JDesktopPane;
+import trabajofinaljavaulp.imagen.Fondo;
+
 
 /**
  *
@@ -9,7 +13,7 @@ package trabajofinaljavaulp.Vistas;
 public class InmobiliariaView extends javax.swing.JFrame {
     public InmobiliariaView() {
         initComponents();
-  
+        FondoPantalla();
     }
     
     @SuppressWarnings("unchecked")
@@ -137,4 +141,23 @@ public class InmobiliariaView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
+
+     public void FondoPantalla(){
+        Fondo fondo=new Fondo();
+             Escritorio = new JDesktopPane() {
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    // Dibuja la imagen de fondo
+                    g.drawImage(fondo.getImagen(), 0, 0, getWidth(), getHeight(), this);
+                }
+            };
+            setContentPane(Escritorio);
+            setVisible(true);
+            if (fondo.getImagen() != null) {
+                System.out.println("Imagen cargada correctamente.");
+            } else {
+               System.out.println("Imagen no se pudo cargar.");
+            }
+    }
 }
