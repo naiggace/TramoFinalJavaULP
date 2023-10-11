@@ -230,7 +230,7 @@ public class PropietarioDatos {
      * @return <b>ArrayList</b> con todos los propietarios en la base de datos.
      */
     public static ArrayList<Propietario> listar(boolean estado) {
-        String sql = "SELECT * FROM propietarios WHERE estado = ?";
+        String sql = "SELECT * FROM propietario WHERE estado = ?";
         ArrayList<Propietario> propietarios = new ArrayList();
         
         try (PreparedStatement ps = con.prepareStatement(sql)) {

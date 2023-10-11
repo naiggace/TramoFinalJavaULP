@@ -89,7 +89,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Escritorio.repaint();
-        InmueblesView imv = new InmueblesView();
+        GestionView imv = new GestionView();
         imv.setVisible(true);
         Escritorio.add(imv);
         Escritorio.moveToFront(imv);
