@@ -5,6 +5,16 @@
  */
 package trabajofinaljavaulp.Vistas;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.DocumentEvent;
+import trabajofinaljavaulp.datos.InmuebleDatos;
+import trabajofinaljavaulp.datos.PropietarioDatos;
+import trabajofinaljavaulp.entidades.Inmueble;
+import trabajofinaljavaulp.entidades.Propietario;
+
 /**
  *
  * @author HP
@@ -16,6 +26,8 @@ public class InmuebleView extends javax.swing.JInternalFrame {
      */
     public InmuebleView() {
         initComponents();
+        actualizarComboBox();
+        rellenarComboBox(); 
     }
 
     /**
@@ -39,13 +51,19 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jtPrecio = new javax.swing.JTextField();
         jbNuevo = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jtBuscarProp = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Ingreso de Datos-Inmueble");
 
         jLabel1.setText("Seleccionar propietario:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Direccion: ");
 
@@ -58,6 +76,13 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jLabel6.setText("Precio:");
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Buscar propietario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,35 +91,44 @@ public class InmuebleView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jtPrecio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                            .addComponent(jtSuperficie, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbNuevo)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, 177, Short.MAX_VALUE)
-                            .addComponent(jtDireccion)
-                            .addComponent(jtTipo))))
-                .addGap(31, 31, 31))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jtPrecio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                                    .addComponent(jtSuperficie, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jbNuevo)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 177, Short.MAX_VALUE)
+                                .addComponent(jtDireccion, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtTipo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jtBuscarProp, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addGap(31, 31, 31))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jtBuscarProp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -113,25 +147,71 @@ public class InmuebleView extends javax.swing.JInternalFrame {
                     .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbNuevo)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+       
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<Propietario> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JButton jbNuevo;
+    private javax.swing.JTextField jtBuscarProp;
     private javax.swing.JTextField jtDireccion;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtSuperficie;
     private javax.swing.JTextField jtTipo;
     // End of variables declaration//GEN-END:variables
+
+    private void actualizarComboBox(){
+        // Asocia un DocumentListener al JTextField jtBuscarProp
+        jtBuscarProp.getDocument().addDocumentListener(new DocumentListener() {
+            //new DocumentListener() es una clase anónima que implementa la interfaz DocumentListener
+            @Override
+            public void insertUpdate(DocumentEvent e) { //Se llama cuando se inserta texto el TextField
+                rellenarComboBox();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) { //se llama cuando se elimina texto en el TextField
+                rellenarComboBox();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) { //se llama cuando ocurre un cambio en el estilo de texto
+                rellenarComboBox(); //en los tres métodos actualiza los resultados del método rellenarComboBox
+                //                      garantiza que el comboBox refleje el estado actual del TextField
+            }
+        });        
+    }
+    
+    //Hay algo raro porque al buscar no coincide la búsqueda con el resultado
+    private void rellenarComboBox() {
+        ArrayList<Propietario> listaPropietarios = PropietarioDatos.listar(true);
+        ArrayList<Propietario> result=new ArrayList<>(); //A ESTA LISTA SOLO SE AGREGAN AQUELLAS COINCIDENCIAS
+        jComboBox1.removeAllItems();
+        for (Propietario prop : listaPropietarios) {
+            if(prop.getApellido().startsWith(jtBuscarProp.getText())){
+                result.add(prop); //AGREGADO DE COINCIDENCIAS CON LO DEL TEXTFIELD
+            }
+        }
+        DefaultComboBoxModel<Propietario> model = new DefaultComboBoxModel<>(result.toArray(new Propietario[0]));
+        jComboBox1.setModel(model);
+    }
 }

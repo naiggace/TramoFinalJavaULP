@@ -1,7 +1,5 @@
 package trabajofinaljavaulp.entidades;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author nikan
@@ -17,6 +15,14 @@ public class Inmueble {
     private boolean estado;
 
     public Inmueble() {
+    }
+
+    public Inmueble(String direccion, String tipo, double superficie, double precio, boolean estado) {
+        this.direccion = direccion;
+        this.tipo = tipo;
+        this.superficie = superficie;
+        this.precio = precio;
+        this.estado = estado;
     }
 
     public Inmueble(int id, String direccion, Propietario propietario, String tipo, double superficie, double precio, boolean estado) {
@@ -96,7 +102,7 @@ public class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble{" + "id=" + id + ", direccion=" + direccion + ", propietario=" + propietario + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio + ", estado=" + estado + '}';
+        return direccion + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio;
     }
 
 }

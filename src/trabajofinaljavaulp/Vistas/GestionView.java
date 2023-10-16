@@ -6,7 +6,6 @@ package trabajofinaljavaulp.Vistas;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
@@ -100,6 +99,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(600, 400));
 
         jbNuevoInmueble.setText("Nuevo");
+        jbNuevoInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoInmuebleActionPerformed(evt);
+            }
+        });
 
         jbEliminarInmueble.setText("Eliminar");
 
@@ -396,6 +400,14 @@ public class GestionView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbNuevoInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoInmuebleActionPerformed
+        InmuebleView iV=new InmuebleView();
+        InmobiliariaView.Escritorio.add(iV);
+        iV.moveToFront();
+        iV.setVisible(true);
+        
+    }//GEN-LAST:event_jbNuevoInmuebleActionPerformed
+
     private void llenarTablas() {
         // Obtenemos los modelos.
         DefaultTableModel modeloInmuebles = (DefaultTableModel) jtInmuebles.getModel();
@@ -473,7 +485,7 @@ public class GestionView extends javax.swing.JInternalFrame {
 
                 @Override
                 public void changedUpdate(DocumentEvent e) {
-                    throw new UnsupportedOperationException("Algo salió mal.");
+                    throw new UnsupportedOperationException("¡Algo salió mal!");
                 }
             });
         }
@@ -512,4 +524,5 @@ public class GestionView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfBuscarInquilino;
     private javax.swing.JTextField jtfBuscarPropietario;
     // End of variables declaration//GEN-END:variables
+
 }
