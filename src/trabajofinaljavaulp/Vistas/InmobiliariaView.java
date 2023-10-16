@@ -2,7 +2,11 @@
 package trabajofinaljavaulp.Vistas;
 
 import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JDesktopPane;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import trabajofinaljavaulp.imagen.Fondo;
 
 
@@ -13,7 +17,9 @@ import trabajofinaljavaulp.imagen.Fondo;
 public class InmobiliariaView extends javax.swing.JFrame {
     public InmobiliariaView() {
         initComponents();
+        setLocationRelativeTo(null);
         FondoPantalla();
+        cerrar();
     }
     
     @SuppressWarnings("unchecked")
@@ -24,11 +30,11 @@ public class InmobiliariaView extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        jmPropietario = new javax.swing.JMenu();
+        jmInquilino = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jmGestion = new javax.swing.JMenuItem();
+        jmConsultas = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -48,28 +54,38 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
         jMenu2.setText("Ingresos");
 
-        jMenu5.setText("Propietarios");
-        jMenu2.add(jMenu5);
+        jmPropietario.setText("Propietarios");
+        jmPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmPropietarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmPropietario);
 
-        jMenu6.setText("Inquilinos");
-        jMenu2.add(jMenu6);
+        jmInquilino.setText("Inquilinos");
+        jmInquilino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmInquilinoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmInquilino);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Inmuebles");
 
-        jMenuItem1.setText("Gestion");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmGestion.setText("Gestion");
+        jmGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmGestionActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        jMenu3.add(jmGestion);
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Consultas");
-        jMenuBar1.add(jMenu4);
+        jmConsultas.setText("Consultas");
+        jMenuBar1.add(jmConsultas);
 
         setJMenuBar(jMenuBar1);
 
@@ -87,13 +103,29 @@ public class InmobiliariaView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jmGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmGestionActionPerformed
         Escritorio.repaint();
-        GestionView imv = new GestionView();
-        imv.setVisible(true);
-        Escritorio.add(imv);
-        Escritorio.moveToFront(imv);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        GestionView gV = new GestionView();
+        gV.setVisible(true);
+        Escritorio.add(gV);
+        Escritorio.moveToFront(gV);
+    }//GEN-LAST:event_jmGestionActionPerformed
+
+    private void jmPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPropietarioActionPerformed
+        Escritorio.repaint();
+        PropietarioView pV=new PropietarioView();
+        pV.setVisible(true);
+        Escritorio.add(pV);
+        Escritorio.moveToFront(pV);
+    }//GEN-LAST:event_jmPropietarioActionPerformed
+
+    private void jmInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInquilinoActionPerformed
+        Escritorio.repaint();
+        InquilinoView iV=new InquilinoView();
+        iV.setVisible(true);
+        Escritorio.add(iV);
+        Escritorio.moveToFront(iV);
+    }//GEN-LAST:event_jmInquilinoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,11 +167,11 @@ public class InmobiliariaView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jmConsultas;
+    private javax.swing.JMenuItem jmGestion;
+    private javax.swing.JMenu jmInquilino;
+    private javax.swing.JMenu jmPropietario;
     // End of variables declaration//GEN-END:variables
 
      public void FondoPantalla(){
@@ -152,12 +184,33 @@ public class InmobiliariaView extends javax.swing.JFrame {
                     g.drawImage(fondo.getImagen(), 0, 0, getWidth(), getHeight(), this);
                 }
             };
-            setContentPane(Escritorio);
-            setVisible(true);
-            if (fondo.getImagen() != null) {
-                System.out.println("Imagen cargada correctamente.");
-            } else {
-               System.out.println("Imagen no se pudo cargar.");
+        setContentPane(Escritorio);
+        setVisible(true);
+        if (fondo.getImagen() != null) {
+            System.out.println("Imagen cargada correctamente.");
+        } else {
+           System.out.println("Imagen no se pudo cargar.");
+        }
+    }
+    
+    public void confirmarSalida(){
+        int valor=JOptionPane.showConfirmDialog(this, "¿Está seguro que desea abandonar la aplicación?", 
+        /**/                                    "ADVERTENCIA", JOptionPane.YES_NO_OPTION); //YES=0 NO=1
+        //                                      this. se refiere a la ventana padre ara el cuadro de diálogo
+        if(valor==JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(this,"Nos vemos en la próxima consulta","Adiós",JOptionPane.CLOSED_OPTION);
+            System.exit(0);
+        }
+    }
+    
+    public void cerrar(){
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//Configura que hace la X de la ventana (personaliza la X)
+        addWindowListener(new WindowAdapter(){ //WindowListener escucha eventos relacionados con la ventana
+            //                                   WindowAdapter proporciona una implementación vacía para todos los métodos de la interfaz
+            public void windowClosing(WindowEvent e){ //se anula el método WindowClosing de WindowAdapter
+                confirmarSalida();                    //código para confirmar la salida
             }
+         });
+        this.setVisible(true); //Establece la visibilidad de la ventana
     }
 }
