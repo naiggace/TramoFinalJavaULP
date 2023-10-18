@@ -59,7 +59,11 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jbNuevoPropietario = new javax.swing.JButton();
 
         setClosable(true);
+        setResizable(true);
         setTitle("Ingreso de Datos-Inmueble");
+        setMaximumSize(new java.awt.Dimension(2147483647, 350));
+        setMinimumSize(new java.awt.Dimension(600, 350));
+        setPreferredSize(new java.awt.Dimension(620, 350));
 
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +84,7 @@ public class InmuebleView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setText("Buscar propietario");
+        jLabel7.setText("Buscar propietario:");
 
         jLabel4.setText("Superficie:");
 
