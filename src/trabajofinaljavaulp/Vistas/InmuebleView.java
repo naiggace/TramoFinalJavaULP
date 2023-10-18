@@ -8,6 +8,7 @@ package trabajofinaljavaulp.Vistas;
 import java.util.ArrayList;
 import java.util.regex.*;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.DocumentEvent;
@@ -197,11 +198,12 @@ public class InmuebleView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jbNuevoPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoPropietarioActionPerformed
-        this.getDesktopPane().repaint();
+        JDesktopPane escritorio = this.getDesktopPane();
+        escritorio.repaint();
         PropietarioView pV=new PropietarioView();
         pV.setVisible(true);
-        this.getDesktopPane().add(pV);
-        this.getDesktopPane().moveToFront(pV);
+        escritorio.add(pV);
+        escritorio.moveToFront(pV);
     }//GEN-LAST:event_jbNuevoPropietarioActionPerformed
 
 

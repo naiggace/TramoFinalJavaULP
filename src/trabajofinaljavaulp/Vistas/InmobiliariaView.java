@@ -27,7 +27,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
-        Escritorio = new javax.swing.JDesktopPane();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jmPropietario = new javax.swing.JMenu();
@@ -41,14 +41,14 @@ public class InmobiliariaView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inmobiliaria Grupo 22");
 
-        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
-        Escritorio.setLayout(EscritorioLayout);
-        EscritorioLayout.setHorizontalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 700, Short.MAX_VALUE)
         );
-        EscritorioLayout.setVerticalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 477, Short.MAX_VALUE)
         );
 
@@ -93,38 +93,38 @@ public class InmobiliariaView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmGestionActionPerformed
-        Escritorio.repaint();
+        escritorio.repaint();
         GestionView gV = new GestionView();
         gV.setVisible(true);
-        Escritorio.add(gV);
-        Escritorio.moveToFront(gV);
+        escritorio.add(gV);
+        escritorio.moveToFront(gV);
     }//GEN-LAST:event_jmGestionActionPerformed
 
     private void jmPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPropietarioActionPerformed
-        Escritorio.repaint();
+        escritorio.repaint();
         PropietarioView pV=new PropietarioView();
         pV.setVisible(true);
-        Escritorio.add(pV);
-        Escritorio.moveToFront(pV);
+        escritorio.add(pV);
+        escritorio.moveToFront(pV);
     }//GEN-LAST:event_jmPropietarioActionPerformed
 
     private void jmInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInquilinoActionPerformed
-        Escritorio.repaint();
+        escritorio.repaint();
         InquilinoView iV=new InquilinoView();
         iV.setVisible(true);
-        Escritorio.add(iV);
-        Escritorio.moveToFront(iV);
+        escritorio.add(iV);
+        escritorio.moveToFront(iV);
     }//GEN-LAST:event_jmInquilinoActionPerformed
 
     /**
@@ -163,7 +163,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
     }
        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JDesktopPane Escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -176,7 +176,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
      public void FondoPantalla(){
         Fondo fondo=new Fondo();
-             Escritorio = new JDesktopPane() {
+             escritorio = new JDesktopPane() {
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
@@ -184,7 +184,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
                     g.drawImage(fondo.getImagen(), 0, 0, getWidth(), getHeight(), this);
                 }
             };
-        setContentPane(Escritorio);
+        setContentPane(escritorio);
         setVisible(true);
         if (fondo.getImagen() != null) {
             System.out.println("Imagen cargada correctamente.");
