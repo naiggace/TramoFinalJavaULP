@@ -6,6 +6,7 @@
 package trabajofinaljavaulp.Vistas;
 
 import java.util.ArrayList;
+import java.util.regex.*;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
@@ -236,11 +237,10 @@ public class InmuebleView extends javax.swing.JInternalFrame {
     private void rellenarComboBox() {
         ArrayList<Propietario> listaPropietarios = PropietarioDatos.listar(true);
         ArrayList<Propietario> result = new ArrayList<>(); //A ESTA LISTA SOLO SE AGREGAN AQUELLAS COINCIDENCIAS
+        Pattern busqueda = Pattern.compile(jtBuscarProp.getText(), Pattern.CASE_INSENSITIVE);
         jComboBox1.removeAllItems();
         for (Propietario prop : listaPropietarios) {
-            if (prop.getApellido().toLowerCase().startsWith(jtBuscarProp.getText().toLowerCase())
-                    || prop.getNombre().toLowerCase().startsWith(jtBuscarProp.getText().toLowerCase())
-                    || Integer.toString(prop.getDni()).startsWith(jtBuscarProp.getText())) {
+            if (busqueda.matcher(prop.toString()).find()) {
                 result.add(prop); //AGREGADO DE COINCIDENCIAS CON LO DEL TEXTFIELD
             }
         }
