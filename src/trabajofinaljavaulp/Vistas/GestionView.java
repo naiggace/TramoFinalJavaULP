@@ -157,8 +157,12 @@ public class GestionView extends javax.swing.JInternalFrame {
             }
         });
         jtInmuebles.getTableHeader().setReorderingAllowed(false);
-        jtInmuebles.removeColumn(jtInmuebles.getColumnModel().getColumn(5));
         jScrollPane1.setViewportView(jtInmuebles);
+        if (jtInmuebles.getColumnModel().getColumnCount() > 0) {
+            jtInmuebles.getColumnModel().getColumn(5).setMinWidth(0);
+            jtInmuebles.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jtInmuebles.getColumnModel().getColumn(5).setMaxWidth(0);
+        }
 
         jlBuscar.setText("Buscar:");
 
@@ -254,8 +258,12 @@ public class GestionView extends javax.swing.JInternalFrame {
             }
         });
         jtPropietarios.getTableHeader().setReorderingAllowed(false);
-        jtPropietarios.removeColumn(jtPropietarios.getColumnModel().getColumn(5));
         jScrollPane3.setViewportView(jtPropietarios);
+        if (jtPropietarios.getColumnModel().getColumnCount() > 0) {
+            jtPropietarios.getColumnModel().getColumn(5).setMinWidth(0);
+            jtPropietarios.getColumnModel().getColumn(5).setPreferredWidth(0);
+            jtPropietarios.getColumnModel().getColumn(5).setMaxWidth(0);
+        }
 
         jLabel1.setText("Buscar:");
 
@@ -300,6 +308,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         });
 
         jbEditarInquilino.setText("Editar");
+        jbEditarInquilino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditarInquilinoActionPerformed(evt);
+            }
+        });
 
         jbEliminarInquilino.setText("Eliminar");
 
@@ -335,17 +348,28 @@ public class GestionView extends javax.swing.JInternalFrame {
                 "DNI", "Apellido", "Nombre", "Direccion", "Email", "Telefono", "id"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         jtInquilinos.getTableHeader().setReorderingAllowed(false);
-        jtInquilinos.removeColumn(jtInquilinos.getColumnModel().getColumn(6));
         jScrollPane4.setViewportView(jtInquilinos);
+        if (jtInquilinos.getColumnModel().getColumnCount() > 0) {
+            jtInquilinos.getColumnModel().getColumn(6).setMinWidth(0);
+            jtInquilinos.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jtInquilinos.getColumnModel().getColumn(6).setMaxWidth(0);
+        }
 
         jLabel2.setText("Buscar:");
 
@@ -431,6 +455,13 @@ public class GestionView extends javax.swing.JInternalFrame {
         iV.moveToFront();
         iV.setVisible(true);
     }//GEN-LAST:event_jbNuevoInquilinoActionPerformed
+
+    private void jbEditarInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarInquilinoActionPerformed
+        InquilinoView iV = new InquilinoView((Integer) jtInquilinos.getValueAt(jtInquilinos.getSelectedRow(), 6));
+        InmobiliariaView.escritorio.add(iV);
+        iV.moveToFront();
+        iV.setVisible(true);
+    }//GEN-LAST:event_jbEditarInquilinoActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.

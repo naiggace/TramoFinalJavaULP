@@ -223,7 +223,7 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -234,9 +234,6 @@
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jtInmuebles.removeColumn(jtInmuebles.getColumnModel().getColumn(5));"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -395,7 +392,7 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -406,9 +403,6 @@
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jtPropietarios.removeColumn(jtPropietarios.getColumnModel().getColumn(5));"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -513,6 +507,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEditarInquilinoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jbEliminarInquilino">
                   <Properties>
@@ -532,13 +529,13 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="7" rowCount="0">
-                        <Column editable="false" title="DNI" type="java.lang.Object"/>
+                        <Column editable="false" title="DNI" type="java.lang.Integer"/>
                         <Column editable="false" title="Apellido" type="java.lang.Object"/>
                         <Column editable="false" title="Nombre" type="java.lang.Object"/>
                         <Column editable="false" title="Direccion" type="java.lang.Object"/>
                         <Column editable="false" title="Email" type="java.lang.Object"/>
-                        <Column editable="false" title="Telefono" type="java.lang.Object"/>
-                        <Column editable="false" title="id" type="java.lang.Object"/>
+                        <Column editable="false" title="Telefono" type="java.lang.Integer"/>
+                        <Column editable="false" title="id" type="java.lang.Integer"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -573,7 +570,7 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -584,9 +581,6 @@
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jtInquilinos.removeColumn(jtInquilinos.getColumnModel().getColumn(6));"/>
-                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

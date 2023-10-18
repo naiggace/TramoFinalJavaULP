@@ -5,17 +5,35 @@
  */
 package trabajofinaljavaulp.Vistas;
 
+import trabajofinaljavaulp.datos.InquilinoDatos;
+import trabajofinaljavaulp.entidades.Inquilino;
+
 /**
  *
  * @author HP
  */
 public class InquilinoView extends javax.swing.JInternalFrame {
 
+    private Inquilino inquilino;
     /**
      * Creates new form InquilinoView
      */
     public InquilinoView() {
         initComponents();
+    }
+    
+    public InquilinoView(int id) {
+        initComponents();
+        inquilino = InquilinoDatos.buscarId(id, true);
+        jtDni.setEditable(false);
+        jtDni.setEnabled(false);
+        jtDni.setText(Integer.toString(inquilino.getDni()));
+        jtApellido.setText(inquilino.getApellido());
+        jtNombre.setText(inquilino.getNombre());
+        jtDireccion.setText(inquilino.getDireccion());
+        jtEmail.setText(Integer.toString(inquilino.getTelefono()));
+        jtTelefono.setText(Integer.toString(inquilino.getTelefono()));
+        jbNuevo.setText("Guardar");
     }
 
     /**
