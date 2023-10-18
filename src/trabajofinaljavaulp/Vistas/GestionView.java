@@ -196,6 +196,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("Inmuebles", jPanel1);
 
         jbNuevoPropietario.setText("Nuevo");
+        jbNuevoPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoPropietarioActionPerformed(evt);
+            }
+        });
 
         jbEditarPropietario.setText("Editar");
 
@@ -288,6 +293,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("Propietarios", jPanel3);
 
         jbNuevoInquilino.setText("Nuevo");
+        jbNuevoInquilino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoInquilinoActionPerformed(evt);
+            }
+        });
 
         jbEditarInquilino.setText("Editar");
 
@@ -407,6 +417,20 @@ public class GestionView extends javax.swing.JInternalFrame {
         iV.setVisible(true);
         
     }//GEN-LAST:event_jbNuevoInmuebleActionPerformed
+
+    private void jbNuevoPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoPropietarioActionPerformed
+        PropietarioView pV = new PropietarioView();
+        InmobiliariaView.escritorio.add(pV);
+        pV.moveToFront();
+        pV.setVisible(true);
+    }//GEN-LAST:event_jbNuevoPropietarioActionPerformed
+
+    private void jbNuevoInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoInquilinoActionPerformed
+        InquilinoView iV = new InquilinoView();
+        InmobiliariaView.escritorio.add(iV);
+        iV.moveToFront();
+        iV.setVisible(true);
+    }//GEN-LAST:event_jbNuevoInquilinoActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
