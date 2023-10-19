@@ -108,6 +108,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         jbEliminarInmueble.setText("Eliminar");
 
         jbEditarInmuebles.setText("Editar");
+        jbEditarInmuebles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditarInmueblesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -474,6 +479,13 @@ public class GestionView extends javax.swing.JInternalFrame {
         pV.moveToFront();
         pV.setVisible(true);
     }//GEN-LAST:event_jbEditarPropietarioActionPerformed
+
+    private void jbEditarInmueblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarInmueblesActionPerformed
+        InmuebleView iV = new InmuebleView((Integer) jtInmuebles.getValueAt(jtInmuebles.getSelectedRow(), 5));
+        InmobiliariaView.escritorio.add(iV);
+        iV.moveToFront();
+        iV.setVisible(true);
+    }//GEN-LAST:event_jbEditarInmueblesActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.

@@ -31,6 +31,22 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         actualizarComboBox();
         rellenarComboBox(); 
     }
+    
+    public InmuebleView(int id) {
+        initComponents();
+        actualizarComboBox();
+        rellenarComboBox();
+        
+        Inmueble inmueble = InmuebleDatos.buscar(id, true);
+        
+        jtBuscarProp.setText(inmueble.getPropietario().toString()); //Funcionara?
+        
+        jtDireccion.setText(inmueble.getDireccion());
+        jtPrecio.setText(Double.toString(inmueble.getPrecio()));
+        jtSuperficie.setText(Double.toString(inmueble.getSuperficie()));
+        jtTipo.setText(inmueble.getTipo());
+        jbNuevo.setText("Guardar");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
