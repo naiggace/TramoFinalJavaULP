@@ -73,9 +73,9 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Inmuebles");
+        jMenu3.setText("Gestion");
 
-        jmGestion.setText("Gestion");
+        jmGestion.setText("Recursos");
         jmGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmGestionActionPerformed(evt);
@@ -87,7 +87,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
         jmConsultas.setText("Alquileres");
 
-        jMenuItem1.setText("GestionAlquileres");
+        jMenuItem1.setText("Gestion de alquileres");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);

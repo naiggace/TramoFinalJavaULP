@@ -38,12 +38,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Inmuebles"/>
+            <Property name="text" type="java.lang.String" value="Gestion"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmGestion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Gestion"/>
+                <Property name="text" type="java.lang.String" value="Recursos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmGestionActionPerformed"/>
@@ -58,7 +58,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="GestionAlquileres"/>
+                <Property name="text" type="java.lang.String" value="Gestion de alquileres"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
