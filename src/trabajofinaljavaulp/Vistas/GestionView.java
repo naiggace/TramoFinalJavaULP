@@ -207,6 +207,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         });
 
         jbEditarPropietario.setText("Editar");
+        jbEditarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditarPropietarioActionPerformed(evt);
+            }
+        });
 
         jbEliminarPropietario.setText("Eliminar");
 
@@ -462,6 +467,13 @@ public class GestionView extends javax.swing.JInternalFrame {
         iV.moveToFront();
         iV.setVisible(true);
     }//GEN-LAST:event_jbEditarInquilinoActionPerformed
+
+    private void jbEditarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarPropietarioActionPerformed
+        PropietarioView pV = new PropietarioView((Integer) jtPropietarios.getValueAt(jtPropietarios.getSelectedRow(), 5));
+        InmobiliariaView.escritorio.add(pV);
+        pV.moveToFront();
+        pV.setVisible(true);
+    }//GEN-LAST:event_jbEditarPropietarioActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.

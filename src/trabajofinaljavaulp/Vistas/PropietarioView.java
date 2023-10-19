@@ -5,6 +5,9 @@
  */
 package trabajofinaljavaulp.Vistas;
 
+import trabajofinaljavaulp.datos.PropietarioDatos;
+import trabajofinaljavaulp.entidades.Propietario;
+
 /**
  *
  * @author HP
@@ -16,6 +19,19 @@ public class PropietarioView extends javax.swing.JInternalFrame {
      */
     public PropietarioView() {
         initComponents();
+    }
+    
+    public PropietarioView(int id) {
+        initComponents();
+        Propietario propietario = PropietarioDatos.buscarId(id, true);
+        jtDni.setEnabled(false);
+        jtDni.setEditable(false);
+        jtDni.setText(Integer.toString(propietario.getDni()));
+        jtApellido.setText(propietario.getApellido());
+        jtNombre.setText(propietario.getNombre());
+        jtEmail.setText(propietario.getEmail());
+        jtTelefono.setText(Integer.toString(propietario.getTelefono()));
+        jbNuevo.setText("Guardar");
     }
 
     /**
