@@ -222,4 +222,95 @@ public class AlquilerDatos {
         }
         return alquileres;
     }
+    
+     public static ArrayList<Alquiler> listarActivos(boolean estado) {
+        String sql = "SELECT * FROM alquiler WHERE estado = 1";
+        ArrayList<Alquiler> alquileres = new ArrayList();
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setBoolean(1, estado);
+
+            //Ejecutamos el PreparedStatment y guardamos el resultado en un ResultSet.
+            ResultSet rs = ps.executeQuery();
+
+            //Recorremos el ResultSet guardando los resultados en el ArrayList alquileres
+            while (rs.next()) {
+                // Encontramos el Inmueble
+                int id = rs.getInt("idInmueble");
+                Inmueble inmueble = InmuebleDatos.buscar(id,
+                        InmuebleDatos.estado(id) == 1
+                );
+
+                // Encontramos el Inquilino
+                id = rs.getInt("idInquilino");
+                Inquilino inquilino = InquilinoDatos.buscarId(id,
+                        InquilinoDatos.existe(id) == 1
+                );
+
+                //Agregamos el alquiler a la lista
+                alquileres.add(new Alquiler(
+                        rs.getInt("idAlquiler"),
+                        rs.getDate("fechaInicio"),
+                        rs.getDate("fechaFin"),
+                        rs.getDouble("montoAlquiler"),
+                        rs.getString("cuitInquilino"),
+                        rs.getString("nombreGarante"),
+                        rs.getInt("dniGarante"),
+                        rs.getString("lugarTrabajo"),
+                        rs.getBoolean("estado"),
+                        inmueble,
+                        inquilino)
+                );
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al listar alquileres: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return alquileres;
+    }
+      public static ArrayList<Alquiler> listarNoActivos(boolean estado) {
+        String sql = "SELECT * FROM alquiler WHERE estado = 0";
+        ArrayList<Alquiler> alquileres = new ArrayList();
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setBoolean(1, estado);
+
+            //Ejecutamos el PreparedStatment y guardamos el resultado en un ResultSet.
+            ResultSet rs = ps.executeQuery();
+
+            //Recorremos el ResultSet guardando los resultados en el ArrayList alquileres
+            while (rs.next()) {
+                // Encontramos el Inmueble
+                int id = rs.getInt("idInmueble");
+                Inmueble inmueble = InmuebleDatos.buscar(id,
+                        InmuebleDatos.estado(id) == 1
+                );
+
+                // Encontramos el Inquilino
+                id = rs.getInt("idInquilino");
+                Inquilino inquilino = InquilinoDatos.buscarId(id,
+                        InquilinoDatos.existe(id) == 1
+                );
+
+                //Agregamos el alquiler a la lista
+                alquileres.add(new Alquiler(
+                        rs.getInt("idAlquiler"),
+                        rs.getDate("fechaInicio"),
+                        rs.getDate("fechaFin"),
+                        rs.getDouble("montoAlquiler"),
+                        rs.getString("cuitInquilino"),
+                        rs.getString("nombreGarante"),
+                        rs.getInt("dniGarante"),
+                        rs.getString("lugarTrabajo"),
+                        rs.getBoolean("estado"),
+                        inmueble,
+                        inquilino)
+                );
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al listar alquileres: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        return alquileres;
+    }
 }
