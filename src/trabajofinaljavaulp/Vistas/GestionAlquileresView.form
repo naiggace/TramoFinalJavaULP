@@ -80,8 +80,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfBuscarPropietario3" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfBuscarTodos" min="-2" pref="635" max="-2" attributes="0"/>
+                          <EmptySpace pref="119" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -111,7 +111,7 @@
                           <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBuscarPropietario3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfBuscarTodos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
@@ -125,7 +125,7 @@
                 <Property name="text" type="java.lang.String" value="Buscar:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfBuscarPropietario3">
+            <Component class="javax.swing.JTextField" name="jtfBuscarTodos">
             </Component>
             <Component class="javax.swing.JButton" name="jButton13">
               <Properties>
@@ -258,8 +258,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfBuscarPropietario2" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfBuscarActivos" min="-2" pref="635" max="-2" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -289,7 +289,7 @@
                           <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBuscarPropietario2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfBuscarActivos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
@@ -303,7 +303,7 @@
                 <Property name="text" type="java.lang.String" value="Buscar:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfBuscarPropietario2">
+            <Component class="javax.swing.JTextField" name="jtfBuscarActivos">
             </Component>
             <Component class="javax.swing.JButton" name="jButton9">
               <Properties>
@@ -428,8 +428,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfBuscarPropietario1" pref="650" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfBuscarNoActivos" min="-2" pref="635" max="-2" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -459,7 +459,7 @@
                           <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBuscarPropietario1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jtfBuscarNoActivos" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -473,7 +473,7 @@
                 <Property name="text" type="java.lang.String" value="Buscar:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jtfBuscarPropietario1">
+            <Component class="javax.swing.JTextField" name="jtfBuscarNoActivos">
             </Component>
             <Component class="javax.swing.JButton" name="jButton5">
               <Properties>

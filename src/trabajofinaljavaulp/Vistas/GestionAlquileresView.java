@@ -1,15 +1,18 @@
 package trabajofinaljavaulp.Vistas;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import trabajofinaljavaulp.datos.AlquilerDatos;
-import trabajofinaljavaulp.datos.InmuebleDatos;
-import trabajofinaljavaulp.datos.InquilinoDatos;
-import trabajofinaljavaulp.datos.PropietarioDatos;
 import trabajofinaljavaulp.entidades.Alquiler;
-import trabajofinaljavaulp.entidades.Inmueble;
-import trabajofinaljavaulp.entidades.Inquilino;
-import trabajofinaljavaulp.entidades.Propietario;
+
+
 
 /**
  *
@@ -20,10 +23,14 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     /**
      * Creates new form GestionAlquileresView
      */
+    
+    private TableRowSorter<TableModel> sorterTodos;
+    private TableRowSorter<TableModel> sorterActivos;
+    private TableRowSorter<TableModel> sorterNoActivos;
     public GestionAlquileresView() {
         initComponents();
         llenarTablas();
-        //activarFiltros();
+        activarFiltros();
     }
 
     /**
@@ -38,7 +45,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jtfBuscarPropietario3 = new javax.swing.JTextField();
+        jtfBuscarTodos = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -48,7 +55,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jtfBuscarPropietario2 = new javax.swing.JTextField();
+        jtfBuscarActivos = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -58,7 +65,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jtfBuscarPropietario1 = new javax.swing.JTextField();
+        jtfBuscarNoActivos = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -129,8 +136,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addContainerGap()
                     .addComponent(jLabel4)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jtfBuscarPropietario3)
-                    .addContainerGap()))
+                    .addComponent(jtfBuscarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(119, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,7 +161,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addGap(331, 331, 331)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
-                        .addComponent(jtfBuscarPropietario3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtfBuscarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(41, Short.MAX_VALUE)))
         );
 
@@ -206,8 +213,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addContainerGap()
                     .addComponent(jLabel3)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jtfBuscarPropietario2)
-                    .addContainerGap()))
+                    .addComponent(jtfBuscarActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +238,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addGap(331, 331, 331)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jtfBuscarPropietario2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtfBuscarActivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(41, Short.MAX_VALUE)))
         );
 
@@ -282,8 +289,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addContainerGap()
                     .addComponent(jLabel2)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jtfBuscarPropietario1, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addComponent(jtfBuscarNoActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +314,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addGap(331, 331, 331)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
-                        .addComponent(jtfBuscarPropietario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtfBuscarNoActivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -399,6 +406,60 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         }
     }
 
+private void activarFiltros() {
+        //Creamos sorters basados en los modelos
+        this.sorterTodos = new TableRowSorter<>(jtTodos.getModel());
+        this.sorterActivos = new TableRowSorter<>(jtActivos.getModel());
+        this.sorterNoActivos = new TableRowSorter<>(jtNoActivos.getModel());
+        
+        //Aplicamos los sorters a las tablas
+        jtTodos.setRowSorter(sorterTodos);
+        jtActivos.setRowSorter(sorterActivos);
+        jtNoActivos.setRowSorter(sorterNoActivos);
+        
+        //Hacemos un arreglo de arreglos que contienen los textfields buscar y los sorters.
+        Object[] sortersyfiltros = new Object[] {
+            new Object[] { jtfBuscarTodos, sorterTodos },
+            new Object[] { jtfBuscarActivos, sorterActivos },
+            new Object[] { jtfBuscarNoActivos, sorterNoActivos }
+        };
+        
+        for (Object o : sortersyfiltros)  { 
+            // Cada objeto es un array que contiene un textfield y un sorter,
+            // Extraemos los objetos del array
+            JTextField jtf = (JTextField) Array.get(o, 0);
+            TableRowSorter trs = (TableRowSorter) Array.get(o, 1);
+            
+            jtf.getDocument().addDocumentListener(new DocumentListener() {
+                @Override
+                public void insertUpdate(DocumentEvent e) {
+                    String busqueda = jtf.getText();
+
+                    if (busqueda.trim().isEmpty()) {
+                        trs.setRowFilter(null);
+                    } else {
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)" + busqueda)); // el (?i) lo hace case insensitive.
+                    }
+                }
+
+                @Override
+                public void removeUpdate(DocumentEvent e) {
+                    String busqueda = jtf.getText();
+
+                    if (busqueda.trim().isEmpty()) {
+                        trs.setRowFilter(null);
+                    } else {
+                        trs.setRowFilter(RowFilter.regexFilter("(?i)" + busqueda)); // el (?i) lo hace case insensitive.
+                    }
+                }
+
+                @Override
+                public void changedUpdate(DocumentEvent e) {
+                    throw new UnsupportedOperationException("¡Algo salió mal!");
+                }
+            });
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
@@ -429,8 +490,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtActivos;
     private javax.swing.JTable jtNoActivos;
     private javax.swing.JTable jtTodos;
-    private javax.swing.JTextField jtfBuscarPropietario1;
-    private javax.swing.JTextField jtfBuscarPropietario2;
-    private javax.swing.JTextField jtfBuscarPropietario3;
+    private javax.swing.JTextField jtfBuscarActivos;
+    private javax.swing.JTextField jtfBuscarNoActivos;
+    private javax.swing.JTextField jtfBuscarTodos;
     // End of variables declaration//GEN-END:variables
 }
