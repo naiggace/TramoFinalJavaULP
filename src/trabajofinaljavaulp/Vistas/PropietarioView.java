@@ -5,22 +5,23 @@
  */
 package trabajofinaljavaulp.Vistas;
 
+import java.sql.Date;
+import javax.swing.JOptionPane;
 import trabajofinaljavaulp.datos.PropietarioDatos;
 import trabajofinaljavaulp.entidades.Propietario;
 
-/**
- *
- * @author HP
- */
 public class PropietarioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form PropietarioView
      */
+    private PropietarioDatos propData = new PropietarioDatos();
+    private Propietario propietario;
+
     public PropietarioView() {
         initComponents();
     }
-    
+
     public PropietarioView(int id) {
         initComponents();
         Propietario propietario = PropietarioDatos.buscarId(id, true);
@@ -132,6 +133,11 @@ public class PropietarioView extends javax.swing.JInternalFrame {
         );
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -199,6 +205,30 @@ public class PropietarioView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreActionPerformed
 
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+       
+        try {
+            int dni = Integer.parseInt(jtDni.getText());
+            String apellido = jtApellido.getText();
+            String nombre = jtNombre.getText();
+            String email = jtEmail.getText();
+            int telefono = Integer.parseInt(jtTelefono.getText());
+            Propietario propietario = new Propietario(dni, apellido, nombre, email, telefono);
+            propData.agregar(propietario);
+            // Limpiar campos
+            clearFields();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void clearFields() {
+        jtDni.setText("");
+        jtApellido.setText("");
+        jtNombre.setText("");
+        jtEmail.setText("");
+        jtTelefono.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
