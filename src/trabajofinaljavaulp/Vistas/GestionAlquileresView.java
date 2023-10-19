@@ -354,8 +354,9 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
         // Listamos los objetos
         ArrayList<Alquiler> alquileres = AlquilerDatos.listar(true);
-        ArrayList<Alquiler> alquileresActivos = AlquilerDatos.listarActivos(true);
-        ArrayList<Alquiler> alquileresNoActivos = AlquilerDatos.listarNoActivos(true);
+        alquileres.addAll(AlquilerDatos.listar(false)); //Añadir los inactivos a la lista general
+        ArrayList<Alquiler> alquileresActivos = AlquilerDatos.listar(true);
+        ArrayList<Alquiler> alquileresNoActivos = AlquilerDatos.listar(false);
 
         // LimpiO las tablas, esto va a ser util si alguna vez necesitamos refrescar las tablas
         modeloTodos.setRowCount(0);
