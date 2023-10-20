@@ -73,6 +73,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jLabel4.setText("Buscar:");
 
         jbEstado.setText("Activar/Desactivar");
+        jbEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEstadoActionPerformed(evt);
+            }
+        });
 
         jbEliminarAlquiler.setText("Eliminar");
         jbEliminarAlquiler.addActionListener(new java.awt.event.ActionListener() {
@@ -366,6 +371,18 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jbEliminarAlquilerActionPerformed
+
+    private void jbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoActionPerformed
+        // TODO add your handling code here:
+        int filaSelect = jtTodos.getSelectedRow();
+        int id = (Integer) jtTodos.getValueAt(filaSelect, 0);
+        boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 5);
+        if(estado){
+            AlquilerDatos.baja(id);
+        }else{
+            AlquilerDatos.alta(id);
+        }    
+    }//GEN-LAST:event_jbEstadoActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
