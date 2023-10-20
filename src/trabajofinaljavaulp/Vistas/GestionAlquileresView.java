@@ -44,42 +44,47 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jtfBuscarTodos = new javax.swing.JTextField();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        jbEstado = new javax.swing.JButton();
+        jbEliminarAlquiler = new javax.swing.JButton();
+        jbNuevoAlquiler = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtTodos = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        jbDetalles = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jtfBuscarActivos = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        jbDesactivar = new javax.swing.JButton();
+        jbEliminarActivo = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtActivos = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        jbDetallesActivo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jtfBuscarNoActivos = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jbActivar = new javax.swing.JButton();
+        jbEliminarNoActivo = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jtNoActivos = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        jbDetallesNoActivo = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
 
         jLabel4.setText("Buscar:");
 
-        jButton13.setText("Activar/Desactivar");
+        jbEstado.setText("Activar/Desactivar");
 
-        jButton14.setText("Eliminar");
-
-        jButton16.setText("Nuevo");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        jbEliminarAlquiler.setText("Eliminar");
+        jbEliminarAlquiler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                jbEliminarAlquilerActionPerformed(evt);
+            }
+        });
+
+        jbNuevoAlquiler.setText("Nuevo");
+        jbNuevoAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoAlquilerActionPerformed(evt);
             }
         });
 
@@ -96,10 +101,10 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         ));
         jScrollPane6.setViewportView(jtTodos);
 
-        jButton2.setText("Detalles");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbDetalles.setText("Detalles");
+        jbDetalles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbDetallesActionPerformed(evt);
             }
         });
 
@@ -114,12 +119,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton16)
-                            .addComponent(jButton14)
-                            .addComponent(jButton13)))
+                            .addComponent(jbNuevoAlquiler)
+                            .addComponent(jbEliminarAlquiler)
+                            .addComponent(jbEstado)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(jbDetalles)))
                 .addGap(104, 104, 104))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -135,13 +140,13 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton16)
+                        .addComponent(jbNuevoAlquiler)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14)
+                        .addComponent(jbEliminarAlquiler)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13)
+                        .addComponent(jbEstado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jbDetalles)
                         .addGap(188, 188, 188))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(73, Short.MAX_VALUE))
@@ -158,9 +163,9 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Buscar:");
 
-        jButton9.setText("Desactivar");
+        jbDesactivar.setText("Desactivar");
 
-        jButton10.setText("Eliminar");
+        jbEliminarActivo.setText("Eliminar");
 
         jtActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,10 +180,10 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         ));
         jScrollPane4.setViewportView(jtActivos);
 
-        jButton3.setText("Detalles");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbDetallesActivo.setText("Detalles");
+        jbDetallesActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbDetallesActivoActionPerformed(evt);
             }
         });
 
@@ -191,10 +196,10 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton10)
+                    .addComponent(jbEliminarActivo)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton3)))
+                        .addComponent(jbDesactivar, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jbDetallesActivo)))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -211,11 +216,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton10)
+                        .addComponent(jbEliminarActivo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9)
+                        .addComponent(jbDesactivar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
+                        .addComponent(jbDetallesActivo)))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -230,14 +235,14 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Buscar:");
 
-        jButton5.setText("Activar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jbActivar.setText("Activar");
+        jbActivar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jbActivarActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Eliminar");
+        jbEliminarNoActivo.setText("Eliminar");
 
         jtNoActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -252,10 +257,10 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         ));
         jScrollPane5.setViewportView(jtNoActivos);
 
-        jButton4.setText("Detalles");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbDetallesNoActivo.setText("Detalles");
+        jbDetallesNoActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbDetallesNoActivoActionPerformed(evt);
             }
         });
 
@@ -268,9 +273,9 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6)
-                    .addComponent(jButton5)
-                    .addComponent(jButton4))
+                    .addComponent(jbEliminarNoActivo)
+                    .addComponent(jbActivar)
+                    .addComponent(jbDetallesNoActivo))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -287,11 +292,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton6)
+                        .addComponent(jbEliminarNoActivo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)
+                        .addComponent(jbActivar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)))
+                        .addComponent(jbDetallesNoActivo)))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -322,36 +327,45 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void jbNuevoAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoAlquilerActionPerformed
+
+        
+        
+        
+    }//GEN-LAST:event_jbNuevoAlquilerActionPerformed
+
+    private void jbActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_jbActivarActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActionPerformed
         DetallesAlquilerView dAV = new DetallesAlquilerView();
         InmobiliariaView.escritorio.add(dAV);
         dAV.moveToFront();
         dAV.setVisible(true);
 
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbDetallesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbDetallesActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActivoActionPerformed
         DetallesAlquilerView dAV = new DetallesAlquilerView();
         InmobiliariaView.escritorio.add(dAV);
         dAV.moveToFront();
         dAV.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbDetallesActivoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jbDetallesNoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesNoActivoActionPerformed
         DetallesAlquilerView dAV = new DetallesAlquilerView();
         InmobiliariaView.escritorio.add(dAV);
         dAV.moveToFront();
         dAV.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbDetallesNoActivoActionPerformed
+
+    private void jbEliminarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlquilerActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_jbEliminarAlquilerActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
@@ -470,16 +484,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -490,6 +494,16 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jbActivar;
+    private javax.swing.JButton jbDesactivar;
+    private javax.swing.JButton jbDetalles;
+    private javax.swing.JButton jbDetallesActivo;
+    private javax.swing.JButton jbDetallesNoActivo;
+    private javax.swing.JButton jbEliminarActivo;
+    private javax.swing.JButton jbEliminarAlquiler;
+    private javax.swing.JButton jbEliminarNoActivo;
+    private javax.swing.JButton jbEstado;
+    private javax.swing.JButton jbNuevoAlquiler;
     private javax.swing.JTable jtActivos;
     private javax.swing.JTable jtNoActivos;
     private javax.swing.JTable jtTodos;
