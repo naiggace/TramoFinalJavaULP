@@ -169,6 +169,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jLabel3.setText("Buscar:");
 
         jbDesactivar.setText("Desactivar");
+        jbDesactivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDesactivarActionPerformed(evt);
+            }
+        });
 
         jbEliminarActivo.setText("Eliminar");
 
@@ -334,13 +339,20 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
     private void jbNuevoAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoAlquilerActionPerformed
 
-        
-        
-        
+
     }//GEN-LAST:event_jbNuevoAlquilerActionPerformed
 
     private void jbActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarActionPerformed
-        // TODO add your handling code here:
+        int filaSelect = jtNoActivos.getSelectedRow();
+        int id = (Integer) jtNoActivos.getValueAt(filaSelect, 0);
+        boolean estado = (boolean) jtNoActivos.getValueAt(filaSelect, 5);
+        if (estado) {
+            AlquilerDatos.baja(id);
+        } else {
+            AlquilerDatos.alta(id);
+        }
+        llenarTablas();
+
     }//GEN-LAST:event_jbActivarActionPerformed
 
     private void jbDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActionPerformed
@@ -348,8 +360,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(dAV);
         dAV.moveToFront();
         dAV.setVisible(true);
-
-
     }//GEN-LAST:event_jbDetallesActionPerformed
 
     private void jbDetallesActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActivoActionPerformed
@@ -367,9 +377,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbDetallesNoActivoActionPerformed
 
     private void jbEliminarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlquilerActionPerformed
-        
-        
-        
+
+
     }//GEN-LAST:event_jbEliminarAlquilerActionPerformed
 
     private void jbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoActionPerformed
@@ -377,12 +386,27 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         int filaSelect = jtTodos.getSelectedRow();
         int id = (Integer) jtTodos.getValueAt(filaSelect, 0);
         boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 5);
-        if(estado){
+        if (estado) {
             AlquilerDatos.baja(id);
-        }else{
+        } else {
             AlquilerDatos.alta(id);
-        }    
+        }
+        llenarTablas();
+
     }//GEN-LAST:event_jbEstadoActionPerformed
+
+    private void jbDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDesactivarActionPerformed
+        int filaSelect = jtActivos.getSelectedRow();
+        int id = (Integer) jtActivos.getValueAt(filaSelect, 0);
+        boolean estado = (boolean) jtActivos.getValueAt(filaSelect, 5);
+        if (estado) {
+            AlquilerDatos.baja(id);
+        } else {
+            AlquilerDatos.alta(id);
+        }
+        llenarTablas();
+
+    }//GEN-LAST:event_jbDesactivarActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.

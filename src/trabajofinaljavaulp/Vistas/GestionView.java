@@ -457,6 +457,7 @@ public class GestionView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(pV);
         pV.moveToFront();
         pV.setVisible(true);
+        llenarTablas();
     }//GEN-LAST:event_jbNuevoPropietarioActionPerformed
 
     private void jbNuevoInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoInquilinoActionPerformed
@@ -464,6 +465,7 @@ public class GestionView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(iV);
         iV.moveToFront();
         iV.setVisible(true);
+        llenarTablas();
     }//GEN-LAST:event_jbNuevoInquilinoActionPerformed
 
     private void jbEditarInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarInquilinoActionPerformed
