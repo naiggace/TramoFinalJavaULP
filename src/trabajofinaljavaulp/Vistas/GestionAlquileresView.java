@@ -12,8 +12,6 @@ import javax.swing.table.TableRowSorter;
 import trabajofinaljavaulp.datos.AlquilerDatos;
 import trabajofinaljavaulp.entidades.Alquiler;
 
-
-
 /**
  *
  * @author naigg
@@ -23,10 +21,10 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     /**
      * Creates new form GestionAlquileresView
      */
-    
     private TableRowSorter<TableModel> sorterTodos;
     private TableRowSorter<TableModel> sorterActivos;
     private TableRowSorter<TableModel> sorterNoActivos;
+
     public GestionAlquileresView() {
         initComponents();
         llenarTablas();
@@ -48,7 +46,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jtfBuscarTodos = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtTodos = new javax.swing.JTable();
@@ -58,8 +55,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jtfBuscarActivos = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtActivos = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
@@ -68,8 +63,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jtfBuscarNoActivos = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jtNoActivos = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
@@ -82,13 +75,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jButton13.setText("Activar/Desactivar");
 
         jButton14.setText("Eliminar");
-
-        jButton15.setText("Editar");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
 
         jButton16.setText("Nuevo");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +97,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jScrollPane6.setViewportView(jtTodos);
 
         jButton2.setText("Detalles");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,12 +115,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton16)
-                            .addComponent(jButton15)
                             .addComponent(jButton14)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jButton13)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton13)))
+                        .addComponent(jButton2)))
                 .addGap(104, 104, 104))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,13 +137,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton13)
-                        .addGap(159, 159, 159)
-                        .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addGap(188, 188, 188))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,10 +162,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
         jButton10.setText("Eliminar");
 
-        jButton11.setText("Editar");
-
-        jButton12.setText("Nuevo");
-
         jtActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -191,6 +176,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jScrollPane4.setViewportView(jtActivos);
 
         jButton3.setText("Detalles");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -201,8 +191,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton12)
-                    .addComponent(jButton11)
                     .addComponent(jButton10)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -220,17 +208,13 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,13 +230,14 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Buscar:");
 
-        jButton5.setText("Desactivar");
+        jButton5.setText("Activar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Eliminar");
-
-        jButton7.setText("Editar");
-
-        jButton8.setText("Nuevo");
 
         jtNoActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -268,6 +253,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(jtNoActivos);
 
         jButton4.setText("Detalles");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -278,12 +268,10 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8)
-                    .addComponent(jButton7)
                     .addComponent(jButton6)
                     .addComponent(jButton5)
                     .addComponent(jButton4))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap()
@@ -296,17 +284,13 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)))
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,9 +326,32 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DetallesAlquilerView dAV = new DetallesAlquilerView();
+        InmobiliariaView.escritorio.add(dAV);
+        dAV.moveToFront();
+        dAV.setVisible(true);
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DetallesAlquilerView dAV = new DetallesAlquilerView();
+        InmobiliariaView.escritorio.add(dAV);
+        dAV.moveToFront();
+        dAV.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        DetallesAlquilerView dAV = new DetallesAlquilerView();
+        InmobiliariaView.escritorio.add(dAV);
+        dAV.moveToFront();
+        dAV.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
@@ -407,30 +414,30 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         }
     }
 
-private void activarFiltros() {
+    private void activarFiltros() {
         //Creamos sorters basados en los modelos
         this.sorterTodos = new TableRowSorter<>(jtTodos.getModel());
         this.sorterActivos = new TableRowSorter<>(jtActivos.getModel());
         this.sorterNoActivos = new TableRowSorter<>(jtNoActivos.getModel());
-        
+
         //Aplicamos los sorters a las tablas
         jtTodos.setRowSorter(sorterTodos);
         jtActivos.setRowSorter(sorterActivos);
         jtNoActivos.setRowSorter(sorterNoActivos);
-        
+
         //Hacemos un arreglo de arreglos que contienen los textfields buscar y los sorters.
-        Object[] sortersyfiltros = new Object[] {
-            new Object[] { jtfBuscarTodos, sorterTodos },
-            new Object[] { jtfBuscarActivos, sorterActivos },
-            new Object[] { jtfBuscarNoActivos, sorterNoActivos }
+        Object[] sortersyfiltros = new Object[]{
+            new Object[]{jtfBuscarTodos, sorterTodos},
+            new Object[]{jtfBuscarActivos, sorterActivos},
+            new Object[]{jtfBuscarNoActivos, sorterNoActivos}
         };
-        
-        for (Object o : sortersyfiltros)  { 
+
+        for (Object o : sortersyfiltros) {
             // Cada objeto es un array que contiene un textfield y un sorter,
             // Extraemos los objetos del array
             JTextField jtf = (JTextField) Array.get(o, 0);
             TableRowSorter trs = (TableRowSorter) Array.get(o, 1);
-            
+
             jtf.getDocument().addDocumentListener(new DocumentListener() {
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -464,19 +471,14 @@ private void activarFiltros() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

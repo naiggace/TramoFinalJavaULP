@@ -445,7 +445,7 @@ public class GestionView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNuevoInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoInmuebleActionPerformed
-        InmuebleView iV=new InmuebleView();
+        InmuebleView iV = new InmuebleView();
         InmobiliariaView.escritorio.add(iV);
         iV.moveToFront();
         iV.setVisible(true);
