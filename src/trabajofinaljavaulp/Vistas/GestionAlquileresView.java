@@ -176,6 +176,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         });
 
         jbEliminarActivo.setText("Eliminar");
+        jbEliminarActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActivoActionPerformed(evt);
+            }
+        });
 
         jtActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -253,6 +258,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         });
 
         jbEliminarNoActivo.setText("Eliminar");
+        jbEliminarNoActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarNoActivoActionPerformed(evt);
+            }
+        });
 
         jtNoActivos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -390,8 +400,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbEliminarAlquilerActionPerformed
 
     private void jbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoActionPerformed
-        // TODO add your handling code here:
-        int filaSelect = jtTodos.getSelectedRow();
+          int filaSelect = jtTodos.getSelectedRow();
         int id = (Integer) jtTodos.getValueAt(filaSelect, 0);
         boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 5);
         if (estado) {
@@ -415,6 +424,32 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         llenarTablas();
 
     }//GEN-LAST:event_jbDesactivarActionPerformed
+
+    private void jbEliminarActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActivoActionPerformed
+    int filaSeleccionada = jtTodos.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
+            AlquilerDatos.eliminar(idAlquiler);
+            // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
+            DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
+            modeloTodos.removeRow(filaSeleccionada);
+            jtTodos.revalidate();
+            jtTodos.repaint();
+        }
+    }//GEN-LAST:event_jbEliminarActivoActionPerformed
+
+    private void jbEliminarNoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarNoActivoActionPerformed
+    int filaSeleccionada = jtTodos.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
+            AlquilerDatos.eliminar(idAlquiler);
+            // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
+            DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
+            modeloTodos.removeRow(filaSeleccionada);
+            jtTodos.revalidate();
+            jtTodos.repaint();
+        }
+    }//GEN-LAST:event_jbEliminarNoActivoActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
