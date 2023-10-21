@@ -87,7 +87,7 @@ public class AlquilerDatos {
      */
     public static void baja(int id) {
         String sql = "UPDATE alquiler SET estado = 0 WHERE idAlquiler= ?";
-        try(PreparedStatement ps = con.prepareStatement(sql)){
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             if (ps.executeUpdate() == 1) {
                 JOptionPane.showMessageDialog(null, "Se ha dado de baja al alquiler", "Baja", JOptionPane.INFORMATION_MESSAGE);
@@ -105,7 +105,7 @@ public class AlquilerDatos {
      */
     public static void alta(int id) {
         String sql = "UPDATE alquiler SET estado = 1 WHERE idAlquiler= ?";
-        try(PreparedStatement ps = con.prepareStatement(sql)){
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             if (ps.executeUpdate() == 1) {
                 JOptionPane.showMessageDialog(null, "Se ha dado de alta al alquiler", "Alta", JOptionPane.INFORMATION_MESSAGE);
@@ -116,25 +116,40 @@ public class AlquilerDatos {
         }
     }
 
+    public static void eliminar(int idAlquiler) {
+        String sql = "DELETE FROM alquiler WHERE idAlquiler = ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idAlquiler);
+            int filasAfectadas = ps.executeUpdate();
+            if (filasAfectadas > 0) {
+                JOptionPane.showMessageDialog(null, "Alquiler eliminado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró el alquiler con ID: " + idAlquiler, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al eliminar el alquiler: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     /**
      * Regresa el <b>Alquiler</b> con el idAlquiler correspondiente.<br>
      * No nos interesa el estado.
      *
      * @param id <i>int</i> corresponde a idAlquiler.
      * @return <b>Alquiler</b>
-     *         <b>null</b> si no hay resultado.
+     * <b>null</b> si no hay resultado.
      * @see Alquiler
      */
     public static Alquiler buscarId(int id) {
         String sql = "SELECT * FROM alquiler WHERE idAlquiler = ?";
         Alquiler alquiler = null;
-        
+
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
-            
+
             //Ejecutamos y guardamos el resultado
             ResultSet rs = ps.executeQuery();
-            
+
             if (rs.next()) { //Si hay resultado
                 // Encontramos el Inmueble
                 int idIn = rs.getInt("idInmueble");
@@ -166,7 +181,7 @@ public class AlquilerDatos {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a alquiler: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
         return alquiler;
     }
 

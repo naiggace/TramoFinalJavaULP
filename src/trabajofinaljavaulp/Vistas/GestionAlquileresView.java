@@ -377,8 +377,16 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbDetallesNoActivoActionPerformed
 
     private void jbEliminarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlquilerActionPerformed
-
-
+        int filaSeleccionada = jtTodos.getSelectedRow();
+        if (filaSeleccionada != -1) {
+            int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
+            AlquilerDatos.eliminar(idAlquiler);
+            // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
+            DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
+            modeloTodos.removeRow(filaSeleccionada);
+            jtTodos.revalidate();
+            jtTodos.repaint();
+        }
     }//GEN-LAST:event_jbEliminarAlquilerActionPerformed
 
     private void jbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoActionPerformed
