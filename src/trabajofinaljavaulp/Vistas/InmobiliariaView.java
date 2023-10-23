@@ -146,7 +146,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
         GestionAlquileresView gAV = new GestionAlquileresView();
         gAV.setVisible(true);
         escritorio.add(gAV);
-        escritorio.moveToFront(gAV);        // TODO add your handling code here:
+        escritorio.moveToFront(gAV);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
   
