@@ -138,5 +138,8 @@ public class Alquiler {
     public String toString() {
         return "Alquiler{" + "idAlquiler=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", monto=" + monto + ", estado=" + estado + ", inmueble=" + inmueble + ", inquilino=" + inquilino + '}';
     }
-
+   
+    public String mensajeID(){
+        return "Id_Alquiler: "+id;
+    }
 }
