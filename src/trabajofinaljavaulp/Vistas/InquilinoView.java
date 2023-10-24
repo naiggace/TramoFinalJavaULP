@@ -15,8 +15,6 @@ import trabajofinaljavaulp.entidades.Propietario;
  * @author HP
  */
 public class InquilinoView extends javax.swing.JInternalFrame {
-
-    private InquilinoDatos inqData = new InquilinoDatos();
     private Inquilino inquilino;
 
     /**
@@ -230,9 +228,17 @@ public class InquilinoView extends javax.swing.JInternalFrame {
             String direccion = jtDireccion.getText();
             String email = jtEmail.getText();
             int telefono = Integer.parseInt(jtTelefono.getText());
-            boolean estado = false;
-            Inquilino inquilino = new Inquilino(dni, nombre, apellido, direccion, email, telefono, estado);
-            inqData.agregar(inquilino);
+            boolean estado = true;
+            Inquilino inquilino = null;
+            if (jbNuevo.getText().equals("Nuevo") ){
+                inquilino = new Inquilino(dni, nombre, apellido, direccion, email, telefono, estado);
+                InquilinoDatos.agregar(inquilino);
+            } else {
+                int id = InquilinoDatos.buscarDni(dni, true).getId();
+                inquilino = new Inquilino(id, dni, nombre, apellido, direccion, email, telefono, estado);
+                InquilinoDatos.modificarDatos(inquilino);
+            }
+            
             // Limpiar campos
             clearFields();
         } catch (NumberFormatException ex) {
