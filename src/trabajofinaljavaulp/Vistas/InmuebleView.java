@@ -95,12 +95,6 @@ public class InmuebleView extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Direccion: ");
 
-        jcbPropietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbPropietarioActionPerformed(evt);
-            }
-        });
-
         jLabel7.setText("Buscar propietario:");
 
         jLabel4.setText("Superficie:");
@@ -241,10 +235,6 @@ public class InmuebleView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbNuevoActionPerformed
-
-    private void jcbPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbPropietarioActionPerformed
-        
-    }//GEN-LAST:event_jcbPropietarioActionPerformed
 
     private void jbNuevoPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoPropietarioActionPerformed
         JDesktopPane escritorio = this.getDesktopPane();

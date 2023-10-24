@@ -500,7 +500,7 @@ public class GestionView extends javax.swing.JInternalFrame implements InternalF
             pV.setVisible(true);
             pV.addInternalFrameListener(this);
         } catch (IndexOutOfBoundsException e) {
-            JOptionPane.showMessageDialog(this,"No ha seleccionado inquilino","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,"No ha seleccionado propietario","Error",JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_jbEditarPropietarioActionPerformed
@@ -513,7 +513,7 @@ public class GestionView extends javax.swing.JInternalFrame implements InternalF
             iV.setVisible(true);
             iV.addInternalFrameListener(this);
         } catch (IndexOutOfBoundsException e) {
-            JOptionPane.showMessageDialog(this,"No ha seleccionado inquilino","Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,"No ha seleccionado inmueble","Error",JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_jbEditarInmueblesActionPerformed
@@ -535,6 +535,7 @@ public class GestionView extends javax.swing.JInternalFrame implements InternalF
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this, "No ha seleccionado propietario","Error", JOptionPane.ERROR_MESSAGE);
         }
+        llenarTablas();
     }//GEN-LAST:event_jbEliminarPropietarioActionPerformed
 
     private void jbEliminarInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarInquilinoActionPerformed
@@ -544,6 +545,7 @@ public class GestionView extends javax.swing.JInternalFrame implements InternalF
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this, "No ha seleccionado inquilino","Error", JOptionPane.ERROR_MESSAGE);
         }
+        llenarTablas();
     }//GEN-LAST:event_jbEliminarInquilinoActionPerformed
 
     private void llenarTablas() {
