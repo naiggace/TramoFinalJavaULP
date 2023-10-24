@@ -316,6 +316,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtTrabajo.setEnabled(false);
         jdcFin.setEnabled(false);
         jdcInicio.setEnabled(false);
+        jbGuardar.setEnabled(false);
 
     }
 
@@ -356,6 +357,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
 
 
+        
+        this.hide();
+        configInicial();
+        cargaDetalles();
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTrabajoActionPerformed
@@ -380,6 +385,8 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtTrabajo.setEnabled(true);
         jdcFin.setEnabled(true);
         jdcInicio.setEnabled(true);
+        jbGuardar.setEnabled(true);
+        jbEditar.setEnabled(false);
     }//GEN-LAST:event_jbEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
