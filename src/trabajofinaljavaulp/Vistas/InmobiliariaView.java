@@ -29,9 +29,6 @@ public class InmobiliariaView extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jmPropietario = new javax.swing.JMenu();
-        jmInquilino = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jmGestion = new javax.swing.JMenuItem();
         jmConsultas = new javax.swing.JMenu();
@@ -53,29 +50,9 @@ public class InmobiliariaView extends javax.swing.JFrame {
             .addGap(0, 511, Short.MAX_VALUE)
         );
 
-        jMenu2.setText("Ingresos");
+        jMenu3.setText("Recursos");
 
-        jmPropietario.setText("Propietarios");
-        jmPropietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmPropietarioActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jmPropietario);
-
-        jmInquilino.setText("Inquilinos");
-        jmInquilino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmInquilinoActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jmInquilino);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Gestion");
-
-        jmGestion.setText("Recursos");
+        jmGestion.setText("Gestion de recursos");
         jmGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmGestionActionPerformed(evt);
@@ -125,22 +102,6 @@ public class InmobiliariaView extends javax.swing.JFrame {
         escritorio.moveToFront(gV);
     }//GEN-LAST:event_jmGestionActionPerformed
 
-    private void jmPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmPropietarioActionPerformed
-        escritorio.repaint();
-        PropietarioView pV=new PropietarioView();
-        pV.setVisible(true);
-        escritorio.add(pV);
-        escritorio.moveToFront(pV);
-    }//GEN-LAST:event_jmPropietarioActionPerformed
-
-    private void jmInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInquilinoActionPerformed
-        escritorio.repaint();
-        InquilinoView iV=new InquilinoView();
-        iV.setVisible(true);
-        escritorio.add(iV);
-        escritorio.moveToFront(iV);
-    }//GEN-LAST:event_jmInquilinoActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         escritorio.repaint();
         GestionAlquileresView gAV = new GestionAlquileresView();
@@ -185,14 +146,11 @@ public class InmobiliariaView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenuItem jmGestion;
-    private javax.swing.JMenu jmInquilino;
-    private javax.swing.JMenu jmPropietario;
     // End of variables declaration//GEN-END:variables
 
      public void FondoPantalla(){

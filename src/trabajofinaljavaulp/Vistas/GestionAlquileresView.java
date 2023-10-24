@@ -27,7 +27,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     private TableRowSorter<TableModel> sorterTodos;
     private TableRowSorter<TableModel> sorterActivos;
     private TableRowSorter<TableModel> sorterNoActivos;
- 
 
     public GestionAlquileresView() {
         initComponents();
@@ -388,12 +387,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }
 
     private void mostrarDetallesAlquiler(int alquilerId) {
-       
+
         DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(alquilerId);
         InmobiliariaView.escritorio.add(detallesAlquilerView);
         detallesAlquilerView.moveToFront();
         detallesAlquilerView.setVisible(true);
-      
+
     }
     private void jbActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarActionPerformed
         int filaSelect = jtNoActivos.getSelectedRow();
@@ -505,6 +504,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jtTodos.repaint();
         }
     }//GEN-LAST:event_jbEliminarNoActivoActionPerformed
+
 
     private void llenarTablas() {
         // Obtenemos los modelos.

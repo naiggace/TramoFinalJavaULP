@@ -13,37 +13,14 @@
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ingresos"/>
-          </Properties>
-          <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jmPropietario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Propietarios"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmPropietarioActionPerformed"/>
-              </Events>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jmInquilino">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Inquilinos"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmInquilinoActionPerformed"/>
-              </Events>
-            </Menu>
-          </SubComponents>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gestion"/>
+            <Property name="text" type="java.lang.String" value="Recursos"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmGestion">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Recursos"/>
+                <Property name="text" type="java.lang.String" value="Gestion de recursos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmGestionActionPerformed"/>
