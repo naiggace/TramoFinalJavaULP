@@ -16,7 +16,7 @@ import trabajofinaljavaulp.entidades.Propietario;
  */
 public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
-    private final int alquilerId;
+    private int alquilerId;
     private AlquilerDatos alqData = new AlquilerDatos();
     private InmuebleDatos inmData = new InmuebleDatos();
     private PropietarioDatos propData = new PropietarioDatos();
@@ -27,16 +27,19 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     /**
      * Creates new form DetallesAlquilerView
      */
-    public DetallesAlquilerView(int alquilerId) {
-        this.alquilerId = alquilerId;
+    public DetallesAlquilerView() {
+        initComponents();
+        configInicial();
+        cargaDetalles();
+    }
+    
+    public DetallesAlquilerView(int id) {
+        alquilerId = id;
         initComponents();
         configInicial();
         cargaDetalles();
     }
 
-    DetallesAlquilerView(Alquiler alquiler) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

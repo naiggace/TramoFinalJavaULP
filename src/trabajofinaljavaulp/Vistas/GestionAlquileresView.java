@@ -368,15 +368,15 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbActivarActionPerformed
 
     private void jbDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActionPerformed
-       
+        mostrarDetallesAlquiler((Integer) jtTodos.getValueAt(jtTodos.getSelectedRow(), 0));
     }//GEN-LAST:event_jbDetallesActionPerformed
 
     private void jbDetallesActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActivoActionPerformed
-
+        mostrarDetallesAlquiler((Integer) jtActivos.getValueAt(jtActivos.getSelectedRow(), 0));
     }//GEN-LAST:event_jbDetallesActivoActionPerformed
 
     private void jbDetallesNoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesNoActivoActionPerformed
-
+        mostrarDetallesAlquiler((Integer) jtNoActivos.getValueAt(jtNoActivos.getSelectedRow(), 0));
     }//GEN-LAST:event_jbDetallesNoActivoActionPerformed
 
     private void jbEliminarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlquilerActionPerformed
