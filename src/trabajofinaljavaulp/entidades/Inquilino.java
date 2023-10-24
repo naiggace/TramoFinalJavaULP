@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Inquilino {
     private int id;
     private int dni;
+    private int cuil;
     private String nombre;
     private String apellido;
     private String direccion;

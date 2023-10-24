@@ -7,6 +7,7 @@ import trabajofinaljavaulp.datos.InmuebleDatos;
 import trabajofinaljavaulp.datos.PropietarioDatos;
 import trabajofinaljavaulp.entidades.Alquiler;
 import trabajofinaljavaulp.entidades.Inmueble;
+import trabajofinaljavaulp.entidades.Inquilino;
 import trabajofinaljavaulp.entidades.Propietario;
 
 /**
@@ -22,7 +23,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private Propietario propietario;
     private Alquiler alquiler;
     private Inmueble inmueble;
-    
 
     /**
      * Creates new form DetallesAlquilerView
@@ -309,10 +309,29 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private void cargaDetalles() {
         Alquiler alquiler = AlquilerDatos.buscarId(alquilerId);
         if (alquiler != null) {
+            Inquilino inquilino = alquiler.getInquilino();
+            Inmueble inmueble = alquiler.getInmueble();
             // Llena los campos correspondientes con los detalles del alquiler
             jtIdAlquiler.setText(String.valueOf(alquiler.getId()));
-            // Llena otros campos con los detalles del alquiler (por ejemplo: jtMontoAlquiler.setText(String.valueOf(alquiler.getMonto());)
-            } else {
+            jtMontoAlquiler.setText(String.valueOf(alquiler.getMonto()));
+            jdcInicio.setDate(alquiler.getFechaInicio());
+            jdcFin.setDate(alquiler.getFechaFin());
+
+            // Llena los campos correspondientes con los detalles del Inquilino
+            jtIdInquilino.setText(String.valueOf( inquilino.getId()));
+            jtApellidoInquilino.setText(inquilino.getApellido());
+            jtCuil.setText(alquiler.getCuit());
+            jtTrabajo.setText(alquiler.getLugarTrabajo());
+            // Llena los campos correspondientes con los detalles del Garante
+            jtNombreGarante.setText(alquiler.getNombreGarante());
+            jtDniGarante.setText(String.valueOf(alquiler.getDniGarante()));
+            // Llena los campos correspondientes con los detalles del alquiler
+
+            // Llena los campos correspondientes con los detalles del Inmueble
+            jtIdInmueble.setText(String.valueOf(inmueble.getId()));
+            jtTipoInmueble.setText(inmueble.getTipo());
+            jtDomicilio.setText(inmueble.getDireccion());
+        } else {
             JOptionPane.showMessageDialog(this, "No se encontraron detalles para el alquiler con ID: " + alquilerId, "Error", JOptionPane.ERROR_MESSAGE);
             this.dispose(); // Cierra la ventana si no se encuentra el alquiler
         }
