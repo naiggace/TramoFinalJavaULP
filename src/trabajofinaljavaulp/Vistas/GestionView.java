@@ -504,9 +504,13 @@ public class GestionView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbEditarInmueblesActionPerformed
 
     private void jbEliminarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarInmuebleActionPerformed
-        int item=(Integer) jtInmuebles.getValueAt(jtInmuebles.getSelectedRow(), 5);
+        try {
+            int item=(Integer) jtInmuebles.getValueAt(jtInmuebles.getSelectedRow(), 5);
+            InmuebleDatos.baja(item);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "No ha seleccionado inmueble","Error", JOptionPane.ERROR_MESSAGE);
+        }
         
-        InmuebleDatos.baja(item);
         
     }//GEN-LAST:event_jbEliminarInmuebleActionPerformed
 
