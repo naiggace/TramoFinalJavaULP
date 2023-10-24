@@ -173,7 +173,7 @@ public class InmuebleDatos {
 
     public static void modificar(Inmueble inmueble) {
 
-        String sql = "UPDATE inmueble SET tipo = ?, direccion = ?, superficie = ?, precio = ?, estado = ? WHERE 1 idPropietario = ?";
+        String sql = "UPDATE inmueble SET tipo = ?, direccion = ?, superficie = ?, precio = ?, estado = ? WHERE estado = 1 AND idInmueble = ?";
 
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, inmueble.getTipo());
