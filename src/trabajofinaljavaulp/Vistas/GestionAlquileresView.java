@@ -369,65 +369,14 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
     private void jbDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActionPerformed
        
-        jtTodos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int filaSeleccionada = jtTodos.getSelectedRow();
-                    if (filaSeleccionada != -1) {
-                        // Obtiene el ID del alquiler seleccionado en la tabla
-                        int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
-                        // Abre el JInternalFrame con los detalles del alquiler seleccionado
-                        DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(idAlquiler);
-                        mostrarDetallesAlquiler(idAlquiler);
-                    }
-                }
-            }
-        });
-      
-
-        
     }//GEN-LAST:event_jbDetallesActionPerformed
-
 
     private void jbDetallesActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActivoActionPerformed
 
-        jtActivos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int filaSeleccionada = jtActivos.getSelectedRow();
-                    if (filaSeleccionada != -1) {
-                        // Obtiene el ID del alquiler seleccionado en la tabla
-                        int idAlquiler = (int) jtActivos.getValueAt(filaSeleccionada, 0);
-                        // Abre el JInternalFrame con los detalles del alquiler seleccionado
-                        DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(idAlquiler);
-                        mostrarDetallesAlquiler(idAlquiler);
-                    }
-                }
-            }
-        });
-      
     }//GEN-LAST:event_jbDetallesActivoActionPerformed
 
     private void jbDetallesNoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesNoActivoActionPerformed
 
-        jtNoActivos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int filaSeleccionada = jtNoActivos.getSelectedRow();
-                    if (filaSeleccionada != -1) {
-                        // Obtiene el ID del alquiler seleccionado en la tabla
-                        int idAlquiler = (int) jtNoActivos.getValueAt(filaSeleccionada, 0);
-                        // Abre el JInternalFrame con los detalles del alquiler seleccionado
-                        DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(idAlquiler);
-                        mostrarDetallesAlquiler(idAlquiler);
-                    }
-                }
-            }
-        });
-      
     }//GEN-LAST:event_jbDetallesNoActivoActionPerformed
 
     private void jbEliminarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlquilerActionPerformed
