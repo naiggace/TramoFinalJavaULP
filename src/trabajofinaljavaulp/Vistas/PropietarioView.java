@@ -15,7 +15,6 @@ public class PropietarioView extends javax.swing.JInternalFrame {
     /**
      * Creates new form PropietarioView
      */
-    private PropietarioDatos propData = new PropietarioDatos();
     private Propietario propietario;
 
     public PropietarioView() {
@@ -213,8 +212,16 @@ public class PropietarioView extends javax.swing.JInternalFrame {
             String nombre = jtNombre.getText();
             String email = jtEmail.getText();
             int telefono = Integer.parseInt(jtTelefono.getText());
-            Propietario propietario = new Propietario(dni, apellido, nombre, email, telefono);
-            propData.agregar(propietario);
+            Propietario propietario = null;
+            if (jbNuevo.getText().equals("Nuevo")) {
+                propietario = new Propietario(dni, apellido, nombre, email, telefono);
+                PropietarioDatos.agregar(propietario);
+            } else {
+                int id = PropietarioDatos.buscarDni(dni, true).getId();
+                propietario = new Propietario(id, dni, apellido, nombre, email, telefono);
+                PropietarioDatos.modificar(propietario);
+            }
+            
             // Limpiar campos
             clearFields();
         } catch (NumberFormatException ex) {
