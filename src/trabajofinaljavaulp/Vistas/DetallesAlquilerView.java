@@ -34,6 +34,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         cargaDetalles();
     }
 
+    DetallesAlquilerView(Alquiler alquiler) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
