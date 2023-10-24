@@ -3,7 +3,11 @@ package trabajofinaljavaulp.Vistas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import trabajofinaljavaulp.datos.AlquilerDatos;
+import trabajofinaljavaulp.datos.InmuebleDatos;
+import trabajofinaljavaulp.datos.PropietarioDatos;
 import trabajofinaljavaulp.entidades.Alquiler;
+import trabajofinaljavaulp.entidades.Inmueble;
+import trabajofinaljavaulp.entidades.Propietario;
 
 /**
  *
@@ -11,13 +15,23 @@ import trabajofinaljavaulp.entidades.Alquiler;
  */
 public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
+    private final int alquilerId;
+    private AlquilerDatos alqData = new AlquilerDatos();
+    private InmuebleDatos inmData = new InmuebleDatos();
+    private PropietarioDatos propData = new PropietarioDatos();
+    private Propietario propietario;
+    private Alquiler alquiler;
+    private Inmueble inmueble;
+    
+
     /**
      * Creates new form DetallesAlquilerView
      */
-    public DetallesAlquilerView() {
+    public DetallesAlquilerView(int alquilerId) {
+        this.alquilerId = alquilerId;
         initComponents();
-        rellenarComboBox();
-      
+        configInicial();
+        cargaDetalles();
     }
 
     /**
@@ -39,7 +53,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtTrabajo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jtNombreGarante = new javax.swing.JTextField();
-        jbEditar = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
         jtCuil = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jtDniGarante = new javax.swing.JTextField();
@@ -54,9 +68,11 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtTipoInmueble = new javax.swing.JTextField();
         jtDomicilio = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jcId = new javax.swing.JComboBox<>();
         jdcFin = new com.toedter.calendar.JDateChooser();
         jdcInicio = new com.toedter.calendar.JDateChooser();
+        jLabel15 = new javax.swing.JLabel();
+        jtIdAlquiler = new javax.swing.JTextField();
+        jbEditar = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
@@ -86,10 +102,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             }
         });
 
-        jbEditar.setText("Editar");
-        jbEditar.addActionListener(new java.awt.event.ActionListener() {
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEditarActionPerformed(evt);
+                jbGuardarActionPerformed(evt);
             }
         });
 
@@ -117,10 +133,12 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Domicilio");
 
-        jcId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jcId.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcIdMouseClicked(evt);
+        jLabel15.setText("IdAlquiler");
+
+        jbEditar.setText("Editar");
+        jbEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditarActionPerformed(evt);
             }
         });
 
@@ -161,15 +179,21 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jtDomicilio))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jcId, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtIdAlquiler)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11)
                         .addGap(16, 16, 16)
                         .addComponent(jtMontoAlquiler))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbEditar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jbEditar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbGuardar))
                             .addComponent(jtTipoInmueble, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,9 +216,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jtMontoAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jcId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jtIdAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel15)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -239,7 +264,9 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                     .addComponent(jLabel14)
                     .addComponent(jtDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbEditar)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbGuardar)
+                    .addComponent(jbEditar))
                 .addContainerGap())
         );
 
@@ -262,14 +289,43 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void configInicial() {
+        jtApellidoInquilino.setEnabled(false);
+        jtCuil.setEnabled(false);
+        jtDniGarante.setEnabled(false);
+        jtDomicilio.setEnabled(false);
+        jtIdAlquiler.setEnabled(false);
+        jtIdInmueble.setEnabled(false);
+        jtIdInquilino.setEnabled(false);
+        jtMontoAlquiler.setEnabled(false);
+        jtNombreGarante.setEnabled(false);
+        jtTipoInmueble.setEnabled(false);
+        jtTrabajo.setEnabled(false);
+        jdcFin.setEnabled(false);
+        jdcInicio.setEnabled(false);
+
+    }
+
+    private void cargaDetalles() {
+        Alquiler alquiler = AlquilerDatos.buscarId(alquilerId);
+        if (alquiler != null) {
+            // Llena los campos correspondientes con los detalles del alquiler
+            jtIdAlquiler.setText(String.valueOf(alquiler.getId()));
+            // Llena otros campos con los detalles del alquiler (por ejemplo: jtMontoAlquiler.setText(String.valueOf(alquiler.getMonto());)
+            } else {
+            JOptionPane.showMessageDialog(this, "No se encontraron detalles para el alquiler con ID: " + alquilerId, "Error", JOptionPane.ERROR_MESSAGE);
+            this.dispose(); // Cierra la ventana si no se encuentra el alquiler
+        }
+
+    }
     private void jtNombreGaranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreGaranteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtNombreGaranteActionPerformed
 
-    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
 
 
-    }//GEN-LAST:event_jbEditarActionPerformed
+    }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTrabajoActionPerformed
         // TODO add your handling code here:
@@ -279,35 +335,29 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtDniGaranteActionPerformed
 
-    private void jcIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcIdMouseClicked
-        // TODO add your handling code here:
-        //llenarFormulario();
-    }//GEN-LAST:event_jcIdMouseClicked
-    private void rellenarComboBox() {
-        jcId.removeAllItems();
-        ArrayList<Alquiler> listaAlquiler = AlquilerDatos.listar(true);
-        for (Alquiler a : listaAlquiler) {
-            
-            jcId.addItem(a.mensajeID());
-        }    
-    }
-//    private void llenarFormulario(){
-//       
-//            Alquiler alquiler =(Alquiler)jcId.getSelectedItem();
-//                jdcInicio.setDate(alquiler.getFechaInicio());
-//                jdcFin.setDate(alquiler.getFechaFin());
-//                jtApellidoInquilino.setText(alquiler.getInquilino().getApellido());
-//                jtMontoAlquiler.setText(alquiler.getMonto()+"");
-//                jtIdInquilino.setText(alquiler.getInquilino().getId()+"");
-//            
-//          
-//    }
+    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
+        jtApellidoInquilino.setEnabled(true);
+        jtCuil.setEnabled(true);
+        jtDniGarante.setEnabled(true);
+        jtDomicilio.setEnabled(true);
+        jtIdAlquiler.setEnabled(false);
+        jtIdInmueble.setEnabled(true);
+        jtIdInquilino.setEnabled(true);
+        jtMontoAlquiler.setEnabled(true);
+        jtNombreGarante.setEnabled(true);
+        jtTipoInmueble.setEnabled(true);
+        jtTrabajo.setEnabled(true);
+        jdcFin.setEnabled(true);
+        jdcInicio.setEnabled(true);
+    }//GEN-LAST:event_jbEditarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -318,13 +368,14 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbEditar;
-    private javax.swing.JComboBox<String> jcId;
+    private javax.swing.JButton jbGuardar;
     private com.toedter.calendar.JDateChooser jdcFin;
     private com.toedter.calendar.JDateChooser jdcInicio;
     private javax.swing.JTextField jtApellidoInquilino;
     private javax.swing.JTextField jtCuil;
     private javax.swing.JTextField jtDniGarante;
     private javax.swing.JTextField jtDomicilio;
+    private javax.swing.JTextField jtIdAlquiler;
     private javax.swing.JTextField jtIdInmueble;
     private javax.swing.JTextField jtIdInquilino;
     private javax.swing.JTextField jtMontoAlquiler;
