@@ -229,19 +229,16 @@ public class InquilinoView extends javax.swing.JInternalFrame {
             String email = jtEmail.getText();
             int telefono = Integer.parseInt(jtTelefono.getText());
             boolean estado = true;
-            Inquilino inquilino = null;
             if (jbNuevo.getText().equals("Nuevo") ){
-                inquilino = new Inquilino(dni, nombre, apellido, direccion, email, telefono, estado);
-                InquilinoDatos.agregar(inquilino);
+                InquilinoDatos.agregar(new Inquilino(dni, nombre, apellido, direccion, email, telefono, estado));
             } else {
                 int id = InquilinoDatos.buscarDni(dni, true).getId();
-                inquilino = new Inquilino(id, dni, nombre, apellido, direccion, email, telefono, estado);
-                InquilinoDatos.modificarDatos(inquilino);
+                InquilinoDatos.modificarDatos(new Inquilino(id, dni, nombre, apellido, direccion, email, telefono, estado));
             }
             
             // Limpiar campos
             clearFields();
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException | NullPointerException ex) {
             JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
