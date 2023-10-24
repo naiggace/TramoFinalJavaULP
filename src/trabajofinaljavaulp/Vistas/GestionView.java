@@ -100,6 +100,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         });
 
         jbEliminarInmueble.setText("Eliminar");
+        jbEliminarInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarInmuebleActionPerformed(evt);
+            }
+        });
 
         jbEditarInmuebles.setText("Editar");
         jbEditarInmuebles.addActionListener(new java.awt.event.ActionListener() {
@@ -497,6 +502,13 @@ public class GestionView extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jbEditarInmueblesActionPerformed
+
+    private void jbEliminarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarInmuebleActionPerformed
+        int item=(Integer) jtInmuebles.getValueAt(jtInmuebles.getSelectedRow(), 5);
+        
+        InmuebleDatos.baja(item);
+        
+    }//GEN-LAST:event_jbEliminarInmuebleActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
