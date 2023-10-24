@@ -45,7 +45,7 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jtDireccion.setText(inmueble.getDireccion());
         jtPrecio.setText(Double.toString(inmueble.getPrecio()));
         jtSuperficie.setText(Double.toString(inmueble.getSuperficie()));
-        jtTipo.setText(inmueble.getTipo());
+        jcbTipo.setSelectedItem(inmueble.getTipo());
         jbNuevo.setText("Guardar");
     }
 
@@ -64,7 +64,6 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jtBuscarProp = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jtTipo = new javax.swing.JTextField();
         jtPrecio = new javax.swing.JTextField();
         jcbPropietario = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -74,6 +73,7 @@ public class InmuebleView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbNuevoPropietario = new javax.swing.JButton();
+        jcbTipo = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setResizable(true);
@@ -117,6 +117,8 @@ public class InmuebleView extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LOCAL", "DEPOSITO", "DEPARTAMENTO", "OFICINA" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,7 +140,10 @@ public class InmuebleView extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtBuscarProp)
                             .addComponent(jtDireccion)
-                            .addComponent(jtTipo)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jcbPropietario, 0, 368, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbNuevoPropietario))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
@@ -146,10 +151,7 @@ public class InmuebleView extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jcbPropietario, 0, 368, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbNuevoPropietario)))
+                            .addComponent(jcbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -171,7 +173,7 @@ public class InmuebleView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -216,7 +218,7 @@ public class InmuebleView extends javax.swing.JInternalFrame {
             String direccion = jtDireccion.getText();
             double precio = Double.parseDouble(jtPrecio.getText());
             double superficie = Double.parseDouble(jtSuperficie.getText());
-            String tipo = jtTipo.getText();
+            String tipo = jcbTipo.getSelectedItem().toString();
             
             //Si algun campo esta vacio
             if (direccion.trim().isEmpty() || tipo.isEmpty()) {
@@ -266,11 +268,11 @@ public class InmuebleView extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbNuevoPropietario;
     private javax.swing.JComboBox<Propietario> jcbPropietario;
+    private javax.swing.JComboBox<String> jcbTipo;
     private javax.swing.JTextField jtBuscarProp;
     private javax.swing.JTextField jtDireccion;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtSuperficie;
-    private javax.swing.JTextField jtTipo;
     // End of variables declaration//GEN-END:variables
 
     private void actualizarComboBox(){

@@ -91,7 +91,11 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jtBuscarProp" alignment="0" max="32767" attributes="0"/>
                               <Component id="jtDireccion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jtTipo" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jcbPropietario" pref="368" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jbNuevoPropietario" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jtPrecio" pref="87" max="32767" attributes="0"/>
@@ -101,11 +105,7 @@
                                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jcbPropietario" pref="368" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jbNuevoPropietario" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jcbTipo" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -135,7 +135,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -170,8 +170,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Direccion: "/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtTipo">
         </Component>
         <Component class="javax.swing.JTextField" name="jtPrecio">
         </Component>
@@ -220,6 +218,16 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevoPropietarioActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jcbTipo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;LOCAL&quot;, &quot;DEPOSITO&quot;, &quot;DEPARTAMENTO&quot;, &quot;OFICINA&quot; })" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
