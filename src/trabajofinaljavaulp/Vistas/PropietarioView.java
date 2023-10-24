@@ -212,19 +212,16 @@ public class PropietarioView extends javax.swing.JInternalFrame {
             String nombre = jtNombre.getText();
             String email = jtEmail.getText();
             int telefono = Integer.parseInt(jtTelefono.getText());
-            Propietario propietario = null;
             if (jbNuevo.getText().equals("Nuevo")) {
-                propietario = new Propietario(dni, apellido, nombre, email, telefono);
-                PropietarioDatos.agregar(propietario);
+                PropietarioDatos.agregar(new Propietario(dni, apellido, nombre, email, telefono));
             } else {
                 int id = PropietarioDatos.buscarDni(dni, true).getId();
-                propietario = new Propietario(id, dni, apellido, nombre, email, telefono);
-                PropietarioDatos.modificar(propietario);
+                PropietarioDatos.modificar(new Propietario(id, dni, apellido, nombre, email, telefono));
             }
             
             // Limpiar campos
             clearFields();
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException | NullPointerException ex) {
             JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbNuevoActionPerformed
