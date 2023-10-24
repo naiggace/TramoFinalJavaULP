@@ -171,7 +171,7 @@ public class InmuebleDatos {
         }
     }
 
-    public void modificar(Inmueble inmueble) {
+    public static void modificar(Inmueble inmueble) {
 
         String sql = "UPDATE inmueble SET tipo = ?, direccion = ?, superficie = ?, precio = ?, estado = ? WHERE 1 idPropietario = ?";
 
