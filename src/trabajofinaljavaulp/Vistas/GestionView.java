@@ -100,6 +100,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         });
 
         jbEliminarInmueble.setText("Eliminar");
+        jbEliminarInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarInmuebleActionPerformed(evt);
+            }
+        });
 
         jbEditarInmuebles.setText("Editar");
         jbEditarInmuebles.addActionListener(new java.awt.event.ActionListener() {
@@ -213,6 +218,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         });
 
         jbEliminarPropietario.setText("Eliminar");
+        jbEliminarPropietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarPropietarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -319,6 +329,11 @@ public class GestionView extends javax.swing.JInternalFrame {
         });
 
         jbEliminarInquilino.setText("Eliminar");
+        jbEliminarInquilino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarInquilinoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -497,6 +512,35 @@ public class GestionView extends javax.swing.JInternalFrame {
         }
 
     }//GEN-LAST:event_jbEditarInmueblesActionPerformed
+
+    private void jbEliminarInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarInmuebleActionPerformed
+        try {
+            int item=(Integer) jtInmuebles.getValueAt(jtInmuebles.getSelectedRow(), 5);
+            InmuebleDatos.baja(item);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "No ha seleccionado inmueble","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_jbEliminarInmuebleActionPerformed
+
+    private void jbEliminarPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarPropietarioActionPerformed
+          try {
+            int item=(Integer) jtPropietarios.getValueAt(jtPropietarios.getSelectedRow(), 5);
+            PropietarioDatos.baja(item);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "No ha seleccionado propietario","Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbEliminarPropietarioActionPerformed
+
+    private void jbEliminarInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarInquilinoActionPerformed
+          try {
+            int item=(Integer) jtInquilinos.getValueAt(jtInquilinos.getSelectedRow(), 6);
+            InquilinoDatos.baja(item);
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "No ha seleccionado inquilino","Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbEliminarInquilinoActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.

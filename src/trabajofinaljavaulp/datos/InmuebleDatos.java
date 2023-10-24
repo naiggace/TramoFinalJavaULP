@@ -50,7 +50,7 @@ public class InmuebleDatos {
      */
     public static void baja(int idInmueble) {
         // Llenamos el statement
-        String sql = "UPDATE inmueble SET estado = 0 WHERE idInquilino = ?";
+        String sql = "UPDATE inmueble SET estado = 0 WHERE idInmueble = ?";
 
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             //LLenamos el statement
@@ -171,9 +171,9 @@ public class InmuebleDatos {
         }
     }
 
-    public void modificar(Inmueble inmueble) {
+    public static void modificar(Inmueble inmueble) {
 
-        String sql = "UPDATE inmueble SET tipo = ?, direccion = ?, superficie = ?, precio = ?, estado = ? WHERE 1 idPropietario = ?";
+        String sql = "UPDATE inmueble SET tipo = ?, direccion = ?, superficie = ?, precio = ?, estado = ? WHERE estado = 1 AND idInmueble = ?";
 
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, inmueble.getTipo());
