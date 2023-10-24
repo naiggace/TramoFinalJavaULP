@@ -346,46 +346,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listeners() {
-        // Agregar ListSelectionListener a las tablas
-        jtTodos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int selectedRow = jtTodos.getSelectedRow();
-                    if (selectedRow != -1) {
-                        int alquilerId = (int) jtTodos.getValueAt(selectedRow, 0);
-                        mostrarDetallesAlquiler(alquilerId);
-                    }
-                }
-            }
-        });
-        jtActivos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int selectedRow = jtActivos.getSelectedRow();
-                    if (selectedRow != -1) {
-                        int alquilerId = (int) jtActivos.getValueAt(selectedRow, 0);
-                        mostrarDetallesAlquiler(alquilerId);
-                    }
-                }
-            }
-        });
-        jtNoActivos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int selectedRow = jtNoActivos.getSelectedRow();
-                    if (selectedRow != -1) {
-                        int alquilerId = (int) jtNoActivos.getValueAt(selectedRow, 0);
-                        mostrarDetallesAlquiler(alquilerId);
-                    }
-                }
-            }
-        });
-    }
-
     private void mostrarDetallesAlquiler(int alquilerId) {
 
         DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(alquilerId);
@@ -408,36 +368,66 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbActivarActionPerformed
 
     private void jbDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActionPerformed
-        int selectedRow = jtTodos.getSelectedRow(); // fila seleccionada
+       
+        jtTodos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    int filaSeleccionada = jtTodos.getSelectedRow();
+                    if (filaSeleccionada != -1) {
+                        // Obtiene el ID del alquiler seleccionado en la tabla
+                        int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
+                        // Abre el JInternalFrame con los detalles del alquiler seleccionado
+                        DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(idAlquiler);
+                        mostrarDetallesAlquiler(idAlquiler);
+                    }
+                }
+            }
+        });
+      
 
-        if (selectedRow != -1) { // Si hay una fila seleccionada
-            listeners(); // Llama al método listeners para abrir la ventana de detalles
-        } else {
-            // Si no hay ninguna fila seleccionada, muestra un mensaje al usuario o toma la acción que consideres adecuada.
-            JOptionPane.showMessageDialog(this, "Por favor, selecciona un alquiler para ver los detalles.", "Sin selección", JOptionPane.WARNING_MESSAGE);
-        }
+        
     }//GEN-LAST:event_jbDetallesActionPerformed
 
-    private void jbDetallesActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActivoActionPerformed
-        int selectedRow = jtTodos.getSelectedRow(); // fila seleccionada
 
-        if (selectedRow != -1) { // Si hay una fila seleccionada
-            listeners(); // Llama al método listeners para abrir la ventana de detalles
-        } else {
-            // Si no hay ninguna fila seleccionada, muestra un mensaje al usuario o toma la acción que consideres adecuada.
-            JOptionPane.showMessageDialog(this, "Por favor, selecciona un alquiler para ver los detalles.", "Sin selección", JOptionPane.WARNING_MESSAGE);
-        }
+    private void jbDetallesActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActivoActionPerformed
+
+        jtActivos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    int filaSeleccionada = jtActivos.getSelectedRow();
+                    if (filaSeleccionada != -1) {
+                        // Obtiene el ID del alquiler seleccionado en la tabla
+                        int idAlquiler = (int) jtActivos.getValueAt(filaSeleccionada, 0);
+                        // Abre el JInternalFrame con los detalles del alquiler seleccionado
+                        DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(idAlquiler);
+                        mostrarDetallesAlquiler(idAlquiler);
+                    }
+                }
+            }
+        });
+      
     }//GEN-LAST:event_jbDetallesActivoActionPerformed
 
     private void jbDetallesNoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesNoActivoActionPerformed
-        int selectedRow = jtTodos.getSelectedRow(); // fila seleccionada
 
-        if (selectedRow != -1) { // Si hay una fila seleccionada
-            listeners(); // Llama al método listeners para abrir la ventana de detalles
-        } else {
-            // Si no hay ninguna fila seleccionada, muestra un mensaje al usuario o toma la acción que consideres adecuada.
-            JOptionPane.showMessageDialog(this, "Por favor, selecciona un alquiler para ver los detalles.", "Sin selección", JOptionPane.WARNING_MESSAGE);
-        }
+        jtNoActivos.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting()) {
+                    int filaSeleccionada = jtNoActivos.getSelectedRow();
+                    if (filaSeleccionada != -1) {
+                        // Obtiene el ID del alquiler seleccionado en la tabla
+                        int idAlquiler = (int) jtNoActivos.getValueAt(filaSeleccionada, 0);
+                        // Abre el JInternalFrame con los detalles del alquiler seleccionado
+                        DetallesAlquilerView detallesAlquilerView = new DetallesAlquilerView(idAlquiler);
+                        mostrarDetallesAlquiler(idAlquiler);
+                    }
+                }
+            }
+        });
+      
     }//GEN-LAST:event_jbDetallesNoActivoActionPerformed
 
     private void jbEliminarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarAlquilerActionPerformed
@@ -504,7 +494,6 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jtTodos.repaint();
         }
     }//GEN-LAST:event_jbEliminarNoActivoActionPerformed
-
 
     private void llenarTablas() {
         // Obtenemos los modelos.
