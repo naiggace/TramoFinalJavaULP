@@ -218,6 +218,11 @@ public class InmuebleView extends javax.swing.JInternalFrame {
             double superficie = Double.parseDouble(jtSuperficie.getText());
             String tipo = jtTipo.getText();
             
+            //Si algun campo esta vacio
+            if (direccion.trim().isEmpty() || tipo.isEmpty()) {
+                throw new IllegalStateException();
+            }
+            
             if (jbNuevo.getText().equals("Nuevo")) {
                 InmuebleDatos.agregar(new Inmueble(direccion, propietario, tipo, superficie, precio, true));
             } else {
@@ -229,7 +234,8 @@ public class InmuebleView extends javax.swing.JInternalFrame {
                 InmuebleDatos.modificar(inmueble);
             }
             
-        } catch (NumberFormatException | NullPointerException ex) {
+            this.dispose();
+        } catch (IllegalStateException | NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbNuevoActionPerformed

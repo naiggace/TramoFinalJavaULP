@@ -8,6 +8,8 @@ import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -22,7 +24,7 @@ import trabajofinaljavaulp.entidades.Propietario;
  *
  * @author nikan
  */
-public class GestionView extends javax.swing.JInternalFrame {
+public class GestionView extends javax.swing.JInternalFrame implements InternalFrameListener {
 
     private TableRowSorter<TableModel> sorterInmuebles;
     private TableRowSorter<TableModel> sorterPropietarios;
@@ -448,7 +450,7 @@ public class GestionView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(iV);
         iV.moveToFront();
         iV.setVisible(true);
-        
+        iV.addInternalFrameListener(this);
     }//GEN-LAST:event_jbNuevoInmuebleActionPerformed
 
     private void jbNuevoPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoPropietarioActionPerformed
@@ -456,7 +458,7 @@ public class GestionView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(pV);
         pV.moveToFront();
         pV.setVisible(true);
-        llenarTablas();
+        pV.addInternalFrameListener(this);
     }//GEN-LAST:event_jbNuevoPropietarioActionPerformed
 
     private void jbNuevoInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoInquilinoActionPerformed
@@ -464,7 +466,7 @@ public class GestionView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(iV);
         iV.moveToFront();
         iV.setVisible(true);
-        llenarTablas();
+        iV.addInternalFrameListener(this);
     }//GEN-LAST:event_jbNuevoInquilinoActionPerformed
 
     private void jbEditarInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarInquilinoActionPerformed
@@ -473,6 +475,7 @@ public class GestionView extends javax.swing.JInternalFrame {
             InmobiliariaView.escritorio.add(iV);
             iV.moveToFront();
             iV.setVisible(true);
+            iV.addInternalFrameListener(this);
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this,"No ha seleccionado inquilino","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -485,6 +488,7 @@ public class GestionView extends javax.swing.JInternalFrame {
             InmobiliariaView.escritorio.add(pV);
             pV.moveToFront();
             pV.setVisible(true);
+            pV.addInternalFrameListener(this);
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this,"No ha seleccionado inquilino","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -497,6 +501,7 @@ public class GestionView extends javax.swing.JInternalFrame {
             InmobiliariaView.escritorio.add(iV);
             iV.moveToFront();
             iV.setVisible(true);
+            iV.addInternalFrameListener(this);
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this,"No ha seleccionado inquilino","Error",JOptionPane.ERROR_MESSAGE);
         }
@@ -510,8 +515,7 @@ public class GestionView extends javax.swing.JInternalFrame {
         } catch (IndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(this, "No ha seleccionado inmueble","Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
+        llenarTablas();
     }//GEN-LAST:event_jbEliminarInmuebleActionPerformed
 
     private void llenarTablas() {
@@ -631,4 +635,29 @@ public class GestionView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfBuscarPropietario;
     // End of variables declaration//GEN-END:variables
 
+   @Override
+    public void internalFrameClosed(InternalFrameEvent e) {
+        System.out.println("Actualizando tablas...");
+        llenarTablas();
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="internal frame unused events"> 
+    @Override
+    public void internalFrameOpened(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameClosing(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameIconified(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameDeiconified(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameActivated(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameDeactivated(InternalFrameEvent e) {}
+    // </editor-fold>  
 }

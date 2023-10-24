@@ -212,6 +212,14 @@ public class PropietarioView extends javax.swing.JInternalFrame {
             String nombre = jtNombre.getText();
             String email = jtEmail.getText();
             int telefono = Integer.parseInt(jtTelefono.getText());
+            
+            // Si algun campo esta vacio
+            if ( apellido.trim().isEmpty() ||
+                    nombre.trim().isEmpty() ||
+                    email.trim().isEmpty()) {
+                throw new IllegalStateException();
+            }
+            
             if (jbNuevo.getText().equals("Nuevo")) {
                 PropietarioDatos.agregar(new Propietario(dni, apellido, nombre, email, telefono));
             } else {
@@ -219,9 +227,9 @@ public class PropietarioView extends javax.swing.JInternalFrame {
                 PropietarioDatos.modificar(new Propietario(id, dni, apellido, nombre, email, telefono));
             }
             
-            // Limpiar campos
-            clearFields();
-        } catch (NumberFormatException | NullPointerException ex) {
+            // cerrar
+            this.dispose();
+        } catch (NumberFormatException | IllegalStateException ex) {
             JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbNuevoActionPerformed
