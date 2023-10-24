@@ -325,8 +325,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             // Llena los campos correspondientes con los detalles del Garante
             jtNombreGarante.setText(alquiler.getNombreGarante());
             jtDniGarante.setText(String.valueOf(alquiler.getDniGarante()));
-            // Llena los campos correspondientes con los detalles del alquiler
-
+            
             // Llena los campos correspondientes con los detalles del Inmueble
             jtIdInmueble.setText(String.valueOf(inmueble.getId()));
             jtTipoInmueble.setText(inmueble.getTipo());
