@@ -91,6 +91,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         });
 
         jbNuevoAlquiler.setText("Nuevo");
+        jbNuevoAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoAlquilerActionPerformed(evt);
+            }
+        });
 
         jtTodos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -354,6 +359,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         detallesAlquilerView.setVisible(true);
 
     }
+    private void vistaAlquilerNuevo(){
+        AlquilerView vista = new AlquilerView();
+        InmobiliariaView.escritorio.add(vista);
+        vista.moveToFront();
+        vista.setVisible(true);
+    }
     private void jbActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarActionPerformed
         int filaSelect = jtNoActivos.getSelectedRow();
         int id = (Integer) jtNoActivos.getValueAt(filaSelect, 0);
@@ -443,6 +454,11 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jtTodos.repaint();
         }
     }//GEN-LAST:event_jbEliminarNoActivoActionPerformed
+
+    private void jbNuevoAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoAlquilerActionPerformed
+        // TODO add your handling code here:
+        vistaAlquilerNuevo();
+    }//GEN-LAST:event_jbNuevoAlquilerActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
