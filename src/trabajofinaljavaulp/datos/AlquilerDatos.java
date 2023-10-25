@@ -237,4 +237,30 @@ public class AlquilerDatos {
         }
         return alquileres;
     }
+
+    public static void modificar(Alquiler alquiler) {
+        String sql = "UPDATE alquiler SET idInquilino=?,idInmueble=?,cuitInquilino=?,lugarTrabajo=?,nombreGarante=?,"
+                + "dniGarante=?,fechaInicio=?,fechaFin=?,estado=?,montoAlquiler=? WHERE idAlquiler=?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, alquiler.getInquilino().getId());
+            ps.setInt(2, alquiler.getInmueble().getId());
+            ps.setString(3, alquiler.getCuit());
+            ps.setString(4, alquiler.getLugarTrabajo());
+            ps.setString(5, alquiler.getNombreGarante());
+            ps.setInt(6, alquiler.getDniGarante());
+            ps.setDate(7, alquiler.getFechaInicio());
+            ps.setDate(8, alquiler.getFechaFin());
+            ps.setBoolean(9, alquiler.isEstado());
+            ps.setDouble(10, alquiler.getMonto());
+            ps.setInt(11, alquiler.getId());
+
+            int filasAfectadas = ps.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                JOptionPane.showMessageDialog(null, "Alquiler modificado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al modificar el alquiler: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
