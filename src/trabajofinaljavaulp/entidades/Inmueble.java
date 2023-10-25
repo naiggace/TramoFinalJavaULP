@@ -102,7 +102,7 @@ public class Inmueble {
 
     @Override
     public String toString() {
-        return direccion + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio;
+        return "ID: "+id+"-"+direccion + ", tipo=" + tipo + ", superficie=" + superficie + ", precio=" + precio;
     }
 
 }
