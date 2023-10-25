@@ -275,4 +275,30 @@ public class InquilinoDatos {
         
         return inquilinos;
     }
+    
+    /**
+     * Regresa el id basado en el dni, regresa <b>-1</b> si no se encuentra.
+     * @param dni el dni
+     * @return idInquilino correspondiente al dni
+     * @see Inquilino
+     */
+    public static int getId(int dni) {
+        String sql = "SELECT idInquilino FROM inquilino WHERE dni = ?";
+        int resultado = -1;
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, dni);
+            
+            // Ejecutamos y guardamos el resultado
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                resultado = rs.getInt("idInquilino");
+            }
+        } catch (SQLException ex) {
+            
+        } finally {
+            return resultado;
+        }
+    }
 }

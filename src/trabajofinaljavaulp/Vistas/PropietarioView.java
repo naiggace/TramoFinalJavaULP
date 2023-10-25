@@ -221,7 +221,16 @@ public class PropietarioView extends javax.swing.JInternalFrame {
             }
             
             if (jbNuevo.getText().equals("Nuevo")) {
-                PropietarioDatos.agregar(new Propietario(dni, apellido, nombre, email, telefono));
+                int id = PropietarioDatos.getId(dni);
+                switch (PropietarioDatos.existe(id)) {
+                    case 0: // El propietario no existe y se agrega uno
+                        PropietarioDatos.agregar(new Propietario(dni, apellido, nombre, email, telefono));
+                        break;
+                    case 2: // Si existe y esta dado de baja le damos de alta, dejamos que el codigo siga al caso 1, donde se modifica el propietario.
+                        PropietarioDatos.alta(id);
+                    case 1: // El propietario existe y esta de alta, solo lo modificamos
+                        PropietarioDatos.modificar(new Propietario(id, dni, apellido, nombre, email, telefono));
+                }
             } else {
                 int id = PropietarioDatos.buscarDni(dni, true).getId();
                 PropietarioDatos.modificar(new Propietario(id, dni, apellido, nombre, email, telefono));

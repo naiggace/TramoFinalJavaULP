@@ -239,7 +239,16 @@ public class InquilinoView extends javax.swing.JInternalFrame {
             
             boolean estado = true;
             if (jbNuevo.getText().equals("Nuevo") ){
-                InquilinoDatos.agregar(new Inquilino(dni, nombre, apellido, direccion, email, telefono, estado));
+                int id = InquilinoDatos.getId(dni);
+                switch (InquilinoDatos.existe(id)) {
+                    case 0: // El inquilino no existe, lo agregamos
+                        InquilinoDatos.agregar(new Inquilino(dni, nombre, apellido, direccion, email, telefono, estado));
+                        break;
+                    case 2: // El inquilino existe y no esta activo lo activamos y dejamos que baje al caso 1.
+                        InquilinoDatos.alta(id);
+                    case 1: // El inquilino existe y esta activo, guardamos los nuevos datos.
+                        InquilinoDatos.modificarDatos(new Inquilino(id, dni, nombre, apellido, direccion, email, telefono, estado));
+                }
             } else {
                 int id = InquilinoDatos.buscarDni(dni, true).getId();
                 InquilinoDatos.modificarDatos(new Inquilino(id, dni, nombre, apellido, direccion, email, telefono, estado));

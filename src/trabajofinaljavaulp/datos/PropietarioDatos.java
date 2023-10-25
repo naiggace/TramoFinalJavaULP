@@ -258,4 +258,31 @@ public class PropietarioDatos {
         
         return propietarios;
     }
+    
+    
+    /**
+     * Regresa el id basado en el dni, regresa <b>-1</b> si no se encuentra.
+     * @param dni el dni
+     * @return idPropietario correspondiente al dni
+     * @see Propietario
+     */
+    public static int getId(int dni) {
+        String sql = "SELECT idPropietario FROM propietario WHERE dni = ?";
+        int resultado = -1;
+        
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, dni);
+            
+            // Ejecutamos y guardamos el resultado
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                resultado = rs.getInt("idPropietario");
+            }
+        } catch (SQLException ex) {
+            
+        } finally {
+            return resultado;
+        }
+    }
 }
