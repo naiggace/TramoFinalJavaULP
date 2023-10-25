@@ -252,7 +252,7 @@ public class AlquilerView extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Double monto = Double.parseDouble(jtMontoAlquiler.getText());
+        Double monto = Double.valueOf(jtMontoAlquiler.getText());
         int idIn = Integer.parseInt(jtIdInquilino.getText());
         Inquilino inquilino = InquilinoDatos.buscarId(idIn, true); 
         String cuil = jtCuil.getText();
@@ -260,8 +260,8 @@ public class AlquilerView extends javax.swing.JInternalFrame {
         String trabajo = jtTrabajo.getText();
        
         int dni = Integer.parseInt(jtDniGarante.getText());
-        Date fechaInicio = (java.sql.Date) jdcInicio.getDate();
-        Date fechaFin = (java.sql.Date) jdcFin.getDate();
+        Date fechaInicio = new java.sql.Date(jdcInicio.getDate().getTime());
+        Date fechaFin = new java.sql.Date(jdcFin.getDate().getTime());
         int idInm = Integer.parseInt(jtIdInmueble.getText());
         Inmueble inmueble = InmuebleDatos.buscar(idInm, true);
         Alquiler nuevo = new Alquiler(fechaInicio, fechaFin, monto, cuil, nombreGarante, dni, trabajo, true, inmueble, inquilino);

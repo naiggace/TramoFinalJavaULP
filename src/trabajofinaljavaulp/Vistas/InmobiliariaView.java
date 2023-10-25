@@ -43,11 +43,11 @@ public class InmobiliariaView extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 814, Short.MAX_VALUE)
+            .addGap(0, 1344, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+            .addGap(0, 721, Short.MAX_VALUE)
         );
 
         jMenu3.setText("Recursos");

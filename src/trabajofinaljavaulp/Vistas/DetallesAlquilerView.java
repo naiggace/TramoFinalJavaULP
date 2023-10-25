@@ -384,20 +384,18 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             boolean estado = jcEstado.isSelected();
             double montoAlquiler = Double.parseDouble(jtMontoAlquiler.getText());
 
-            
-            
-            
+     
             // Crea un objeto Inmueble con los datos seleccionados
-            Inmueble inmuebleNuevo = inmData.buscar(idInmueble, true);
+            Inmueble inmuebleNuevo = InmuebleDatos.buscar(idInmueble, true);
 
             // Crea un objeto Inquilino con los datos seleccionados
-            Inquilino inquilinoNuevo = inqData.buscarId(idInquilino, true);
+            Inquilino inquilinoNuevo = InquilinoDatos.buscarId(idInquilino, true);
 
             // Crea un objeto Alquiler con los datos de los campos editables
             Alquiler alquilerEditado = new Alquiler(fechaInicio, fechaFin, montoAlquiler, cuitInquilino, nombreGarante, dniGarante, lugarTrabajo, estado, inmuebleNuevo, inquilinoNuevo);
 
             // Guarda los cambios en la base de datos
-            alqData.modificar(alquilerEditado);
+            AlquilerDatos.modificar(alquilerEditado);
 
             // Muestra un mensaje de éxito
              JOptionPane.showMessageDialog(this, "Detalles de alquiler editados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
