@@ -141,7 +141,7 @@ public class Inquilino {
 
     @Override
     public String toString() {
-        return "ID:"+id+ "nombre=" + nombre + ", apellido=" + apellido + 
-                ", dni=" + dni +"Email= "+email+" Telefono= "+telefono+ '}';
+        return "ID "+id+ " | " + nombre + " | " + apellido + 
+                " | dni " + dni +" | Email "+email+" | Telefono "+telefono+ '}';
     }
 }
