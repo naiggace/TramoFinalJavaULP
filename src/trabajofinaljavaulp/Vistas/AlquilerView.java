@@ -260,8 +260,8 @@ public class AlquilerView extends javax.swing.JInternalFrame {
         String trabajo = jtTrabajo.getText();
        
         int dni = Integer.parseInt(jtDniGarante.getText());
-        java.sql.Date fechaInicio = (java.sql.Date) jdcInicio.getDate();
-        java.sql.Date fechaFin = (java.sql.Date) jdcFin.getDate();
+        Date fechaInicio = (java.sql.Date) jdcInicio.getDate();
+        Date fechaFin = (java.sql.Date) jdcFin.getDate();
         int idInm = Integer.parseInt(jtIdInmueble.getText());
         Inmueble inmueble = InmuebleDatos.buscar(idInm, true);
         Alquiler nuevo = new Alquiler(fechaInicio, fechaFin, monto, cuil, nombreGarante, dni, trabajo, true, inmueble, inquilino);
