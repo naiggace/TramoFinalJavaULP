@@ -246,8 +246,9 @@ public class InquilinoView extends javax.swing.JInternalFrame {
                         break;
                     case 2: // El inquilino existe y no esta activo lo activamos y dejamos que baje al caso 1.
                         InquilinoDatos.alta(id);
-                    case 1: // El inquilino existe y esta activo, guardamos los nuevos datos.
                         InquilinoDatos.modificarDatos(new Inquilino(id, dni, nombre, apellido, direccion, email, telefono, estado));
+                    case 1: // El inquilino existe y esta activo, guardamos los nuevos datos.
+                        JOptionPane.showMessageDialog(null, "DNI duplicado.", "DNI duplicado", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
                 int id = InquilinoDatos.buscarDni(dni, true).getId();

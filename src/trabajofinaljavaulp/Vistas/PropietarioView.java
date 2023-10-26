@@ -228,8 +228,9 @@ public class PropietarioView extends javax.swing.JInternalFrame {
                         break;
                     case 2: // Si existe y esta dado de baja le damos de alta, dejamos que el codigo siga al caso 1, donde se modifica el propietario.
                         PropietarioDatos.alta(id);
-                    case 1: // El propietario existe y esta de alta, solo lo modificamos
                         PropietarioDatos.modificar(new Propietario(id, dni, apellido, nombre, email, telefono));
+                    case 1: // El propietario existe y esta de alta, solo lo modificamos
+                        JOptionPane.showMessageDialog(null, "DNI duplicado.", "DNI duplicado", JOptionPane.WARNING_MESSAGE);
                 }
             } else {
                 int id = PropietarioDatos.buscarDni(dni, true).getId();
