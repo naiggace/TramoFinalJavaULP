@@ -110,6 +110,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jLabel19 = new javax.swing.JLabel();
         jtBuscarInmueble = new javax.swing.JTextField();
         jtNombreInquilino = new javax.swing.JTextField();
+        jtSuperficie = new javax.swing.JTextField();
+        jtPrecio = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -205,6 +209,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
         jLabel19.setText("Buscar Inmueble");
 
+        jLabel20.setText("Precio Base $");
+
+        jLabel21.setText("m2");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -270,10 +278,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtDniGarante))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtDomicilio))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -290,24 +294,37 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtTipoInmueble, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jcbInmueble, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtTipoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jbNuevoInmueble))))))
+                                        .addComponent(jtSuperficie))
+                                    .addComponent(jcbInmueble, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jbNuevoInmueble)
+                                    .addComponent(jLabel21)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel19)
                         .addGap(89, 89, 89)
                         .addComponent(jtBuscarInmueble))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcEstado)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addGap(89, 89, 89)
-                        .addComponent(jtBuscarInquilino)))
+                        .addComponent(jtBuscarInquilino))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcEstado))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(jLabel20)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -381,11 +398,15 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
-                    .addComponent(jtTipoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtTipoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jtDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtDomicilio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
@@ -437,6 +458,8 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtNombreInquilino.setEnabled(false);
         jbNuevoInquilino.setEnabled(false);
         jbNuevoInmueble.setEnabled(false);
+        jtPrecio.setEnabled(false);
+        jtSuperficie.setEnabled(false);
     }
 
     private void cargaDetalles() {
@@ -465,6 +488,8 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             jtIdInmueble.setText(String.valueOf(inmueble.getId()));
             jtTipoInmueble.setText(inmueble.getTipo());
             jtDomicilio.setText(inmueble.getDireccion());
+            jtPrecio.setText(String.valueOf(inmueble.getPrecio()));
+            jtSuperficie.setText(String.valueOf(inmueble.getSuperficie()));
         } else {
             JOptionPane.showMessageDialog(this, "No se encontraron detalles para el alquiler con ID: " + alquilerId, "Error", JOptionPane.ERROR_MESSAGE);
             this.dispose(); // Cierra la ventana si no se encuentra el alquiler
@@ -546,6 +571,8 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtBuscarInmueble.setEnabled(true);
         jbNuevoInquilino.setEnabled(true);
         jbNuevoInmueble.setEnabled(true);
+        jtPrecio.setEnabled(false);
+        jtSuperficie.setEnabled(false);
     }//GEN-LAST:event_jbEditarActionPerformed
 
     private void jbNuevoInquilinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoInquilinoActionPerformed
@@ -602,6 +629,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         DefaultComboBoxModel<Inquilino> model = new DefaultComboBoxModel<>(result.toArray(new Inquilino[0]));
         jcbInquilino.setModel(model);
     }
+
     private void actualizarComboBoxInmueble() {
         // Asocia un DocumentListener al JTextField jtBuscarProp
         jtBuscarInmueble.getDocument().addDocumentListener(new DocumentListener() {
@@ -652,6 +680,8 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -681,9 +711,10 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtMontoAlquiler;
     private javax.swing.JTextField jtNombreGarante;
     private javax.swing.JTextField jtNombreInquilino;
+    private javax.swing.JTextField jtPrecio;
+    private javax.swing.JTextField jtSuperficie;
     private javax.swing.JTextField jtTipoInmueble;
     private javax.swing.JTextField jtTrabajo;
     // End of variables declaration//GEN-END:variables
 
-    
 }
