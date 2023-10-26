@@ -491,7 +491,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             jtPrecio.setText(String.valueOf(inmueble.getPrecio()));
             jtSuperficie.setText(String.valueOf(inmueble.getSuperficie()));
         } else {
-            JOptionPane.showMessageDialog(this, "No se encontraron detalles para el alquiler con ID: " + alquilerId, "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se encontraron detalles para el alquiler con ID: " + alquilerId, "Advertencia", JOptionPane.WARNING_MESSAGE);
             this.dispose(); // Cierra la ventana si no se encuentra el alquiler
         }
 
@@ -591,7 +591,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         pV.setVisible(true);
         escritorio.add(pV);
         escritorio.moveToFront(pV);
-        this.hide();
+      
     }//GEN-LAST:event_jbNuevoInmuebleActionPerformed
     private void actualizarComboBoxInquilino() {
         // Asocia un DocumentListener al JTextField jtBuscarProp

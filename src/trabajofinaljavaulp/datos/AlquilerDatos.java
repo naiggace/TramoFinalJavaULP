@@ -239,8 +239,7 @@ public class AlquilerDatos {
     }
 
     public static void modificar(Alquiler alquiler) {
-        String sql = "UPDATE alquiler SET idInquilino=?,idInmueble=?,cuitInquilino=?,lugarTrabajo=?,nombreGarante=?,"
-                + "dniGarante=?,fechaInicio=?,fechaFin=?,estado=?,montoAlquiler=? WHERE idAlquiler=?";
+        String sql = "UPDATE alquiler SET idInquilino=?,idInmueble=?,cuitInquilino=?,lugarTrabajo=?,nombreGarante=?,dniGarante=?,fechaInicio=?,fechaFin=?,estado=?,montoAlquiler=? WHERE idAlquiler=?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, alquiler.getInquilino().getId());
             ps.setInt(2, alquiler.getInmueble().getId());
