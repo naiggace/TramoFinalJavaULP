@@ -50,6 +50,9 @@ public class InmobiliariaView extends javax.swing.JFrame {
             .addGap(0, 721, Short.MAX_VALUE)
         );
 
+        jMenuBar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(136, 30));
+
         jMenu3.setText("Recursos");
 
         jmGestion.setText("Gestion de recursos");

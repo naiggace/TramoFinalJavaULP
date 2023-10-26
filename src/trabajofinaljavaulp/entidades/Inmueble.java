@@ -102,7 +102,9 @@ public class Inmueble {
 
     @Override
     public String toString() {
+
         return "ID "+id+" | "+direccion + " | " + tipo + " | " + superficie + " m2 | $" + precio;
+
     }
 
 }
