@@ -502,28 +502,38 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         try {
-            int idInquilino = Integer.parseInt(jtIdInquilino.getText());
-            int idInmueble = Integer.parseInt(jtIdInmueble.getText());
-            String cuitInquilino = jtCuil.getText();
-            String lugarTrabajo = jtTrabajo.getText();
-            String nombreGarante = jtNombreGarante.getText();
-            int dniGarante = Integer.parseInt(jtDniGarante.getText());
+       
+            int id_alquiler = Integer.parseInt(jtIdAlquiler.getText());
+            Alquiler alquiler = AlquilerDatos.buscarId(id_alquiler);
+            
             Date fechaInicio = new java.sql.Date(jdcInicio.getDate().getTime());
             Date fechaFin = new java.sql.Date(jdcFin.getDate().getTime());
+            alquiler.setFechaInicio(fechaInicio);
+            alquiler.setFechaFin(fechaFin);
+           
+            alquiler.setCuit(jtCuil.getText());
+            alquiler.setLugarTrabajo(jtTrabajo.getText());
+            
+            int dniGarante = Integer.parseInt(jtDniGarante.getText());
+            alquiler.setDniGarante(dniGarante);
+            alquiler.setNombreGarante(jtNombreGarante.getText());
+            
             boolean estado = jcEstado.isSelected();
+            alquiler.setEstado(estado);
             double montoAlquiler = Double.parseDouble(jtMontoAlquiler.getText());
-
+            alquiler.setMonto(montoAlquiler);
             // Crea un objeto Inmueble con los datos seleccionados
-            Inmueble inmuebleNuevo = InmuebleDatos.buscar(idInmueble, true);
+            Inmueble inmueble = (Inmueble) jcbInmueble.getSelectedItem(); //InmuebleDatos.buscar(idInmueble, true);
 
             // Crea un objeto Inquilino con los datos seleccionados
-            Inquilino inquilinoNuevo = InquilinoDatos.buscarId(idInquilino, true);
+            Inquilino inquilino = (Inquilino) jcbInquilino.getSelectedItem();
 
-            // Crea un objeto Alquiler con los datos de los campos editables
-            Alquiler alquilerEditado = new Alquiler(fechaInicio, fechaFin, montoAlquiler, cuitInquilino, nombreGarante, dniGarante, lugarTrabajo, estado, inmuebleNuevo, inquilinoNuevo);
-
+            alquiler.setInmueble(inmueble);
+            alquiler.setInquilino(inquilino);
+           
+            
             // Guarda los cambios en la base de datos
-            AlquilerDatos.modificar(alquilerEditado);
+            AlquilerDatos.modificar(alquiler);
 
             // Muestra un mensaje de éxito
             JOptionPane.showMessageDialog(this, "Detalles de alquiler editados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
