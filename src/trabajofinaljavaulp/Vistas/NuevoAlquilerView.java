@@ -25,12 +25,12 @@ import trabajofinaljavaulp.entidades.Inquilino;
  *
  * @author HP
  */
-public class AlquilerView extends javax.swing.JInternalFrame {
+public class NuevoAlquilerView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form AlquilerView
      */
-    public AlquilerView() {
+    public NuevoAlquilerView() {
         initComponents();
         actualizarComboBox();
         rellenarComboBox();

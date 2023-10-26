@@ -357,7 +357,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     }
 
     private void vistaAlquilerNuevo() {
-        AlquilerView vista = new AlquilerView();
+        NuevoAlquilerView vista = new NuevoAlquilerView();
         InmobiliariaView.escritorio.add(vista);
         vista.moveToFront();
         vista.setVisible(true);
