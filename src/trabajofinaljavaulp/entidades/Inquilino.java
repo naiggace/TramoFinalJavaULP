@@ -142,8 +142,7 @@ public class Inquilino {
     @Override
     public String toString() {
 
-        return nombre + " | " + apellido + 
-                " | dni " + dni +" | Email "+email+" | Telefono "+telefono+ '}';
+        return String.format("%s, %s - DNI: %d", apellido,nombre, dni);
 
     }
 }
