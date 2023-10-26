@@ -102,7 +102,11 @@ public class Inmueble {
 
     @Override
     public String toString() {
+<<<<<<< Updated upstream
         return "ID "+id+" | "+direccion + " | " + tipo + " | " + superficie + " m2 | $" + precio;
+=======
+        return "ID: "+id+"-"+direccion + "-" + tipo + "-" + superficie + "M2-$" + precio;
+>>>>>>> Stashed changes
     }
 
 }
