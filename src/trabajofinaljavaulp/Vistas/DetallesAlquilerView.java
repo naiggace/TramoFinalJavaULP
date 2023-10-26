@@ -591,6 +591,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         pV.setVisible(true);
         escritorio.add(pV);
         escritorio.moveToFront(pV);
+        this.hide();
     }//GEN-LAST:event_jbNuevoInmuebleActionPerformed
     private void actualizarComboBoxInquilino() {
         // Asocia un DocumentListener al JTextField jtBuscarProp
