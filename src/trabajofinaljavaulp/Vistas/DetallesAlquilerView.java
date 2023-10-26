@@ -24,13 +24,7 @@ import trabajofinaljavaulp.entidades.Propietario;
 public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
     private int alquilerId;
-    private AlquilerDatos alqData = new AlquilerDatos();
-    private InmuebleDatos inmData = new InmuebleDatos();
-    private InquilinoDatos inqData = new InquilinoDatos();
-    private PropietarioDatos propData = new PropietarioDatos();
-    private Propietario propietario;
-    private Alquiler alquiler;
-    private Inmueble inmueble;
+
 
     /**
      * Creates new form DetallesAlquilerView
@@ -38,11 +32,11 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     public DetallesAlquilerView() {
         initComponents();
         configInicial();
-        cargaDetalles();
         actualizarComboBoxInquilino();
         rellenarComboBoxInquilino();
         actualizarComboBoxInmueble();
         rellenarComboBoxInmueble();
+        cargaDetalles();
     }
 
     public DetallesAlquilerView(int id) {
@@ -69,8 +63,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jtIdInquilino = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jtApellidoInquilino = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -87,8 +79,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jtMontoAlquiler = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jtIdInmueble = new javax.swing.JTextField();
         jtTipoInmueble = new javax.swing.JTextField();
         jtDomicilio = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -122,8 +112,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("Datos del Inquilino");
-
-        jLabel3.setText("id");
 
         jLabel4.setText("CUIL/T");
 
@@ -170,8 +158,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel12.setText("Datos del Inmueble");
 
-        jLabel13.setText("id");
-
         jLabel14.setText("Domicilio");
 
         jLabel15.setText("IdAlquiler");
@@ -187,7 +173,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Buscar Inquilino");
 
-        jLabel1.setText("Buscador de Id de Inquilino");
+        jLabel1.setText("Inquilino");
 
         jbNuevoInquilino.setText("+");
         jbNuevoInquilino.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -205,7 +191,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel18.setText("Buscador de Id de Inmueble");
+        jLabel18.setText("Inmueble");
 
         jLabel19.setText("Buscar Inmueble");
 
@@ -254,12 +240,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(51, 51, 51))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtIdInquilino)))
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -279,12 +260,8 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtDniGarante))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel18))
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(324, 324, 324)
@@ -361,8 +338,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                     .addComponent(jbNuevoInquilino))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtIdInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
                     .addComponent(jtApellidoInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtNombreInquilino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,8 +371,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
                     .addComponent(jbNuevoInmueble))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtIdInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
                     .addComponent(jtTipoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21))
@@ -439,8 +412,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtDniGarante.setEnabled(false);
         jtDomicilio.setEnabled(false);
         jtIdAlquiler.setEnabled(false);
-        jtIdInmueble.setEnabled(false);
-        jtIdInquilino.setEnabled(false);
         jtMontoAlquiler.setEnabled(false);
         jtNombreGarante.setEnabled(false);
         jtTipoInmueble.setEnabled(false);
@@ -475,7 +446,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             jcEstado.setSelected(alquiler.isEstado());
 
             // Llena los campos correspondientes con los detalles del Inquilino
-            jtIdInquilino.setText(String.valueOf(inquilino.getId()));
+            jtBuscarInquilino.setText(inquilino.toString());
             jtApellidoInquilino.setText(inquilino.getApellido());
             jtCuil.setText(alquiler.getCuit());
             jtTrabajo.setText(alquiler.getLugarTrabajo());
@@ -485,7 +456,7 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             jtNombreInquilino.setText(inquilino.getNombre());
 
             // Llena los campos correspondientes con los detalles del Inmueble
-            jtIdInmueble.setText(String.valueOf(inmueble.getId()));
+            jtBuscarInmueble.setText(inmueble.toString());
             jtTipoInmueble.setText(inmueble.getTipo());
             jtDomicilio.setText(inmueble.getDireccion());
             jtPrecio.setText(String.valueOf(inmueble.getPrecio()));
@@ -502,12 +473,17 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         try {
-       
-            int id_alquiler = Integer.parseInt(jtIdAlquiler.getText());
+            //Capturamos idAlquiler
+            //int id_alquiler = Integer.parseInt(jtIdAlquiler.getText());
+            int id_alquiler = alquilerId;
+            //Con el idAlquiler obtenemos el alquiler
             Alquiler alquiler = AlquilerDatos.buscarId(id_alquiler);
             
+            
+            //Tomamos las fechas
             Date fechaInicio = new java.sql.Date(jdcInicio.getDate().getTime());
             Date fechaFin = new java.sql.Date(jdcFin.getDate().getTime());
+            //Aplicamos las nuevas fechas al alquiler
             alquiler.setFechaInicio(fechaInicio);
             alquiler.setFechaFin(fechaFin);
            
@@ -561,8 +537,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
         jtDniGarante.setEnabled(true);
         jtDomicilio.setEnabled(false);
         jtIdAlquiler.setEnabled(false);
-        jtIdInmueble.setEnabled(true);
-        jtIdInquilino.setEnabled(true);
         jtMontoAlquiler.setEnabled(true);
         jtNombreGarante.setEnabled(true);
         jtTipoInmueble.setEnabled(false);
@@ -683,7 +657,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -693,7 +666,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -717,8 +689,6 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtDniGarante;
     private javax.swing.JTextField jtDomicilio;
     private javax.swing.JTextField jtIdAlquiler;
-    private javax.swing.JTextField jtIdInmueble;
-    private javax.swing.JTextField jtIdInquilino;
     private javax.swing.JTextField jtMontoAlquiler;
     private javax.swing.JTextField jtNombreGarante;
     private javax.swing.JTextField jtNombreInquilino;

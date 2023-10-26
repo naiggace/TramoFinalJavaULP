@@ -7,6 +7,8 @@ import javax.swing.JTextField;
 import javax.swing.RowFilter;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.event.InternalFrameEvent;
+import javax.swing.event.InternalFrameListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
@@ -19,7 +21,7 @@ import trabajofinaljavaulp.entidades.Alquiler;
  *
  * @author naigg
  */
-public class GestionAlquileresView extends javax.swing.JInternalFrame {
+public class GestionAlquileresView extends javax.swing.JInternalFrame implements InternalFrameListener {
 
     /**
      * Creates new form GestionAlquileresView
@@ -46,48 +48,77 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jtfBuscarTodos = new javax.swing.JTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         jtTodos = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jbNuevoAlquiler = new javax.swing.JButton();
         jbDetalles = new javax.swing.JButton();
         jbEstado = new javax.swing.JButton();
         jbEliminarAlquiler = new javax.swing.JButton();
-        jbNuevoAlquiler = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jtfBuscarTodos = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jtfBuscarActivos = new javax.swing.JTextField();
-        jbDesactivar = new javax.swing.JButton();
-        jbEliminarActivo = new javax.swing.JButton();
-        jbDetallesActivo = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         jtActivos = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jbDetallesActivo = new javax.swing.JButton();
+        jbDesactivar = new javax.swing.JButton();
+        jbEliminarActivo = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jtfBuscarActivos = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jtfBuscarNoActivos = new javax.swing.JTextField();
-        jbActivar = new javax.swing.JButton();
-        jbEliminarNoActivo = new javax.swing.JButton();
-        jbDetallesNoActivo = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         jtNoActivos = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        jbActivar = new javax.swing.JButton();
+        jbDetallesNoActivo = new javax.swing.JButton();
+        jbEliminarNoActivo = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jtfBuscarNoActivos = new javax.swing.JTextField();
 
         setClosable(true);
         setMaximizable(true);
-
-        jLabel4.setText("Buscar:");
+        setResizable(true);
+        setMinimumSize(new java.awt.Dimension(870, 36));
 
         jtTodos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nro. Contrato", "Inquilino", "", "Propietario", "Tipo", "Domicilio", "Fecha Inicio", "Fecha Fin", "Monto", "Estado"
+                "Nro. Contrato", "Inquilino", "Propietario", "Tipo", "Domicilio", "Fecha Inicio", "Fecha Fin", "Monto", "Estado"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtTodos.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(jtTodos);
+
+        jbNuevoAlquiler.setText("Nuevo");
+        jbNuevoAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoAlquilerActionPerformed(evt);
+            }
+        });
 
         jbDetalles.setText("Detalles");
         jbDetalles.addActionListener(new java.awt.event.ActionListener() {
@@ -110,12 +141,55 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             }
         });
 
-        jbNuevoAlquiler.setText("Nuevo");
-        jbNuevoAlquiler.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbNuevoAlquilerActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbNuevoAlquiler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbEliminarAlquiler, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbDetalles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbNuevoAlquiler)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbEliminarAlquiler)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbEstado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbDetalles)
+                .addContainerGap(267, Short.MAX_VALUE))
+        );
+
+        jLabel4.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfBuscarTodos)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfBuscarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,21 +197,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbNuevoAlquiler)
-                    .addComponent(jbEliminarAlquiler)
-                    .addComponent(jbEstado)
-                    .addComponent(jbDetalles))
-                .addContainerGap(11, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel4)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jtfBuscarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(182, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,27 +210,52 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jbNuevoAlquiler)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbEliminarAlquiler)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbEstado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbDetalles))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(331, 331, 331)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(jtfBuscarTodos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(41, Short.MAX_VALUE)))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Todos", jPanel1);
 
-        jLabel3.setText("Buscar:");
+        jtActivos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nro. Contrato", "Inquilino", "Propietario", "Tipo", "Domicilio", "Fecha Inicio", "Fecha Fin", "Monto", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtActivos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane7.setViewportView(jtActivos);
+
+        jPanel6.setPreferredSize(new java.awt.Dimension(138, 93));
+
+        jbDetallesActivo.setText("Detalles");
+        jbDetallesActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbDetallesActivoActionPerformed(evt);
+            }
+        });
 
         jbDesactivar.setText("Desactivar");
         jbDesactivar.addActionListener(new java.awt.event.ActionListener() {
@@ -181,25 +271,52 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             }
         });
 
-        jbDetallesActivo.setText("Detalles");
-        jbDetallesActivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbDetallesActivoActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbEliminarActivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbDesactivar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jbDetallesActivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbEliminarActivo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbDesactivar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbDetallesActivo)
+                .addContainerGap(296, Short.MAX_VALUE))
+        );
 
-        jtActivos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nro. Contrato", "Inquilino", "", "Propietario", "Tipo", "Domicilio", "Fecha Inicio", "Fecha Fin", "Monto", "Estado"
-            }
-        ));
-        jScrollPane7.setViewportView(jtActivos);
+        jLabel3.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfBuscarActivos)
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfBuscarActivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -207,59 +324,63 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbEliminarActivo)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jbDesactivar, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jbDetallesActivo)))
-                .addContainerGap(63, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel3)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jtfBuscarActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(182, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jbEliminarActivo)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbDesactivar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbDetallesActivo)))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(331, 331, 331)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jtfBuscarActivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(41, Short.MAX_VALUE)))
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Activos", jPanel2);
 
-        jLabel2.setText("Buscar:");
+        jtNoActivos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nro. Contrato", "Inquilino", "Propietario", "Tipo", "Domicilio", "Fecha Inicio", "Fecha Fin", "Monto", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtNoActivos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane8.setViewportView(jtNoActivos);
+
+        jPanel8.setPreferredSize(new java.awt.Dimension(138, 93));
 
         jbActivar.setText("Activar");
         jbActivar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbActivarActionPerformed(evt);
-            }
-        });
-
-        jbEliminarNoActivo.setText("Eliminar");
-        jbEliminarNoActivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbEliminarNoActivoActionPerformed(evt);
             }
         });
 
@@ -270,18 +391,59 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             }
         });
 
-        jtNoActivos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Nro. Contrato", "Inquilino", "", "Propietario", "Tipo", "Domicilio", "Fecha Inicio", "Fecha Fin", "Monto", "Estado"
+        jbEliminarNoActivo.setText("Eliminar");
+        jbEliminarNoActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarNoActivoActionPerformed(evt);
             }
-        ));
-        jScrollPane8.setViewportView(jtNoActivos);
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbEliminarNoActivo, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                    .addComponent(jbActivar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbDetallesNoActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbEliminarNoActivo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbActivar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbDetallesNoActivo)
+                .addContainerGap(296, Short.MAX_VALUE))
+        );
+
+        jLabel2.setText("Buscar:");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfBuscarNoActivos)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtfBuscarNoActivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -289,41 +451,24 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbEliminarNoActivo)
-                    .addComponent(jbActivar)
-                    .addComponent(jbDetallesNoActivo))
-                .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jtfBuscarNoActivos, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(182, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jbEliminarNoActivo)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbActivar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbDetallesNoActivo)))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(331, 331, 331)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(jtfBuscarNoActivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("No activos", jPanel3);
@@ -332,16 +477,17 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -353,6 +499,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(detallesAlquilerView);
         detallesAlquilerView.moveToFront();
         detallesAlquilerView.setVisible(true);
+        detallesAlquilerView.addInternalFrameListener(this);
 
     }
 
@@ -361,11 +508,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         InmobiliariaView.escritorio.add(vista);
         vista.moveToFront();
         vista.setVisible(true);
+        vista.addInternalFrameListener(this);
     }
     private void jbActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarActionPerformed
         int filaSelect = jtNoActivos.getSelectedRow();
         int id = (Integer) jtNoActivos.getValueAt(filaSelect, 0);
-        boolean estado = (boolean) jtNoActivos.getValueAt(filaSelect, 5);
+        boolean estado = (boolean) jtNoActivos.getValueAt(filaSelect, 8);
         if (estado) {
             AlquilerDatos.baja(id);
         } else {
@@ -414,7 +562,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     private void jbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoActionPerformed
         int filaSelect = jtTodos.getSelectedRow();
         int id = (Integer) jtTodos.getValueAt(filaSelect, 0);
-        boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 5);
+        boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 8);
         if (estado) {
             AlquilerDatos.baja(id);
         } else {
@@ -427,7 +575,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     private void jbDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDesactivarActionPerformed
         int filaSelect = jtActivos.getSelectedRow();
         int id = (Integer) jtActivos.getValueAt(filaSelect, 0);
-        boolean estado = (boolean) jtActivos.getValueAt(filaSelect, 5);
+        boolean estado = (boolean) jtActivos.getValueAt(filaSelect, 8);
         if (estado) {
             AlquilerDatos.baja(id);
         } else {
@@ -490,9 +638,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         for (Alquiler alquiler : alquileres) {
             Object[] fila = {
                 alquiler.getId(),
-                alquiler.getInquilino().getApellido(),
-                alquiler.getInquilino().getNombre(),
-                alquiler.getNombreGarante(),
+                alquiler.getInquilino().toString(),
+                alquiler.getInmueble().getPropietario().toString(),
                 alquiler.getInmueble().getTipo(),
                 alquiler.getInmueble().getDireccion(),
                 alquiler.getFechaInicio(),
@@ -507,9 +654,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         for (Alquiler alquiler : alquileresActivos) {
             Object[] fila = {
                 alquiler.getId(),
-                alquiler.getInquilino().getApellido(),
-                alquiler.getInquilino().getNombre(),
-                alquiler.getNombreGarante(),
+                alquiler.getInquilino().toString(),
+                alquiler.getInmueble().getPropietario().toString(),
                 alquiler.getInmueble().getTipo(),
                 alquiler.getInmueble().getDireccion(),
                 alquiler.getFechaInicio(),
@@ -524,9 +670,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
         for (Alquiler alquiler : alquileresNoActivos) {
             Object[] fila = {
                 alquiler.getId(),
-                alquiler.getInquilino().getApellido(),
-                alquiler.getInquilino().getNombre(),
-                alquiler.getNombreGarante(),
+                alquiler.getInquilino().toString(),
+                alquiler.getInmueble().getPropietario().toString(),
                 alquiler.getInmueble().getTipo(),
                 alquiler.getInmueble().getDireccion(),
                 alquiler.getFechaInicio(),
@@ -592,6 +737,32 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
             });
         }
     }
+    
+    @Override
+    public void internalFrameClosed(InternalFrameEvent e) {
+        System.out.println("Actualizando tablas...");
+        llenarTablas();
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="internal frame unused events"> 
+    @Override
+    public void internalFrameOpened(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameClosing(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameIconified(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameDeiconified(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameActivated(InternalFrameEvent e) {}
+
+    @Override
+    public void internalFrameDeactivated(InternalFrameEvent e) {}
+    // </editor-fold>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
@@ -600,6 +771,12 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;

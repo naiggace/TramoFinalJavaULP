@@ -98,14 +98,7 @@
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jtIdInquilino" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -131,14 +124,8 @@
                           <Component id="jtDniGarante" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel13" min="-2" pref="44" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jtIdInmueble" min="-2" pref="136" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
@@ -238,8 +225,6 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtIdInquilino" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtApellidoInquilino" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtNombreInquilino" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -280,8 +265,6 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jtIdInmueble" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtTipoInmueble" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtSuperficie" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -311,13 +294,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Datos del Inquilino"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="id"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtIdInquilino">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -399,13 +375,6 @@
             <Property name="text" type="java.lang.String" value="Datos del Inmueble"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="id"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jtIdInmueble">
-        </Component>
         <Component class="javax.swing.JTextField" name="jtTipoInmueble">
         </Component>
         <Component class="javax.swing.JTextField" name="jtDomicilio">
@@ -450,7 +419,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Buscador de Id de Inquilino"/>
+            <Property name="text" type="java.lang.String" value="Inquilino"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="jcbInquilino">
@@ -493,7 +462,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Buscador de Id de Inmueble"/>
+            <Property name="text" type="java.lang.String" value="Inmueble"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">

@@ -4,6 +4,10 @@
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="maximizable" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="true"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[870, 36]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,18 +27,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="875" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jTabbedPane1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -58,24 +63,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane6" min="-2" pref="687" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbNuevoAlquiler" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbEliminarAlquiler" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbEstado" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbDetalles" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane6" pref="719" max="32767" attributes="0"/>
+                          <Component id="jPanel5" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfBuscarTodos" min="-2" pref="635" max="-2" attributes="0"/>
-                          <EmptySpace pref="182" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -85,39 +79,18 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jbNuevoAlquiler" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane6" pref="0" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbEliminarAlquiler" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbEstado" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbDetalles" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane6" min="-2" pref="322" max="-2" attributes="0"/>
+                          <Component id="jPanel4" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBuscarTodos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtfBuscarTodos">
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane6">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -128,17 +101,16 @@
                 <Component class="javax.swing.JTable" name="jtTodos">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="4">
-                        <Column editable="true" title="Nro. Contrato" type="java.lang.Object"/>
-                        <Column editable="true" title="Inquilino" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="Propietario" type="java.lang.Object"/>
-                        <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                        <Column editable="true" title="Domicilio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha Inicio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha Fin" type="java.lang.Object"/>
-                        <Column editable="true" title="Monto" type="java.lang.Object"/>
-                        <Column editable="true" title="Estado" type="java.lang.Object"/>
+                      <Table columnCount="9" rowCount="4">
+                        <Column editable="false" title="Nro. Contrato" type="java.lang.Object"/>
+                        <Column editable="false" title="Inquilino" type="java.lang.Object"/>
+                        <Column editable="false" title="Propietario" type="java.lang.Object"/>
+                        <Column editable="false" title="Tipo" type="java.lang.Object"/>
+                        <Column editable="false" title="Domicilio" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha Inicio" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha Fin" type="java.lang.Object"/>
+                        <Column editable="false" title="Monto" type="java.lang.Object"/>
+                        <Column editable="false" title="Estado" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -188,52 +160,120 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jbDetalles">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Detalles"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDetallesActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbEstado">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Activar/Desactivar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEstadoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbEliminarAlquiler">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarAlquilerActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbNuevoAlquiler">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nuevo"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevoAlquilerActionPerformed"/>
-              </Events>
-            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel4">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jbNuevoAlquiler" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jbEliminarAlquiler" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jbEstado" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jbDetalles" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbNuevoAlquiler" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbEliminarAlquiler" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbEstado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbDetalles" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="267" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="jbNuevoAlquiler">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Nuevo"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevoAlquilerActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbDetalles">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Detalles"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDetallesActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbEstado">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Activar/Desactivar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEstadoActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbEliminarAlquiler">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarAlquilerActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel5">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfBuscarTodos" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jtfBuscarTodos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JTextField" name="jtfBuscarTodos">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buscar:"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -250,25 +290,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane7" min="-2" pref="687" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbEliminarActivo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                              <Component id="jbDesactivar" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jbDetallesActivo" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane7" pref="719" max="32767" attributes="0"/>
+                          <Component id="jPanel7" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfBuscarActivos" min="-2" pref="635" max="-2" attributes="0"/>
-                          <EmptySpace pref="182" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -277,62 +305,19 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane7" min="-2" pref="322" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jbEliminarActivo" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane7" pref="0" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbDesactivar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbDetallesActivo" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jPanel6" pref="383" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBuscarActivos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="41" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtfBuscarActivos">
-            </Component>
-            <Component class="javax.swing.JButton" name="jbDesactivar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Desactivar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDesactivarActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbEliminarActivo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarActivoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbDetallesActivo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Detalles"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDetallesActivoActionPerformed"/>
-              </Events>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane7">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -343,17 +328,16 @@
                 <Component class="javax.swing.JTable" name="jtActivos">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="4">
-                        <Column editable="true" title="Nro. Contrato" type="java.lang.Object"/>
-                        <Column editable="true" title="Inquilino" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="Propietario" type="java.lang.Object"/>
-                        <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                        <Column editable="true" title="Domicilio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha Inicio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha Fin" type="java.lang.Object"/>
-                        <Column editable="true" title="Monto" type="java.lang.Object"/>
-                        <Column editable="true" title="Estado" type="java.lang.Object"/>
+                      <Table columnCount="9" rowCount="4">
+                        <Column editable="false" title="Nro. Contrato" type="java.lang.Object"/>
+                        <Column editable="false" title="Inquilino" type="java.lang.Object"/>
+                        <Column editable="false" title="Propietario" type="java.lang.Object"/>
+                        <Column editable="false" title="Tipo" type="java.lang.Object"/>
+                        <Column editable="false" title="Domicilio" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha Inicio" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha Fin" type="java.lang.Object"/>
+                        <Column editable="false" title="Monto" type="java.lang.Object"/>
+                        <Column editable="false" title="Estado" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -403,17 +387,111 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel6">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[138, 93]"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jbEliminarActivo" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jbDesactivar" alignment="1" pref="126" max="32767" attributes="0"/>
+                              <Component id="jbDetallesActivo" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbEliminarActivo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbDesactivar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbDetallesActivo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="296" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="jbDetallesActivo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Detalles"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDetallesActivoActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbDesactivar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Desactivar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDesactivarActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbEliminarActivo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarActivoActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel7">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfBuscarActivos" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jtfBuscarActivos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buscar:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jtfBuscarActivos">
                 </Component>
               </SubComponents>
             </Container>
@@ -433,23 +511,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane8" min="-2" pref="687" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jbEliminarNoActivo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbActivar" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jbDetallesNoActivo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane8" pref="719" max="32767" attributes="0"/>
+                          <Component id="jPanel9" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="78" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jtfBuscarNoActivos" min="-2" pref="635" max="-2" attributes="0"/>
-                          <EmptySpace pref="182" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -458,62 +526,19 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane8" min="-2" pref="322" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jbEliminarNoActivo" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane8" pref="0" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbActivar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jbDetallesNoActivo" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jPanel8" pref="383" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jtfBuscarNoActivos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jtfBuscarNoActivos">
-            </Component>
-            <Component class="javax.swing.JButton" name="jbActivar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Activar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbActivarActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbEliminarNoActivo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarNoActivoActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbDetallesNoActivo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Detalles"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDetallesNoActivoActionPerformed"/>
-              </Events>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane8">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -524,17 +549,16 @@
                 <Component class="javax.swing.JTable" name="jtNoActivos">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="10" rowCount="4">
-                        <Column editable="true" title="Nro. Contrato" type="java.lang.Object"/>
-                        <Column editable="true" title="Inquilino" type="java.lang.Object"/>
-                        <Column editable="true" title="" type="java.lang.Object"/>
-                        <Column editable="true" title="Propietario" type="java.lang.Object"/>
-                        <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                        <Column editable="true" title="Domicilio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha Inicio" type="java.lang.Object"/>
-                        <Column editable="true" title="Fecha Fin" type="java.lang.Object"/>
-                        <Column editable="true" title="Monto" type="java.lang.Object"/>
-                        <Column editable="true" title="Estado" type="java.lang.Object"/>
+                      <Table columnCount="9" rowCount="4">
+                        <Column editable="false" title="Nro. Contrato" type="java.lang.Object"/>
+                        <Column editable="false" title="Inquilino" type="java.lang.Object"/>
+                        <Column editable="false" title="Propietario" type="java.lang.Object"/>
+                        <Column editable="false" title="Tipo" type="java.lang.Object"/>
+                        <Column editable="false" title="Domicilio" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha Inicio" type="java.lang.Object"/>
+                        <Column editable="false" title="Fecha Fin" type="java.lang.Object"/>
+                        <Column editable="false" title="Monto" type="java.lang.Object"/>
+                        <Column editable="false" title="Estado" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -584,17 +608,111 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
                       </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel8">
+              <Properties>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[138, 93]"/>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jbEliminarNoActivo" pref="126" max="32767" attributes="0"/>
+                              <Component id="jbActivar" max="32767" attributes="0"/>
+                              <Component id="jbDetallesNoActivo" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbEliminarNoActivo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbActivar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jbDetallesNoActivo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="296" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="jbActivar">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Activar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbActivarActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbDetallesNoActivo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Detalles"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbDetallesNoActivoActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jbEliminarNoActivo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbEliminarNoActivoActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="jPanel9">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jtfBuscarNoActivos" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jtfBuscarNoActivos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Buscar:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jtfBuscarNoActivos">
                 </Component>
               </SubComponents>
             </Container>

@@ -102,9 +102,7 @@ public class Inmueble {
 
     @Override
     public String toString() {
-
-        return direccion + " | " + tipo + " | " + superficie + " m2 | $" + precio;
-
+        return String.format("%s - %s", direccion, tipo);
     }
 
 }
