@@ -19,7 +19,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         FondoPantalla();
-       // cerrar();
+        cerrar();
     }
     
     @SuppressWarnings("unchecked")
@@ -33,6 +33,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
         jmGestion = new javax.swing.JMenuItem();
         jmConsultas = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jmSalir = new javax.swing.JMenu();
 
         jMenu1.setText("jMenu1");
 
@@ -53,8 +54,10 @@ public class InmobiliariaView extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(136, 30));
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/Gestion.png"))); // NOI18N
         jMenu3.setText("Recursos");
 
+        jmGestion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/Gestion2.png"))); // NOI18N
         jmGestion.setText("Gestion de recursos");
         jmGestion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,8 +68,10 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jmConsultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/Alquiler.png"))); // NOI18N
         jmConsultas.setText("Alquileres");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/Alquiler2.png"))); // NOI18N
         jMenuItem1.setText("Gestion de alquileres");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +81,15 @@ public class InmobiliariaView extends javax.swing.JFrame {
         jmConsultas.add(jMenuItem1);
 
         jMenuBar1.add(jmConsultas);
+
+        jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/Salir.png"))); // NOI18N
+        jmSalir.setText("Salir");
+        jmSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmSalirActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jmSalir);
 
         setJMenuBar(jMenuBar1);
 
@@ -110,6 +124,10 @@ public class InmobiliariaView extends javax.swing.JFrame {
         escritorio.add(gAV);
         escritorio.moveToFront(gAV);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
+        confirmarSalida();
+    }//GEN-LAST:event_jmSalirActionPerformed
 
   
     public static void main(String args[]) {
@@ -152,6 +170,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jmConsultas;
     private javax.swing.JMenuItem jmGestion;
+    private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
 
      public void FondoPantalla(){

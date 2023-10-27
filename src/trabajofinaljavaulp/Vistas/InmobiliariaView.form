@@ -23,11 +23,17 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/trabajofinaljavaulp/Fondo/Gestion.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Recursos"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jmGestion">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/trabajofinaljavaulp/Fondo/Gestion2.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gestion de recursos"/>
               </Properties>
               <Events>
@@ -38,11 +44,17 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmConsultas">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/trabajofinaljavaulp/Fondo/Alquiler.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Alquileres"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/trabajofinaljavaulp/Fondo/Alquiler2.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Gestion de alquileres"/>
               </Properties>
               <Events>
@@ -50,6 +62,17 @@
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jmSalir">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/trabajofinaljavaulp/Fondo/Salir.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Salir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmSalirActionPerformed"/>
+          </Events>
         </Menu>
       </SubComponents>
     </Menu>
