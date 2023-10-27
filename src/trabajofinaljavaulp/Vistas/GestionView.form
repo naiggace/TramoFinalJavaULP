@@ -53,7 +53,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane1" pref="851" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
                   <Component id="jlGestion" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -66,7 +66,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jlGestion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="545" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -97,7 +97,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jtfBuscarInmueble" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" pref="729" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="507" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -151,7 +151,7 @@
                           <Component id="jbEditarInmuebles" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jbEliminarInmueble" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="389" max="32767" attributes="0"/>
+                          <EmptySpace pref="246" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -267,7 +267,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" pref="729" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" pref="507" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -326,7 +326,7 @@
                           <Component id="jbEditarPropietario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jbEliminarPropietario" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="389" max="32767" attributes="0"/>
+                          <EmptySpace pref="246" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -442,7 +442,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane4" pref="729" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="507" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -501,7 +501,7 @@
                           <Component id="jbEditarInquilino" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jbEliminarInquilino" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="389" max="32767" attributes="0"/>
+                          <EmptySpace pref="246" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

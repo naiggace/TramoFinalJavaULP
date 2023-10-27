@@ -511,6 +511,9 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
             // Guarda los cambios en la base de datos
             AlquilerDatos.modificar(alquiler);
 
+            // Muestra un mensaje de éxito
+            JOptionPane.showMessageDialog(this, "Detalles de alquiler editados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
         } catch (NumberFormatException ex) {
 
             JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
