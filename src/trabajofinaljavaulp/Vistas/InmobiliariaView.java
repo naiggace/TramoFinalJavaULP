@@ -84,9 +84,9 @@ public class InmobiliariaView extends javax.swing.JFrame {
 
         jmSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/Salir.png"))); // NOI18N
         jmSalir.setText("Salir");
-        jmSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmSalirActionPerformed(evt);
+        jmSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmSalirMouseClicked(evt);
             }
         });
         jMenuBar1.add(jmSalir);
@@ -125,9 +125,9 @@ public class InmobiliariaView extends javax.swing.JFrame {
         escritorio.moveToFront(gAV);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSalirActionPerformed
+    private void jmSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmSalirMouseClicked
         confirmarSalida();
-    }//GEN-LAST:event_jmSalirActionPerformed
+    }//GEN-LAST:event_jmSalirMouseClicked
 
   
     public static void main(String args[]) {
