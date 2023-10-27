@@ -3,6 +3,7 @@ package trabajofinaljavaulp.Vistas;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -18,6 +19,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
     public InmobiliariaView() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/trabajofinaljavaulp/Fondo/numero-22.png")).getImage());
         FondoPantalla();
         cerrar();
     }
@@ -110,10 +112,10 @@ public class InmobiliariaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmGestionActionPerformed
-// Obtiene todos los componentes internos del JDesktopPane
+        // Obtiene todos los componentes internos del JDesktopPane
         JInternalFrame[] frames = escritorio.getAllFrames();
 
-// Cierra cada JInternalFrame
+        // Cierra cada JInternalFrame
         for (JInternalFrame frame : frames) {
             try {
                 frame.setClosed(true);
@@ -132,7 +134,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
         // Obtiene todos los componentes internos del JDesktopPane
         JInternalFrame[] frames = escritorio.getAllFrames();
 
-// Cierra cada JInternalFrame
+        // Cierra cada JInternalFrame
         for (JInternalFrame frame : frames) {
             try {
                 frame.setClosed(true);
