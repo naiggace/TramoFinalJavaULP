@@ -116,7 +116,9 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
         setTitle("Nuevo Alquiler");
-        setPreferredSize(new java.awt.Dimension(600, 585));
+        setMaximumSize(null);
+        setMinimumSize(null);
+        setPreferredSize(new java.awt.Dimension(627, 705));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel12.setText("Datos del Inmueble");
@@ -364,12 +366,9 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
         );
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Buscar Inmueble");
 
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Seleccionar Inmueble");
 
         jbNuevoInmueble.setText("+");
@@ -431,10 +430,8 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Nombre");
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DNI");
 
         jtDniGarante.addActionListener(new java.awt.event.ActionListener() {
@@ -482,13 +479,10 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Monto $");
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Fecha inicio");
 
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Fecha fin");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -537,10 +531,8 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Buscar Inquilino");
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Seleccionar Inquilino");
 
         jbNuevoInquilino.setText("+");
@@ -551,10 +543,8 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CUIL/T");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Lugar de Trabajo");
 
         jtTrabajo.addActionListener(new java.awt.event.ActionListener() {
@@ -636,10 +626,10 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel7)
                     .addComponent(jLabel2))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 304, Short.MAX_VALUE)
+                    .addGap(0, 306, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 305, Short.MAX_VALUE)))
         );
@@ -663,9 +653,9 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 331, Short.MAX_VALUE)
+                    .addGap(0, 341, Short.MAX_VALUE)
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 331, Short.MAX_VALUE)))
+                    .addGap(0, 342, Short.MAX_VALUE)))
         );
 
         pack();
