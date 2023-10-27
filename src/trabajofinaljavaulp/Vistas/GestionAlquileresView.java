@@ -65,6 +65,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
         jbDetallesActivo = new javax.swing.JButton();
         jbDesactivar = new javax.swing.JButton();
         jbEliminarActivo = new javax.swing.JButton();
+        jbNuevoAlquiler1 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jtfBuscarActivos = new javax.swing.JTextField();
@@ -75,6 +76,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
         jbActivar = new javax.swing.JButton();
         jbDetallesNoActivo = new javax.swing.JButton();
         jbEliminarNoActivo = new javax.swing.JButton();
+        jbNuevoAlquiler2 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jtfBuscarNoActivos = new javax.swing.JTextField();
@@ -271,6 +273,13 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
             }
         });
 
+        jbNuevoAlquiler1.setText("Nuevo");
+        jbNuevoAlquiler1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoAlquiler1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -280,19 +289,22 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbEliminarActivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jbDesactivar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                    .addComponent(jbDetallesActivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbDetallesActivo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbNuevoAlquiler1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jbNuevoAlquiler1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbEliminarActivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbDesactivar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbDetallesActivo)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         jLabel3.setText("Buscar:");
@@ -340,7 +352,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -398,6 +410,13 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
             }
         });
 
+        jbNuevoAlquiler2.setText("Nuevo");
+        jbNuevoAlquiler2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoAlquiler2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -407,19 +426,22 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbEliminarNoActivo, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                     .addComponent(jbActivar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbDetallesNoActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jbDetallesNoActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbNuevoAlquiler2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jbNuevoAlquiler2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbEliminarNoActivo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbActivar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbDetallesNoActivo)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         jLabel2.setText("Buscar:");
@@ -467,7 +489,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -511,16 +533,19 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
         vista.addInternalFrameListener(this);
     }
     private void jbActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActivarActionPerformed
-        int filaSelect = jtNoActivos.getSelectedRow();
-        int id = (Integer) jtNoActivos.getValueAt(filaSelect, 0);
-        boolean estado = (boolean) jtNoActivos.getValueAt(filaSelect, 8);
-        if (estado) {
-            AlquilerDatos.baja(id);
-        } else {
-            AlquilerDatos.alta(id);
+        try {
+            int filaSelect = jtNoActivos.getSelectedRow();
+            int id = (Integer) jtNoActivos.getValueAt(filaSelect, 0);
+            boolean estado = (boolean) jtNoActivos.getValueAt(filaSelect, 8);
+            if (estado) {
+                AlquilerDatos.baja(id);
+            } else {
+                AlquilerDatos.alta(id);
+            }
+            llenarTablas();
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "Seleccione un alquiler para cambiar su estado", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
-        llenarTablas();
-
     }//GEN-LAST:event_jbActivarActionPerformed
 
     private void jbDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDetallesActionPerformed
@@ -550,71 +575,109 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
         int filaSeleccionada = jtTodos.getSelectedRow();
         if (filaSeleccionada != -1) {
             int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
-            AlquilerDatos.eliminar(idAlquiler);
-            // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
-            DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
-            modeloTodos.removeRow(filaSeleccionada);
-            jtTodos.revalidate();
-            jtTodos.repaint();
+            try {
+                AlquilerDatos.eliminar(idAlquiler);
+                // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
+                DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
+                modeloTodos.removeRow(filaSeleccionada);
+                jtTodos.revalidate();
+                jtTodos.repaint();
+            } catch (Exception e) {
+                // Mostrar un mensaje de advertencia si ocurre un error durante la eliminación del alquiler
+                JOptionPane.showMessageDialog(this, "Error al eliminar el alquiler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Mostrar un mensaje de advertencia si no se ha seleccionado ningún alquiler
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un alquiler para eliminar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jbEliminarAlquilerActionPerformed
 
     private void jbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEstadoActionPerformed
-        int filaSelect = jtTodos.getSelectedRow();
-        int id = (Integer) jtTodos.getValueAt(filaSelect, 0);
-        boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 8);
-        if (estado) {
-            AlquilerDatos.baja(id);
-        } else {
-            AlquilerDatos.alta(id);
+        try {
+            int filaSelect = jtTodos.getSelectedRow();
+            int id = (Integer) jtTodos.getValueAt(filaSelect, 0);
+            boolean estado = (boolean) jtTodos.getValueAt(filaSelect, 8);
+            if (estado) {
+                AlquilerDatos.baja(id);
+            } else {
+                AlquilerDatos.alta(id);
+            }
+            llenarTablas();
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "Seleccione un alquiler para cambiar su estado", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
-        llenarTablas();
-
     }//GEN-LAST:event_jbEstadoActionPerformed
 
     private void jbDesactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDesactivarActionPerformed
-        int filaSelect = jtActivos.getSelectedRow();
-        int id = (Integer) jtActivos.getValueAt(filaSelect, 0);
-        boolean estado = (boolean) jtActivos.getValueAt(filaSelect, 8);
-        if (estado) {
-            AlquilerDatos.baja(id);
-        } else {
-            AlquilerDatos.alta(id);
+        try {
+            int filaSelect = jtActivos.getSelectedRow();
+            int id = (Integer) jtActivos.getValueAt(filaSelect, 0);
+            boolean estado = (boolean) jtActivos.getValueAt(filaSelect, 8);
+            if (estado) {
+                AlquilerDatos.baja(id);
+            } else {
+                AlquilerDatos.alta(id);
+            }
+            llenarTablas();
+        } catch (IndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(this, "Seleccione un alquiler para cambiar su estado", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
-        llenarTablas();
-
     }//GEN-LAST:event_jbDesactivarActionPerformed
 
     private void jbEliminarActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActivoActionPerformed
-        int filaSeleccionada = jtTodos.getSelectedRow();
+        int filaSeleccionada = jtActivos.getSelectedRow();
         if (filaSeleccionada != -1) {
-            int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
-            AlquilerDatos.eliminar(idAlquiler);
-            // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
-            DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
-            modeloTodos.removeRow(filaSeleccionada);
-            jtTodos.revalidate();
-            jtTodos.repaint();
+            int idAlquiler = (int) jtActivos.getValueAt(filaSeleccionada, 0);
+            try {
+                AlquilerDatos.eliminar(idAlquiler);
+                // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
+                DefaultTableModel modeloTodos = (DefaultTableModel) jtActivos.getModel();
+                modeloTodos.removeRow(filaSeleccionada);
+                jtActivos.revalidate();
+                jtActivos.repaint();
+            } catch (Exception e) {
+                // Mostrar un mensaje de advertencia si ocurre un error durante la eliminación del alquiler
+                JOptionPane.showMessageDialog(this, "Error al eliminar el alquiler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Mostrar un mensaje de advertencia si no se ha seleccionado ningún alquiler
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un alquiler para eliminar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
+
     }//GEN-LAST:event_jbEliminarActivoActionPerformed
 
     private void jbEliminarNoActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarNoActivoActionPerformed
-        int filaSeleccionada = jtTodos.getSelectedRow();
+        int filaSeleccionada = jtNoActivos.getSelectedRow();
         if (filaSeleccionada != -1) {
-            int idAlquiler = (int) jtTodos.getValueAt(filaSeleccionada, 0);
-            AlquilerDatos.eliminar(idAlquiler);
-            // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
-            DefaultTableModel modeloTodos = (DefaultTableModel) jtTodos.getModel();
-            modeloTodos.removeRow(filaSeleccionada);
-            jtTodos.revalidate();
-            jtTodos.repaint();
-        }
+            int idAlquiler = (int) jtNoActivos.getValueAt(filaSeleccionada, 0);
+            try {
+                AlquilerDatos.eliminar(idAlquiler);
+                // Luego de eliminar el alquiler, puedes actualizar la tabla si es necesario.
+                DefaultTableModel modeloTodos = (DefaultTableModel) jtNoActivos.getModel();
+                modeloTodos.removeRow(filaSeleccionada);
+                jtNoActivos.revalidate();
+                jtNoActivos.repaint();
+            } catch (Exception e) {
+                // Mostrar un mensaje de advertencia si ocurre un error durante la eliminación del alquiler
+                JOptionPane.showMessageDialog(this, "Error al eliminar el alquiler: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            // Mostrar un mensaje de advertencia si no se ha seleccionado ningún alquiler
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un alquiler para eliminar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }  
     }//GEN-LAST:event_jbEliminarNoActivoActionPerformed
 
     private void jbNuevoAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoAlquilerActionPerformed
-        // TODO add your handling code here:
         vistaAlquilerNuevo();
     }//GEN-LAST:event_jbNuevoAlquilerActionPerformed
+
+    private void jbNuevoAlquiler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoAlquiler1ActionPerformed
+        vistaAlquilerNuevo();
+    }//GEN-LAST:event_jbNuevoAlquiler1ActionPerformed
+
+    private void jbNuevoAlquiler2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoAlquiler2ActionPerformed
+        vistaAlquilerNuevo();
+    }//GEN-LAST:event_jbNuevoAlquiler2ActionPerformed
 
     private void llenarTablas() {
         // Obtenemos los modelos.
@@ -645,7 +708,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                 alquiler.getFechaInicio(),
                 alquiler.getFechaFin(),
                 alquiler.getMonto(),
-                alquiler.isEstado()                
+                alquiler.isEstado()
             };
             modeloTodos.addRow(fila);
         }
@@ -661,7 +724,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                 alquiler.getFechaInicio(),
                 alquiler.getFechaFin(),
                 alquiler.getMonto(),
-                alquiler.isEstado()                
+                alquiler.isEstado()
             };
             modeloActivos.addRow(fila);
         }
@@ -677,7 +740,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
                 alquiler.getFechaInicio(),
                 alquiler.getFechaFin(),
                 alquiler.getMonto(),
-                alquiler.isEstado()                
+                alquiler.isEstado()
             };
             modeloNoActivos.addRow(fila);
         }
@@ -737,7 +800,7 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
             });
         }
     }
-    
+
     @Override
     public void internalFrameClosed(InternalFrameEvent e) {
         System.out.println("Actualizando tablas...");
@@ -746,22 +809,28 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
 
     // <editor-fold defaultstate="collapsed" desc="internal frame unused events"> 
     @Override
-    public void internalFrameOpened(InternalFrameEvent e) {}
+    public void internalFrameOpened(InternalFrameEvent e) {
+    }
 
     @Override
-    public void internalFrameClosing(InternalFrameEvent e) {}
+    public void internalFrameClosing(InternalFrameEvent e) {
+    }
 
     @Override
-    public void internalFrameIconified(InternalFrameEvent e) {}
+    public void internalFrameIconified(InternalFrameEvent e) {
+    }
 
     @Override
-    public void internalFrameDeiconified(InternalFrameEvent e) {}
+    public void internalFrameDeiconified(InternalFrameEvent e) {
+    }
 
     @Override
-    public void internalFrameActivated(InternalFrameEvent e) {}
+    public void internalFrameActivated(InternalFrameEvent e) {
+    }
 
     @Override
-    public void internalFrameDeactivated(InternalFrameEvent e) {}
+    public void internalFrameDeactivated(InternalFrameEvent e) {
+    }
     // </editor-fold>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -791,6 +860,8 @@ public class GestionAlquileresView extends javax.swing.JInternalFrame implements
     private javax.swing.JButton jbEliminarNoActivo;
     private javax.swing.JButton jbEstado;
     private javax.swing.JButton jbNuevoAlquiler;
+    private javax.swing.JButton jbNuevoAlquiler1;
+    private javax.swing.JButton jbNuevoAlquiler2;
     private javax.swing.JTable jtActivos;
     private javax.swing.JTable jtNoActivos;
     private javax.swing.JTable jtTodos;
