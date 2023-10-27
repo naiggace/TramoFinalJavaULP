@@ -1,4 +1,3 @@
-
 package trabajofinaljavaulp.Vistas;
 
 import java.awt.Graphics;
@@ -6,22 +5,23 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import trabajofinaljavaulp.imagen.Fondo;
-
 
 /**
  *
  * @author Ignacio C.
  */
 public class InmobiliariaView extends javax.swing.JFrame {
+
     public InmobiliariaView() {
         initComponents();
         setLocationRelativeTo(null);
         FondoPantalla();
         cerrar();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -110,7 +110,18 @@ public class InmobiliariaView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmGestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmGestionActionPerformed
-        escritorio.repaint();
+// Obtiene todos los componentes internos del JDesktopPane
+        JInternalFrame[] frames = escritorio.getAllFrames();
+
+// Cierra cada JInternalFrame
+        for (JInternalFrame frame : frames) {
+            try {
+                frame.setClosed(true);
+            } catch (Exception e) {
+                // Manejar cualquier excepción que pueda ocurrir al intentar cerrar el JInternalFrame
+                e.printStackTrace();
+            }
+        }
         GestionView gV = new GestionView();
         gV.setVisible(true);
         escritorio.add(gV);
@@ -118,7 +129,18 @@ public class InmobiliariaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jmGestionActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        escritorio.repaint();
+        // Obtiene todos los componentes internos del JDesktopPane
+        JInternalFrame[] frames = escritorio.getAllFrames();
+
+// Cierra cada JInternalFrame
+        for (JInternalFrame frame : frames) {
+            try {
+                frame.setClosed(true);
+            } catch (Exception e) {
+                // Manejar cualquier excepción que pueda ocurrir al intentar cerrar el JInternalFrame
+                e.printStackTrace();
+            }
+        }
         GestionAlquileresView gAV = new GestionAlquileresView();
         gAV.setVisible(true);
         escritorio.add(gAV);
@@ -129,7 +151,6 @@ public class InmobiliariaView extends javax.swing.JFrame {
         confirmarSalida();
     }//GEN-LAST:event_jmSalirMouseClicked
 
-  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -161,7 +182,7 @@ public class InmobiliariaView extends javax.swing.JFrame {
             }
         });
     }
-       
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
@@ -173,43 +194,43 @@ public class InmobiliariaView extends javax.swing.JFrame {
     private javax.swing.JMenu jmSalir;
     // End of variables declaration//GEN-END:variables
 
-     public void FondoPantalla(){
-        Fondo fondo=new Fondo();
-             escritorio = new JDesktopPane() {
-                @Override
-                protected void paintComponent(Graphics g) {
-                    super.paintComponent(g);
-                    // Dibuja la imagen de fondo
-                    g.drawImage(fondo.getImagen(), 0, 0, getWidth(), getHeight(), this);
-                }
-            };
+    public void FondoPantalla() {
+        Fondo fondo = new Fondo();
+        escritorio = new JDesktopPane() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                // Dibuja la imagen de fondo
+                g.drawImage(fondo.getImagen(), 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         setContentPane(escritorio);
         setVisible(true);
         if (fondo.getImagen() != null) {
             System.out.println("Imagen cargada correctamente.");
         } else {
-           System.out.println("Imagen no se pudo cargar.");
+            System.out.println("Imagen no se pudo cargar.");
         }
     }
-    
-    public void confirmarSalida(){
-        int valor=JOptionPane.showConfirmDialog(this, "¿Está seguro que desea abandonar la aplicación?", 
-        /**/                                    "ADVERTENCIA", JOptionPane.YES_NO_OPTION); //YES=0 NO=1
+
+    public void confirmarSalida() {
+        int valor = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea abandonar la aplicación?",
+                /**/ "ADVERTENCIA", JOptionPane.YES_NO_OPTION); //YES=0 NO=1
         //                                      this. se refiere a la ventana padre ara el cuadro de diálogo
-        if(valor==JOptionPane.YES_OPTION){
-            JOptionPane.showMessageDialog(this,"Nos vemos en la próxima consulta","Adiós",JOptionPane.CLOSED_OPTION);
+        if (valor == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Nos vemos en la próxima consulta", "Adiós", JOptionPane.CLOSED_OPTION);
             System.exit(0);
         }
     }
-    
-    public void cerrar(){
+
+    public void cerrar() {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);//Configura que hace la X de la ventana (personaliza la X)
-        addWindowListener(new WindowAdapter(){ //WindowListener escucha eventos relacionados con la ventana
+        addWindowListener(new WindowAdapter() { //WindowListener escucha eventos relacionados con la ventana
             //                                   WindowAdapter proporciona una implementación vacía para todos los métodos de la interfaz
-            public void windowClosing(WindowEvent e){ //se anula el método WindowClosing de WindowAdapter
+            public void windowClosing(WindowEvent e) { //se anula el método WindowClosing de WindowAdapter
                 confirmarSalida();                    //código para confirmar la salida
             }
-         });
+        });
         this.setVisible(true); //Establece la visibilidad de la ventana
     }
 }
