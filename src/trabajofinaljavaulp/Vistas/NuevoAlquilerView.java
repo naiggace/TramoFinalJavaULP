@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import trabajofinaljavaulp.datos.AlquilerDatos;
@@ -379,21 +380,32 @@ public class NuevoAlquilerView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        // TODO add your handling code here:
-        Double monto = Double.valueOf(jtMontoAlquiler.getText()); 
-        Inquilino inquilino = (Inquilino) jcbInquilino.getSelectedItem();
-        
-        String cuil = jtCuil.getText();
-        String nombreGarante = jtNombreGarante.getText();
-        String trabajo = jtTrabajo.getText();
-       
-        int dni = Integer.parseInt(jtDniGarante.getText());
-        Date fechaInicio = new java.sql.Date(jdcInicio.getDate().getTime());
-        Date fechaFin = new java.sql.Date(jdcFin.getDate().getTime());
-        
-        Inmueble inmueble =(Inmueble) jcbInmueble.getSelectedItem();
-        Alquiler nuevo = new Alquiler(fechaInicio, fechaFin, monto, cuil, nombreGarante, dni, trabajo, true, inmueble, inquilino);
-        AlquilerDatos.agregar(nuevo);
+        try {
+            Double monto = Double.valueOf(jtMontoAlquiler.getText()); 
+            Inquilino inquilino = (Inquilino) jcbInquilino.getSelectedItem();
+
+            String cuil = jtCuil.getText();
+            String nombreGarante = jtNombreGarante.getText();
+            String trabajo = jtTrabajo.getText();
+
+            int dni = Integer.parseInt(jtDniGarante.getText());
+            Date fechaInicio = new java.sql.Date(jdcInicio.getDate().getTime());
+            Date fechaFin = new java.sql.Date(jdcFin.getDate().getTime());
+
+            Inmueble inmueble =(Inmueble) jcbInmueble.getSelectedItem();
+            
+            if (    cuil.trim().isEmpty() ||
+                    nombreGarante.trim().isEmpty() ||
+                    trabajo.trim().isEmpty() ||
+                    fechaInicio.after(fechaFin)) {
+                throw new IllegalStateException();
+            }
+            
+            Alquiler nuevo = new Alquiler(fechaInicio, fechaFin, monto, cuil, nombreGarante, dni, trabajo, true, inmueble, inquilino);
+            AlquilerDatos.agregar(nuevo);
+        } catch (NumberFormatException | IllegalStateException | NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Formulario Incompleto / Fechas invalidas", "Formulario Incompleto", JOptionPane.WARNING_MESSAGE);
+        }
         limpiarFormulario();
     }//GEN-LAST:event_GuardarActionPerformed
 

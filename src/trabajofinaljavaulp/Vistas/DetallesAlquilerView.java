@@ -506,6 +506,13 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
             alquiler.setInmueble(inmueble);
             alquiler.setInquilino(inquilino);
+            
+            if (    fechaInicio.after(fechaFin) || 
+                    alquiler.getNombreGarante().trim().isEmpty() ||
+                    alquiler.getLugarTrabajo().trim().isEmpty() ||
+                    alquiler.getCuit().trim().isEmpty() ) {
+                throw new IllegalStateException();
+            }
            
             
             // Guarda los cambios en la base de datos
@@ -513,10 +520,12 @@ public class DetallesAlquilerView extends javax.swing.JInternalFrame {
 
             // Muestra un mensaje de éxito
             JOptionPane.showMessageDialog(this, "Detalles de alquiler editados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            
+            
 
-        } catch (NumberFormatException ex) {
+        } catch (NumberFormatException | IllegalStateException | NullPointerException ex) {
 
-            JOptionPane.showMessageDialog(null, "Formulario incompleto", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Formulario incompleto / Fechas invalidas", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         configInicial();
         cargaDetalles();
